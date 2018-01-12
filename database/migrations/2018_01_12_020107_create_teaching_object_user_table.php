@@ -18,8 +18,8 @@ class CreateTeachingObjectUserTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->integer('teaching_object_id')->unsigned();
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('teaching_object_id')->references('id')->on('teaching_objects');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('teaching_object_id')->references('id')->on('teaching_objects')->onDelete('cascade');
         });
     }
 

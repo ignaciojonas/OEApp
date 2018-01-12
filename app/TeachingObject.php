@@ -10,6 +10,15 @@ class TeachingObject extends Model
 
   public function authors()
   {
-      return $this->belongsToMany('App\User');  
+      return $this->belongsToMany('App\User');
+  }
+
+  public function authorsNames()
+  {
+    $names = '';
+    foreach ($this->authors as $author) {
+      $names .= $author->name.',';
+    }
+    return $names;
   }
 }

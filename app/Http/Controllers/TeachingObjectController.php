@@ -15,7 +15,8 @@ class TeachingObjectController extends Controller
      */
     public function index()
     {
-
+      $teachingObjects = TeachingObject::all();
+      return view('teachingObject.index',['teachingObjects' => $teachingObjects]);
     }
 
     /**
@@ -26,7 +27,7 @@ class TeachingObjectController extends Controller
     public function create()
     {
       $users = User::all();
-      return view('teachingObjects.create',['users' => $users]);
+      return view('teachingObject.create',['users' => $users]);
     }
 
     /**
@@ -39,7 +40,7 @@ class TeachingObjectController extends Controller
     {
       $teachingObject = TeachingObject::create($request->all());
       $teachingObject->authors()->attach($request->input('authors'));
-      print_r("esa");
+      return redirect()->route('teachingObject.index');
     }
 
     /**
@@ -84,6 +85,7 @@ class TeachingObjectController extends Controller
      */
     public function destroy(TeachingObject $teachingObject)
     {
-        //
+        $teachingObject->delete();
+        return redirect()->route('teachingObject.index');
     }
 }

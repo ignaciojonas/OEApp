@@ -8,7 +8,7 @@
                 <div class="panel-heading">Objeto de Enseñanza</div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('teaching_object.store') }}">
+                    <form class="form-horizontal" method="POST" action="{{ route('teachingObject.store') }}">
                         {{ csrf_field() }}
                         <div class="form-group">
                             <label for="title" class="col-md-4 control-label">Titulo</label>

@@ -35,6 +35,18 @@
                             <div class="col-md-6">
                                 <input id="theme" type="text" class="form-control" name="theme" value="{{$teachingObject->theme}}" required readonly autofocus>
                         </div>
+                        <div class="form-group">
+                            <label for="content" class="col-md-4 control-label">Contenido</label>
+
+                            <div class="col-md-6">
+                                <textarea id="content" name="content" value="{{$teachingObject->content}}" > </textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="objective" class="col-md-4 control-label">Objetivo</label>
+
+                            <div class="col-md-6">
+                                <input id="objective" type="text" class="form-control" name="objective" value="{{$teachingObject->theme}}" required readonly autofocus>
+                        </div>
                     </form>
                 </div>
             </div>

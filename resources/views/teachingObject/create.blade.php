@@ -46,6 +46,14 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="objective" class="col-md-4 control-label">Objetivo</label>
+
+                            <div class="col-md-6">
+                                <input id="objective" type="text" class="form-control" name="objective" required autofocus>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
                                     Grabar

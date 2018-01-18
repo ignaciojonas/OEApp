@@ -45,7 +45,7 @@
                             <label for="objective" class="col-md-4 control-label">Objetivo</label>
 
                             <div class="col-md-6">
-                                <input id="objective" type="text" class="form-control" name="objective" value="{{$teachingObject->theme}}" required readonly autofocus>
+                                <textarea id="objective" name="objective" value="{{$teachingObject->theme}}" > </textarea>
                         </div>
                     </form>
                 </div>

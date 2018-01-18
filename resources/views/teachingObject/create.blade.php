@@ -29,6 +29,14 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="theme" class="col-md-4 control-label">Tema</label>
+
+                            <div class="col-md-6">
+                                <input id="theme" type="text" class="form-control" name="theme" required autofocus>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
                                     Grabar

@@ -16,6 +16,7 @@ class CreateTeachingObjectsTable extends Migration
         Schema::create('teaching_objects', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
+            $table->string('theme');
             $table->timestamps();
         });
     }

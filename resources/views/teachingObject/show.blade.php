@@ -29,6 +29,12 @@
                               @endforeach
                             </select>
                         </div>
+                        <div class="form-group">
+                            <label for="theme" class="col-md-4 control-label">Tema</label>
+
+                            <div class="col-md-6">
+                                <input id="theme" type="text" class="form-control" name="theme" value="{{$teachingObject->theme}}" required readonly autofocus>
+                        </div>
                     </form>
                 </div>
             </div>

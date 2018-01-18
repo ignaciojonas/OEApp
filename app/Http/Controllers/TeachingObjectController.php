@@ -62,7 +62,8 @@ class TeachingObjectController extends Controller
      */
     public function edit(TeachingObject $teachingObject)
     {
-        //
+      $users = User::all();
+      return view('teachingObject.update',['teachingObject'=> $teachingObject, 'users' => $users, 'authors' => $this->getAuthorsIds($teachingObject->authors)]);
     }
 
     /**
@@ -74,7 +75,12 @@ class TeachingObjectController extends Controller
      */
     public function update(Request $request, TeachingObject $teachingObject)
     {
-        //
+      $teachingObject->authors()->detach($this->getAuthorsIds($teachingObject->authors));
+      $teachingObject->authors()->attach($request->input('authors'));
+      
+      $teachingObject->update($request->all());
+
+      return redirect()->route('teachingObject.index');
     }
 
     /**
@@ -88,4 +94,13 @@ class TeachingObjectController extends Controller
         $teachingObject->delete();
         return redirect()->route('teachingObject.index');
     }
+
+  private function getAuthorsIds($authors)
+  {
+    $ids = [];
+    foreach ($authors as $author) {
+      $ids[] = $author->id;
+    }
+    return $ids;
+  }
 }

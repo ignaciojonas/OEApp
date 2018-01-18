@@ -36,6 +36,15 @@
                             </div>
                         </div>
 
+
+                        <div class="form-group">
+                            <label for="content" class="col-md-4 control-label">Contenido</label>
+
+                            <div class="col-md-6">
+                                <textarea name="content" rows="5" cols="20" required autofocus> </textarea>
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">

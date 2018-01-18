@@ -18,7 +18,7 @@
                   </tr>
                   @foreach ($teachingObjects as $teachingObject)
                   <tr>
-                    <td>{{$teachingObject->title}}</td>
+                    <td><a href="{{route('teachingObject.show', $teachingObject)}}">{{$teachingObject->title}}</a></td>
                     <td>{{$teachingObject->authorsNames()}}</td>
                     <td>
                       <form  action="{{route('teachingObject.destroy', $teachingObject->id)}}" method="post">

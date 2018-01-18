@@ -51,7 +51,7 @@ class TeachingObjectController extends Controller
      */
     public function show(TeachingObject $teachingObject)
     {
-        //
+        return view('teachingObject.show',['teachingObject'=> $teachingObject]);
     }
 
     /**
@@ -77,7 +77,7 @@ class TeachingObjectController extends Controller
     {
       $teachingObject->authors()->detach($this->getAuthorsIds($teachingObject->authors));
       $teachingObject->authors()->attach($request->input('authors'));
-      
+
       $teachingObject->update($request->all());
 
       return redirect()->route('teachingObject.index');

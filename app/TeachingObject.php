@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class TeachingObject extends Model
 {
-  protected $fillable = ['title','theme','content','objective'];
+  protected $fillable = ['title','theme','content','objective','focus'];
 
   public function authors()
   {

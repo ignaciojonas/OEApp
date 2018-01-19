@@ -47,6 +47,12 @@
                             <div class="col-md-6">
                                 <textarea id="objective" name="objective" value="{{$teachingObject->theme}}" > </textarea>
                         </div>
+                        <div class="form-group">
+                            <label for="focus" class="col-md-4 control-label">Enfoque</label>
+
+                            <div class="col-md-6">
+                                <textarea id="focus" name="focus" value="{{$teachingObject->theme}}" > </textarea>
+                        </div>
                     </form>
                 </div>
             </div>

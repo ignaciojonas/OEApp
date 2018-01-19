@@ -21,6 +21,7 @@ class CreateTeachingObjectsTable extends Migration
             $table->string('goal');
             $table->string('approach');
             $table->string('recipients');
+            $table->string('date');
             $table->timestamps();
         });
     }

@@ -16,3 +16,10 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::resource('teachingObject', 'TeachingObjectController');
+Route::get('/test/datepicker', function () {
+    return view('datepicker');
+});
+Route::post('/test/save', ['as' => 'save-date','uses' => 'DateController@showDate', 
+                            function () {
+                                return '';
+                            }]);

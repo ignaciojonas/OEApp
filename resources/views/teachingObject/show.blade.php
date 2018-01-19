@@ -11,7 +11,7 @@
                     <form class="form-horizontal" method="POST" >
                         <input name="_method" type="hidden" value="put">
                         <div class="form-group">
-                            <label for="title" class="col-md-4 control-label">Titulo</label>
+                            <label for="title" class="col-md-4 control-label">Título</label>
 
                             <div class="col-md-6">
                                 <input id="title" type="text" class="form-control" name="title" value="{{$teachingObject->title}}" required readonly autofocus>
@@ -19,7 +19,7 @@
                         </div>
 
                         <div class="form-group">
-                          <label for="title" class="col-md-4 control-label">Autores</label>
+                          <label for="authors" class="col-md-4 control-label">Autores</label>
                           <select multiple name="authors[]" id="authors" readonly>
                             <option value=""></option>
                              @foreach ($teachingObject->authors as $author)
@@ -34,31 +34,37 @@
 
                             <div class="col-md-6">
                                 <input id="theme" type="text" class="form-control" name="theme" value="{{$teachingObject->theme}}" required readonly autofocus>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="content" class="col-md-4 control-label">Contenido</label>
 
                             <div class="col-md-6">
                                 <textarea id="content" name="content" value="{{$teachingObject->content}}" > </textarea>
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label for="objective" class="col-md-4 control-label">Objetivo</label>
+                            <label for="goal" class="col-md-4 control-label">Objetivo</label>
 
                             <div class="col-md-6">
-                                <textarea id="objective" name="objective" value="{{$teachingObject->objective}}" > </textarea>
+                                <textarea id="goal" name="goal" value="{{$teachingObject->goal}}" > </textarea>
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label for="focus" class="col-md-4 control-label">Enfoque</label>
+                            <label for="approach" class="col-md-4 control-label">Enfoque</label>
 
                             <div class="col-md-6">
-                                <textarea id="focus" name="focus" value="{{$teachingObject->focus}}" > </textarea>
+                                <textarea id="approach" name="approach" value="{{$teachingObject->approach}}" > </textarea>
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label for="recipient" class="col-md-4 control-label">Destinatarios</label>
+                            <label for="recipients" class="col-md-4 control-label">Destinatarios</label>
 
                             <div class="col-md-6">
-                                <input id="recipient" type="text" class="form-control" name="recipient" value="{{$teachingObject->recipient}}" required readonly autofocus>
+                                <input id="recipients" type="text" class="form-control" name="recipients" value="{{$teachingObject->recipients}}" required readonly autofocus>
+                            </div>
                         </div>
+
                     </form>
                 </div>
             </div>

@@ -18,9 +18,9 @@ class CreateTeachingObjectsTable extends Migration
             $table->string('title');
             $table->string('theme');
             $table->string('content');
-            $table->string('objective');
-            $table->string('focus');
-            $table->string('recipient');
+            $table->string('goal');
+            $table->string('approach');
+            $table->string('recipients');
             $table->timestamps();
         });
     }

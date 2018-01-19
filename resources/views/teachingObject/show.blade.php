@@ -45,19 +45,19 @@
                             <label for="objective" class="col-md-4 control-label">Objetivo</label>
 
                             <div class="col-md-6">
-                                <textarea id="objective" name="objective" value="{{$teachingObject->theme}}" > </textarea>
+                                <textarea id="objective" name="objective" value="{{$teachingObject->objective}}" > </textarea>
                         </div>
                         <div class="form-group">
                             <label for="focus" class="col-md-4 control-label">Enfoque</label>
 
                             <div class="col-md-6">
-                                <textarea id="focus" name="focus" value="{{$teachingObject->theme}}" > </textarea>
+                                <textarea id="focus" name="focus" value="{{$teachingObject->focus}}" > </textarea>
                         </div>
                         <div class="form-group">
                             <label for="recipient" class="col-md-4 control-label">Destinatarios</label>
 
                             <div class="col-md-6">
-                                <input id="recipient" type="text" class="form-control" name="recipient" value="{{$teachingObject->theme}}" required readonly autofocus>
+                                <input id="recipient" type="text" class="form-control" name="recipient" value="{{$teachingObject->recipient}}" required readonly autofocus>
                         </div>
                     </form>
                 </div>

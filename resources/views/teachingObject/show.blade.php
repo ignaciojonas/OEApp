@@ -53,6 +53,12 @@
                             <div class="col-md-6">
                                 <textarea id="focus" name="focus" value="{{$teachingObject->theme}}" > </textarea>
                         </div>
+                        <div class="form-group">
+                            <label for="recipient" class="col-md-4 control-label">Destinatarios</label>
+
+                            <div class="col-md-6">
+                                <input id="recipient" type="text" class="form-control" name="recipient" value="{{$teachingObject->theme}}" required readonly autofocus>
+                        </div>
                     </form>
                 </div>
             </div>

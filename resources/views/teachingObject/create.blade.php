@@ -62,6 +62,15 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="recipient" class="col-md-4 control-label">Destinatarios</label>
+
+                            <div class="col-md-6">
+                                <input id="recipient" type="text" class="form-control" name="recipient" required autofocus>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
                                     Grabar

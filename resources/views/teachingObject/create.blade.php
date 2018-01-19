@@ -69,6 +69,14 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="date" class="col-md-4 control-label">Fecha</label>
+
+                            <div class="col-md-6">
+                                <input id="datepicker" type="text" class="form-control" name="date">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
                                     Grabar

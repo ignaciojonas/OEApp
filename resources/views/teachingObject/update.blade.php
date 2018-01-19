@@ -75,6 +75,13 @@
                                 <input id="recipients" type="text" class="form-control" name="recipients" value="{{$teachingObject->recipients}}" required readonly autofocus>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label for="date" class="col-md-4 control-label">Fecha</label>
+
+                            <div class="col-md-6">
+                                <input id="datepicker" type="text" class="form-control" name="date" value="{{$teachingObject->date}}">
+                            </div>
+                        </div> 
 
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">

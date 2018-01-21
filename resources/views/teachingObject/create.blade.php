@@ -69,10 +69,10 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="datepicker" class="col-md-4 control-label">Fecha</label>
+                            <label for="date" class="col-md-4 control-label">Fecha</label>
 
                             <div class="col-md-6">
-                                <input type="text" id="datepicker" class="form-control" name="datepicker">
+                                <input type="date" id="date" class="form-control" name="date">
                             </div>
                         </div>
 

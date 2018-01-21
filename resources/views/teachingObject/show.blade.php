@@ -65,10 +65,10 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="datepicker" class="col-md-4 control-label">Fecha</label>
+                            <label for="date" class="col-md-4 control-label">Fecha</label>
 
                             <div class="col-md-6">
-                                <input id="datepicker" type="text" class="form-control" name="datepicker" value="{{$teachingObject->datepicker}}">
+                                <input id="date" type="date" class="form-control" name="date" value="{{$teachingObject->date}}">
                             </div>
                         </div>
 

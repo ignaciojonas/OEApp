@@ -82,6 +82,13 @@
                                 <input id="date" type="date" class="form-control" name="date" value="{{$teachingObject->date}}">
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label for="place" class="col-md-4 control-label">Lugar</label>
+
+                            <div class="col-md-6">
+                                <input id="place" type="text" class="form-control" name="place" value="{{$teachingObject->place}}" required readonly autofocus>
+                            </div>
+                        </div>
 
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">

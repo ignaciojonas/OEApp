@@ -48,7 +48,7 @@
                             <label for="content" class="col-md-4 control-label">Contenido</label>
 
                             <div class="col-md-6">
-                                <textarea id="content" name="content" value="{{$teachingObject->content}}" > </textarea>
+                                <textarea id="content" name="content">{{$teachingObject->content}}</textarea>
                             </div>
                         </div>
 
@@ -56,7 +56,7 @@
                             <label for="goal" class="col-md-4 control-label">Objetivo</label>
 
                             <div class="col-md-6">
-                                <textarea id="goal" name="goal" value="{{$teachingObject->goal}}" > </textarea>
+                                <textarea id="goal" name="goal"> {{$teachingObject->goal}}</textarea>
                             </div>
                         </div>
 
@@ -64,7 +64,7 @@
                             <label for="approach" class="col-md-4 control-label">Enfoque</label>
 
                             <div class="col-md-6">
-                                <textarea id="approach" name="approach" value="{{$teachingObject->approach}}" > </textarea>
+                                <textarea id="approach" name="approach" value="" >{{$teachingObject->approach}} </textarea>
                             </div>
                         </div>
 
@@ -72,7 +72,7 @@
                             <label for="recipients" class="col-md-4 control-label">Destinatarios</label>
 
                             <div class="col-md-6">
-                                <input id="recipients" type="text" class="form-control" name="recipients" value="{{$teachingObject->recipients}}" required readonly autofocus>
+                                <input id="recipients" type="text" class="form-control" name="recipients" value="{{$teachingObject->recipients}}" required autofocus>
                             </div>
                         </div>
                         <div class="form-group">
@@ -86,7 +86,7 @@
                             <label for="place" class="col-md-4 control-label">Lugar</label>
 
                             <div class="col-md-6">
-                                <input id="place" type="text" class="form-control" name="place" value="{{$teachingObject->place}}" required readonly autofocus>
+                                <input id="place" type="text" class="form-control" name="place" value="{{$teachingObject->place}}" required autofocus>
                             </div>
                         </div>
 

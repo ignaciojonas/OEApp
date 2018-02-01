@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\TeachingObject;
 use App\User;
+use App\Tag;
 use Illuminate\Http\Request;
 
 class TeachingObjectController extends Controller
@@ -15,7 +16,7 @@ class TeachingObjectController extends Controller
      */
     public function index()
     {
-      $teachingObjects = TeachingObject::all();
+      $teachingObjects = TeachingObject::all();//llamada al modelo
       return view('teachingObject.index',['teachingObjects' => $teachingObjects]);
     }
 
@@ -27,7 +28,8 @@ class TeachingObjectController extends Controller
     public function create()
     {
       $users = User::all();
-      return view('teachingObject.create',['users' => $users]);
+      $tags = Tag::all();
+      return view('teachingObject.create',['users' => $users, 'tags' => $tags]);
     }
 
     /**
@@ -40,6 +42,7 @@ class TeachingObjectController extends Controller
     {
       $teachingObject = TeachingObject::create($request->all());
       $teachingObject->authors()->attach($request->input('authors'));
+      $teachingObject->tags()->attach($request->input('tags'));
       return redirect()->route('teachingObject.index');
     }
 

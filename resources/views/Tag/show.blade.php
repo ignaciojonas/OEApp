@@ -14,7 +14,7 @@
                             <label for="name" class="col-md-4 control-label">Nombre</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{$tag->name}}" required readonly autofocus>
+                                <input id="name" type="text" class="form-control" name="name" value="{{$tag->name}}" required autofocus>
                             </div>
                         </div>
 
@@ -22,7 +22,7 @@
                             <label for="description" class="col-md-4 control-label">Descripción</label>
 
                             <div class="col-md-6">
-                                <input id="description" type="text" class="form-control" name="description" value="{{$tag->description" required readonly autofocus>
+                                <input id="description" type="text" class="form-control" name="description" value="{{$tag->description" required autofocus>
                             </div>
                         </div>
 

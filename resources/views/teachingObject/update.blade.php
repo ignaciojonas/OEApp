@@ -91,6 +91,17 @@
                         </div>
 
                         <div class="form-group">
+                          <label for="tags" class="col-md-4 control-label">Tags</label>
+                          <select multiple name="tags[]" id="tags">
+                            <option value=""></option>
+                             @foreach ($tags as $tag)
+                              <option value="{{$tag->id}}">{{$tag->name}}</option>
+                              //cómo sería para que tome los datos que ya venían, porque para hacerlo como AUTORES da error
+                              @endforeach
+                            </select>
+                        </div>
+
+                        <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
                                     Actualizar

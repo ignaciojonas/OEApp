@@ -66,7 +66,8 @@ class TeachingObjectController extends Controller
     public function edit(TeachingObject $teachingObject)
     {
       $users = User::all();
-      return view('teachingObject.update',['teachingObject'=> $teachingObject, 'users' => $users, 'authors' => $this->getAuthorsIds($teachingObject->authors)]);
+      $tags = Tag::all();
+      return view('teachingObject.update',['teachingObject'=> $teachingObject, 'users' => $users, 'authors' => $this->getAuthorsIds($teachingObject->authors), 'tags' => $tags]);
     }
 
     /**
@@ -80,7 +81,7 @@ class TeachingObjectController extends Controller
     {
       $teachingObject->authors()->detach($this->getAuthorsIds($teachingObject->authors));
       $teachingObject->authors()->attach($request->input('authors'));
-
+      $teachingObject->tags()->attach($request->input('tags'));
       $teachingObject->update($request->all());
 
       return redirect()->route('teachingObject.index');

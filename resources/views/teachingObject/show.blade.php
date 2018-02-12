@@ -14,13 +14,13 @@
                             <label for="title" class="col-md-4 control-label">Título</label>
 
                             <div class="col-md-6">
-                                <input id="title" type="text" class="form-control" name="title" value="{{$teachingObject->title}}" required readonly autofocus>
+                                <input id="title" type="text" class="form-control" name="title" value="{{$teachingObject->title}}" required autofocus>
                             </div>
                         </div>
 
                         <div class="form-group">
                           <label for="authors" class="col-md-4 control-label">Autores</label>
-                          <select multiple name="authors[]" id="authors" readonly>
+                          <select multiple name="authors[]" id="authors">
                             <option value=""></option>
                              @foreach ($teachingObject->authors as $author)
                               <option value="{{$author->id}}">
@@ -29,39 +29,40 @@
                               @endforeach
                             </select>
                         </div>
+
                         <div class="form-group">
                             <label for="theme" class="col-md-4 control-label">Tema</label>
 
                             <div class="col-md-6">
-                                <input id="theme" type="text" class="form-control" name="theme" value="{{$teachingObject->theme}}" required readonly autofocus>
+                                <input id="theme" type="text" class="form-control" name="theme" value="{{$teachingObject->theme}}" required autofocus>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="content" class="col-md-4 control-label">Contenido</label>
 
                             <div class="col-md-6">
-                                <textarea id="content" name="content" value="{{$teachingObject->content}}" > </textarea>
+                                <textarea id="content" name="content">{{$teachingObject->content}}</textarea>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="goal" class="col-md-4 control-label">Objetivo</label>
 
                             <div class="col-md-6">
-                                <textarea id="goal" name="goal" value="{{$teachingObject->goal}}" > </textarea>
+                                <textarea id="goal" name="goal" >{{$teachingObject->goal}}</textarea>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="approach" class="col-md-4 control-label">Enfoque</label>
 
                             <div class="col-md-6">
-                                <textarea id="approach" name="approach" value="{{$teachingObject->approach}}" > </textarea>
+                                <textarea id="approach" name="approach" >{{$teachingObject->approach}}</textarea>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="recipients" class="col-md-4 control-label">Destinatarios</label>
 
                             <div class="col-md-6">
-                                <input id="recipients" type="text" class="form-control" name="recipients" value="{{$teachingObject->recipients}}" required readonly autofocus>
+                                <input id="recipients" type="text" class="form-control" name="recipients" value="{{$teachingObject->recipients}}" required autofocus>
                             </div>
                         </div>
                         <div class="form-group">
@@ -75,10 +76,21 @@
                             <label for="place" class="col-md-4 control-label">Lugar</label>
 
                             <div class="col-md-6">
-                                <input id="place" type="text" class="form-control" name="place" value="{{$teachingObject->place}}" required readonly autofocus>
+                                <input id="place" type="text" class="form-control" name="place" value="{{$teachingObject->place}}" required autofocus>
                             </div>
                         </div>
 
+                        <div class="form-group">
+                          <label for="tags" class="col-md-4 control-label">Tags</label>
+                          <select multiple name="tags[]" id="tags">
+                            <option value=""></option>
+                             @foreach ($teachingObject->tags as $tag)
+                              <option value="{{$tag->id}}">
+                                {{$tag->name}}
+                              </option>
+                              @endforeach
+                            </select>
+                        </div>
 
                     </form>
                 </div>

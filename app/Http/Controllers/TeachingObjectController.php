@@ -42,7 +42,7 @@ class TeachingObjectController extends Controller
     {
       $teachingObject = TeachingObject::create($request->all());
       $teachingObject->authors()->attach($request->input('authors'));
-      $teachingObject->tags()->attach($request->input('tags'));
+      $teachingObject->selectTags()->attach($request->input('selectTags'));
       return redirect()->route('teachingObject.index');
     }
 
@@ -67,7 +67,7 @@ class TeachingObjectController extends Controller
     {
       $users = User::all();
       $tags = Tag::all();
-      return view('teachingObject.update',['teachingObject'=> $teachingObject, 'users' => $users, 'authors' => $this->getAuthorsIds($teachingObject->authors), 'tags' => $tags]);
+      return view('teachingObject.update',['teachingObject'=> $teachingObject, 'users' => $users, 'authors' => $this->getAuthorsIds($teachingObject->authors), 'tags' => $tags, 'selectTags'=> $this->getTagsIds($teachingObject->selectTags)]);
     }
 
     /**
@@ -81,7 +81,8 @@ class TeachingObjectController extends Controller
     {
       $teachingObject->authors()->detach($this->getAuthorsIds($teachingObject->authors));
       $teachingObject->authors()->attach($request->input('authors'));
-      $teachingObject->tags()->attach($request->input('tags'));
+      $teachingObject->selectTags()->detach($this->getTagsIds($teachingObject->selectTags));
+      $teachingObject->selectTags()->attach($request->input('selectTags'));
       $teachingObject->update($request->all());
 
       return redirect()->route('teachingObject.index');
@@ -106,5 +107,14 @@ class TeachingObjectController extends Controller
       $ids[] = $author->id;
     }
     return $ids;
+  }
+
+  private function getTagsIds($selectTags)
+  {
+    $idents = [];
+    foreach ($selectTags as $selectTag) {
+      $idents[] = $selectTag->id;
+    }
+    return $idents;
   }
 }

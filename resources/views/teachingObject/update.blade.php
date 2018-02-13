@@ -91,12 +91,17 @@
                         </div>
 
                         <div class="form-group">
-                          <label for="tags" class="col-md-4 control-label">Tags</label>
-                          <select multiple name="tags[]" id="tags">
+                          <label for="selectTags" class="col-md-4 control-label">Tags</label>
+                          <select multiple name="selectTags[]" id="selectTags">
                             <option value=""></option>
                              @foreach ($tags as $tag)
-                              <option value="{{$tag->id}}">{{$tag->name}}</option>
-                              //cómo sería para que tome los datos que ya venían, porque para hacerlo como AUTORES da error
+                              <option value="{{$tag->id}}"
+                                @if(in_array($tag->id, $selectTags))
+                                  selected
+                                @endif
+                                >
+                                {{$tag->name}}
+                              </option>
                               @endforeach
                             </select>
                         </div>

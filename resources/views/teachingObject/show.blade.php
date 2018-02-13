@@ -25,6 +25,7 @@
                              @foreach ($teachingObject->authors as $author)
                               <option value="{{$author->id}}">
                                 {{$author->name}}
+
                               </option>
                               @endforeach
                             </select>
@@ -81,12 +82,12 @@
                         </div>
 
                         <div class="form-group">
-                          <label for="tags" class="col-md-4 control-label">Tags</label>
-                          <select multiple name="tags[]" id="tags">
+                          <label for="selectTags" class="col-md-4 control-label">Tags</label>
+                          <select multiple name="selectTags[]" id="selectTags">
                             <option value=""></option>
-                             @foreach ($teachingObject->tags as $tag)
-                              <option value="{{$tag->id}}">
-                                {{$tag->name}}
+                             @foreach ($teachingObject->selectTags as $selectTag)
+                              <option value="{{$selectTag->id}}">
+                                {{$selectTag->name}}
                               </option>
                               @endforeach
                             </select>

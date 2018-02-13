@@ -85,15 +85,17 @@
                         </div>
 
                         <div class="form-group">
-                          <label for="tags" class="col-md-4 control-label">Tags</label>
-                          <select multiple name="tags[]" id="tags">
+                          <label for="selectTags" class="col-md-4 control-label">Tags</label>
+                          <select multiple name="selectTags[]" id="selectTags">
                             <option value=""></option>
                              @foreach ($tags as $tag)
-                              <option value="{{$tag->id}}">{{$tag->name}}</option>
+                              <option value="{{$tag->id}}">
+                                {{$tag->name}}
+                              </option>
                               @endforeach
                             </select>
                         </div>
-                
+
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">

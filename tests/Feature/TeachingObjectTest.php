@@ -61,11 +61,22 @@ class TeachingObjectTest extends TestCase
     {
       $user = factory(User::class)->create();
       $teachingObject = factory(TeachingObject::class)->create();
+      $data =[
+             "title" => $teachingObject->title,
+             "theme" => $teachingObject->theme,
+             "content" => $teachingObject->content,
+             "goal" => $teachingObject->goal,
+             "approach" => $teachingObject->approach,
+             "recipients" => $teachingObject->recipients,
+             "date" => $teachingObject->date,
+             "place" => $teachingObject->place,
+           ];
 
       $response = $this->actingAs($user)
                        ->delete("/teachingObject/$teachingObject->id");
 
       $response->assertRedirect("/teachingObject");
+      $this->assertDatabaseMissing('teaching_objects', $data);;
     }
 
     public function testStoreTeachingObject()
@@ -82,9 +93,11 @@ class TeachingObjectTest extends TestCase
              "date" => $teachingObject->date,
              "place" => $teachingObject->place,
            ];
-       $response = $this->actingAs($user)
+      $response = $this->actingAs($user)
                         ->post("/teachingObject",$data);
-       $response->assertRedirect("/teachingObject");
+      $response->assertRedirect("/teachingObject");
+
+      $this->assertDatabaseHas('teaching_objects', $data);;
     }
 
     public function testUpdateTeachingObject()
@@ -102,8 +115,9 @@ class TeachingObjectTest extends TestCase
              "date" => $new_teachingObject->date,
              "place" => $new_teachingObject->place,
            ];
-       $response = $this->actingAs($user)
+      $response = $this->actingAs($user)
                         ->put("/teachingObject/$teachingObject->id",$data);
-       $response->assertRedirect("/teachingObject");
+      $response->assertRedirect("/teachingObject");
+      $this->assertDatabaseHas('teaching_objects', $data);;
     }
 }

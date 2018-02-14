@@ -26,9 +26,15 @@ class RegisterTest extends TestCase
       $data =[
              "name" => $user->name,
              "email" => $user->email,
-             "password" => 'testPassword'
+             'password' => 'passwordtest',
+             'password_confirmation' => 'passwordtest'
            ];
        $response = $this->post("/register",$data);
        $response->assertRedirect("/");
+
+        //Remove password and password_confirmation from array
+        array_splice($data,2);
+
+        $this->assertDatabaseHas('users', $data);;
     }
 }

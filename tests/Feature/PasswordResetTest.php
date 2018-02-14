@@ -17,4 +17,12 @@ class PasswordResetTest extends TestCase
                ->assertSee('Reset Password')
                ->assertSee('Send Password Reset Link');
     }
+
+    public function testResetPassword()
+    {
+      $user = factory(User::class)->create();
+      $data =["email" => $user->email];
+      $response = $this->post("/password/email",$data);
+      $response->assertStatus(302);
+    }
 }

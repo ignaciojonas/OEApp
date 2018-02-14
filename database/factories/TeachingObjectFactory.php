@@ -16,9 +16,13 @@ use Faker\Generator as Faker;
 $factory->define(App\TeachingObject::class, function (Faker $faker) {
 
     return [
-        'title' => $faker->name,
-        'authors' => $faker->unique()->safeEmail,
-        'password' => $password ?: $password = bcrypt('secret'),
-        'remember_token' => str_random(10),
+        'title' => $faker->sentence,
+        'theme' => $faker->sentence,
+        'content' => $faker->text,
+        'goal' => $faker->text,
+        'approach' => $faker->text,
+        'recipients'=> $faker->text,
+        'date' => $faker->dateTime,
+        'place' => $faker->city,
     ];
 });

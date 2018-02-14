@@ -42,7 +42,7 @@ class TeachingObjectController extends Controller
     {
       $teachingObject = TeachingObject::create($request->all());
       $teachingObject->authors()->attach($request->input('authors'));
-      $teachingObject->selectTags()->attach($request->input('selectTags'));
+      $teachingObject->tags()->attach($request->input('selectTags'));
       return redirect()->route('teachingObject.index');
     }
 
@@ -67,7 +67,7 @@ class TeachingObjectController extends Controller
     {
       $users = User::all();
       $tags = Tag::all();
-      return view('teachingObject.update',['teachingObject'=> $teachingObject, 'users' => $users, 'authors' => $this->getAuthorsIds($teachingObject->authors), 'tags' => $tags, 'selectTags'=> $this->getTagsIds($teachingObject->selectTags)]);
+      return view('teachingObject.update',['teachingObject'=> $teachingObject, 'users' => $users, 'authors' => $this->getIds($teachingObject->authors), 'tags' => $tags, 'selectTags'=> $this->getIds($teachingObject->tags)]);
     }
 
     /**
@@ -79,10 +79,10 @@ class TeachingObjectController extends Controller
      */
     public function update(Request $request, TeachingObject $teachingObject)
     {
-      $teachingObject->authors()->detach($this->getAuthorsIds($teachingObject->authors));
+      $teachingObject->authors()->detach($this->getIds($teachingObject->authors));
       $teachingObject->authors()->attach($request->input('authors'));
-      $teachingObject->selectTags()->detach($this->getTagsIds($teachingObject->selectTags));
-      $teachingObject->selectTags()->attach($request->input('selectTags'));
+      $teachingObject->tags()->detach($this->getIds($teachingObject->tags));
+      $teachingObject->tags()->attach($request->input('selectTags'));
       $teachingObject->update($request->all());
 
       return redirect()->route('teachingObject.index');
@@ -100,21 +100,12 @@ class TeachingObjectController extends Controller
         return redirect()->route('teachingObject.index');
     }
 
-  private function getAuthorsIds($authors)
-  {
-    $ids = [];
-    foreach ($authors as $author) {
-      $ids[] = $author->id;
+    private function getIds($objects)
+    {
+      $ids = [];
+      foreach ($objects as $object) {
+        $ids[] = $object->id;
+      }
+      return $ids;
     }
-    return $ids;
-  }
-
-  private function getTagsIds($selectTags)
-  {
-    $idents = [];
-    foreach ($selectTags as $selectTag) {
-      $idents[] = $selectTag->id;
-    }
-    return $idents;
-  }
 }

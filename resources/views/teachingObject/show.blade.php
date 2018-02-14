@@ -85,9 +85,9 @@
                           <label for="selectTags" class="col-md-4 control-label">Tags</label>
                           <select multiple name="selectTags[]" id="selectTags">
                             <option value=""></option>
-                             @foreach ($teachingObject->selectTags as $selectTag)
-                              <option value="{{$selectTag->id}}">
-                                {{$selectTag->name}}
+                             @foreach ($teachingObject->tags as $tag)
+                              <option value="{{$tag->id}}">
+                                {{$tag->name}}
                               </option>
                               @endforeach
                             </select>

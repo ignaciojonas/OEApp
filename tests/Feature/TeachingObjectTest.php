@@ -44,6 +44,19 @@ class TeachingObjectTest extends TestCase
                ->assertSee('Actualizar');
     }
 
+    public function testShowTeachingObject()
+    {
+      $user = factory(User::class)->create();
+      $teachingObject = factory(TeachingObject::class)->create();
+
+      $response = $this->actingAs($user)
+                       ->get("/teachingObject/$teachingObject->id");
+      $response->assertStatus(200)
+               ->assertSee($teachingObject->title)
+               ->assertDontSee('Actualizar')
+               ->assertDontSee('Grabar');
+    }
+
     public function testDeleteTeachingObject()
     {
       $user = factory(User::class)->create();

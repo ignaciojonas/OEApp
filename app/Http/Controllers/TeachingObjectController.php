@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\TeachingObject;
 use App\User;
+use App\Tag;
 use Illuminate\Http\Request;
 
 class TeachingObjectController extends Controller
@@ -27,7 +28,8 @@ class TeachingObjectController extends Controller
     public function create()
     {
       $users = User::all();
-      return view('teachingObject.create',['users' => $users]);
+      $tags = Tag::all();
+      return view('teachingObject.create',['users' => $users, 'tags' => $tags]);
     }
 
     /**
@@ -40,6 +42,7 @@ class TeachingObjectController extends Controller
     {
       $teachingObject = TeachingObject::create($request->all());
       $teachingObject->authors()->attach($request->input('authors'));
+      $teachingObject->tags()->attach($request->input('Tags'));
       return redirect()->route('teachingObject.index');
     }
 
@@ -63,7 +66,8 @@ class TeachingObjectController extends Controller
     public function edit(TeachingObject $teachingObject)
     {
       $users = User::all();
-      return view('teachingObject.update',['teachingObject'=> $teachingObject, 'users' => $users, 'authors' => $this->getAuthorsIds($teachingObject->authors)]);
+      $tags = Tag::all();
+      return view('teachingObject.update',['teachingObject'=> $teachingObject, 'users' => $users, 'authors' => $this->getIds($teachingObject->authors), 'tags' => $tags, 'Tags'=> $this->getIds($teachingObject->Tags)]);
     }
 
     /**
@@ -75,9 +79,10 @@ class TeachingObjectController extends Controller
      */
     public function update(Request $request, TeachingObject $teachingObject)
     {
-      $teachingObject->authors()->detach($this->getAuthorsIds($teachingObject->authors));
+      $teachingObject->authors()->detach($this->getIds($teachingObject->authors));
       $teachingObject->authors()->attach($request->input('authors'));
-
+      $teachingObject->tags()->detach($this->getIds($teachingObject->Tags));
+      $teachingObject->tags()->attach($request->input('Tags'));
       $teachingObject->update($request->all());
 
       return redirect()->route('teachingObject.index');
@@ -95,12 +100,13 @@ class TeachingObjectController extends Controller
         return redirect()->route('teachingObject.index');
     }
 
-  private function getAuthorsIds($authors)
-  {
-    $ids = [];
-    foreach ($authors as $author) {
-      $ids[] = $author->id;
+    private function getIds($objects)
+    {
+      $ids = [];
+      foreach ($objects as $object) {
+        $ids[] = $object->id;
+      }
+      return $ids;
     }
-    return $ids;
-  }
+
 }

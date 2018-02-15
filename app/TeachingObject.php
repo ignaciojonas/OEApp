@@ -13,12 +13,17 @@ class TeachingObject extends Model
       return $this->belongsToMany('App\User');
   }
 
+  public function Tags()
+  {
+    return $this->belongsToMany('App\Tag','teaching_object_tags');
+  }
+
   public function authorsNames()
   {
-    $names = '';
+    $names = [];
     foreach ($this->authors as $author) {
-      $names .= $author->name.',';
+      $names[] = $author->name;
     }
-    return $names;
+    return join(',', $names);
   }
 }

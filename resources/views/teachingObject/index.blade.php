@@ -21,7 +21,7 @@
                     <td><a href="{{route('teachingObject.show', $teachingObject)}}">{{$teachingObject->title}}</a></td>
                     <td>{{$teachingObject->authorsNames()}}</td>
                     <td>
-                      <form  action="{{route('teachingObject.destroy', $teachingObject->id)}}" method="post">
+                      <form  action="{{route('teachingObject.destroy', $teachingObject)}}" method="post">
                         {{ csrf_field() }}
                         <input name="_method" type="hidden" value="delete">
                         <button type="submit" class="btn btn-danger btn-sm">Delete</button>

@@ -14,7 +14,6 @@
 
                         <div class="form-group">
                             <label for="title" class="col-md-4 control-label">Título</label>
-
                             <div class="col-md-6">
                                 <input id="title" type="text" class="form-control" name="title" value="{{$teachingObject->title}}" required autofocus>
                             </div>
@@ -38,56 +37,67 @@
 
                         <div class="form-group">
                             <label for="theme" class="col-md-4 control-label">Tema</label>
-
                             <div class="col-md-6">
-                                <input id="theme" type="text" class="form-control" name="theme" value="{{$teachingObject->theme}}" required autofocus>
+                                <input id="theme" type="text" class="form-control" name="theme" value="{{$teachingObject->theme}}">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="content" class="col-md-4 control-label">Contenido</label>
-
                             <div class="col-md-6">
-                                <textarea id="content" name="content" value="{{$teachingObject->content}}" > </textarea>
+                                <textarea id="content" name="content">{{$teachingObject->content}}</textarea>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="goal" class="col-md-4 control-label">Objetivo</label>
-
                             <div class="col-md-6">
-                                <textarea id="goal" name="goal" value="{{$teachingObject->goal}}" > </textarea>
+                                <textarea id="goal" name="goal"> {{$teachingObject->goal}}</textarea>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="approach" class="col-md-4 control-label">Enfoque</label>
-
                             <div class="col-md-6">
-                                <textarea id="approach" name="approach" value="{{$teachingObject->approach}}" > </textarea>
+                                <textarea id="approach" name="approach" value="" >{{$teachingObject->approach}} </textarea>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="recipients" class="col-md-4 control-label">Destinatarios</label>
-
                             <div class="col-md-6">
-                                <input id="recipients" type="text" class="form-control" name="recipients" value="{{$teachingObject->recipients}}" required readonly autofocus>
+                                <input id="recipients" type="text" class="form-control" name="recipients" value="{{$teachingObject->recipients}}">
                             </div>
                         </div>
+
                         <div class="form-group">
                             <label for="date" class="col-md-4 control-label">Fecha</label>
-
                             <div class="col-md-6">
                                 <input id="date" type="date" class="form-control" name="date" value="{{$teachingObject->date}}">
                             </div>
                         </div>
+
                         <div class="form-group">
                             <label for="place" class="col-md-4 control-label">Lugar</label>
-
                             <div class="col-md-6">
-                                <input id="place" type="text" class="form-control" name="place" value="{{$teachingObject->place}}" required readonly autofocus>
+                                <input id="place" type="text" class="form-control" name="place" value="{{$teachingObject->place}}">
                             </div>
+                        </div>
+
+                        <div class="form-group">
+                          <label for="Tags" class="col-md-4 control-label">Tags</label>
+                          <select multiple name="Tags[]" id="Tags">
+                            <option value=""></option>
+                             @foreach ($tags as $tag)
+                              <option value="{{$tag->id}}"
+                                @if(in_array($tag->id, $Tags))
+                                  selected
+                                @endif
+                                >
+                                {{$tag->name}}
+                              </option>
+                              @endforeach
+                            </select>
                         </div>
 
                         <div class="form-group">

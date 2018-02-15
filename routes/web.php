@@ -16,4 +16,4 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::resource('teachingObject', 'TeachingObjectController');
-Route::resource('tag','TAGController');
+Route::resource('tag','CamelCase.TagController');

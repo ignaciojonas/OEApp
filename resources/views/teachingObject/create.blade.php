@@ -12,7 +12,6 @@
                         {{ csrf_field() }}
                         <div class="form-group">
                             <label for="title" class="col-md-4 control-label">Título</label>
-
                             <div class="col-md-6">
                                 <input id="title" type="text" class="form-control" name="title" required autofocus>
                             </div>
@@ -30,15 +29,13 @@
 
                         <div class="form-group">
                             <label for="theme" class="col-md-4 control-label">Tema</label>
-
                             <div class="col-md-6">
-                                <input id="theme" type="text" class="form-control" name="theme" required autofocus>
+                                <input id="theme" type="text" class="form-control" name="theme">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="content" class="col-md-4 control-label">Contenido</label>
-
                             <div class="col-md-6">
                                 <textarea id="content" name="content" rows="5" cols="20"> </textarea>
                             </div>
@@ -46,7 +43,6 @@
 
                         <div class="form-group">
                             <label for="goal" class="col-md-4 control-label">Objetivo</label>
-
                             <div class="col-md-6">
                                 <textarea id="goal" name="goal" rows="5" cols="20"> </textarea>
                             </div>
@@ -54,7 +50,6 @@
 
                         <div class="form-group">
                             <label for="approach" class="col-md-4 control-label">Enfoque</label>
-
                             <div class="col-md-6">
                                 <textarea id="approach" name="approach" rows="5" cols="20"> </textarea>
                             </div>
@@ -62,15 +57,13 @@
 
                         <div class="form-group">
                             <label for="recipients" class="col-md-4 control-label">Destinatarios</label>
-
                             <div class="col-md-6">
-                                <input id="recipients" type="text" class="form-control" name="recipients" required autofocus>
+                                <input id="recipients" type="text" class="form-control" name="recipients">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="date" class="col-md-4 control-label">Fecha</label>
-
                             <div class="col-md-6">
                                 <input type="date" id="date" class="form-control" name="date">
                             </div>
@@ -78,15 +71,14 @@
 
                         <div class="form-group">
                             <label for="place" class="col-md-4 control-label">Lugar</label>
-
                             <div class="col-md-6">
-                                <input id="place" type="text" class="form-control" name="place" required autofocus>
+                                <input id="place" type="text" class="form-control" name="place">
                             </div>
                         </div>
 
                         <div class="form-group">
-                          <label for="selectTags" class="col-md-4 control-label">Tags</label>
-                          <select multiple name="selectTags[]" id="selectTags">
+                          <label for="Tags" class="col-md-4 control-label">Tags</label>
+                          <select multiple name="Tags[]" id="Tags">
                             <option value=""></option>
                              @foreach ($tags as $tag)
                               <option value="{{$tag->id}}">

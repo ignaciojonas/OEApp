@@ -16,7 +16,7 @@ class TeachingObjectController extends Controller
      */
     public function index()
     {
-      $teachingObjects = TeachingObject::all();//llamada al modelo
+      $teachingObjects = TeachingObject::all();
       return view('teachingObject.index',['teachingObjects' => $teachingObjects]);
     }
 
@@ -42,7 +42,7 @@ class TeachingObjectController extends Controller
     {
       $teachingObject = TeachingObject::create($request->all());
       $teachingObject->authors()->attach($request->input('authors'));
-      $teachingObject->tags()->attach($request->input('selectTags'));
+      $teachingObject->tags()->attach($request->input('Tags'));
       return redirect()->route('teachingObject.index');
     }
 
@@ -67,7 +67,7 @@ class TeachingObjectController extends Controller
     {
       $users = User::all();
       $tags = Tag::all();
-      return view('teachingObject.update',['teachingObject'=> $teachingObject, 'users' => $users, 'authors' => $this->getIds($teachingObject->authors), 'tags' => $tags, 'selectTags'=> $this->getIds($teachingObject->tags)]);
+      return view('teachingObject.update',['teachingObject'=> $teachingObject, 'users' => $users, 'authors' => $this->getIds($teachingObject->authors), 'tags' => $tags, 'Tags'=> $this->getIds($teachingObject->Tags)]);
     }
 
     /**
@@ -81,8 +81,8 @@ class TeachingObjectController extends Controller
     {
       $teachingObject->authors()->detach($this->getIds($teachingObject->authors));
       $teachingObject->authors()->attach($request->input('authors'));
-      $teachingObject->tags()->detach($this->getIds($teachingObject->tags));
-      $teachingObject->tags()->attach($request->input('selectTags'));
+      $teachingObject->tags()->detach($this->getIds($teachingObject->Tags));
+      $teachingObject->tags()->attach($request->input('Tags'));
       $teachingObject->update($request->all());
 
       return redirect()->route('teachingObject.index');
@@ -101,6 +101,15 @@ class TeachingObjectController extends Controller
     }
 
     private function getIds($objects)
+    {
+      $ids = [];
+      foreach ($objects as $object) {
+        $ids[] = $object->id;
+      }
+      return $ids;
+    }
+
+    private function getTagIds($objects)
     {
       $ids = [];
       foreach ($objects as $object) {

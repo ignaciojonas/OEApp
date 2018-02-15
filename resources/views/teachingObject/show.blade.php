@@ -79,8 +79,8 @@
                         </div>
 
                         <div class="form-group">
-                          <label for="selectTags" class="col-md-4 control-label">Tags</label>
-                          <select multiple name="selectTags[]" id="selectTags">
+                          <label for="Tags" class="col-md-4 control-label">Tags</label>
+                          <select multiple name="Tags[]" id="Tags">
                             <option value=""></option>
                              @foreach ($teachingObject->tags as $tag)
                               <option value="{{$tag->id}}">

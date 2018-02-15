@@ -109,12 +109,4 @@ class TeachingObjectController extends Controller
       return $ids;
     }
 
-    private function getTagIds($objects)
-    {
-      $ids = [];
-      foreach ($objects as $object) {
-        $ids[] = $object->id;
-      }
-      return $ids;
-    }
 }

@@ -90,6 +90,18 @@
                             </select>
                         </div>
 
+                        <div class="form-group">
+                          <label for="Resources" class="col-md-4 control-label">Resources</label>
+                          <select multiple name="Resources[]" id="Resources">
+                            <option value=""></option>
+                             @foreach ($teachingObject->resources as $resource)
+                              <option value="{{$resource->id}}">
+                                {{$resource->name}}
+                              </option>
+                              @endforeach
+                            </select>
+                        </div>
+
                     </form>
                 </div>
             </div>

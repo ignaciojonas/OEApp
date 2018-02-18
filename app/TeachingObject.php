@@ -15,7 +15,12 @@ class TeachingObject extends Model
 
   public function Tags()
   {
-    return $this->belongsToMany('App\Tag','teaching_object_tags');
+      return $this->belongsToMany('App\Tag','teaching_object_tags');
+  }
+
+  public function Resources()
+  {
+      return $this->belongsToMany('App\Resource', 'teaching_object_resources');
   }
 
   public function authorsNames()

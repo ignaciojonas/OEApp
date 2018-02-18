@@ -89,6 +89,18 @@
                         </div>
 
                         <div class="form-group">
+                          <label for="Resources" class="col-md-4 control-label">Resources</label>
+                          <select multiple name="Resources[]" id="Resources">
+                            <option value=""></option>
+                             @foreach ($resources as $resource)
+                              <option value="{{$resource->id}}">
+                                {{$resource->name}}
+                              </option>
+                              @endforeach
+                            </select>
+                        </div>
+
+                        <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
                                     Grabar

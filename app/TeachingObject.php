@@ -23,6 +23,11 @@ class TeachingObject extends Model
       return $this->belongsToMany('App\Resource', 'teaching_object_resources');
   }
 
+  public function Activities()
+  {
+      return $this->belongsToMany('App\Activity', 'teaching_object_activities');
+  }
+
   public function authorsNames()
   {
     $names = [];

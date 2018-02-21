@@ -6,6 +6,7 @@ use App\TeachingObject;
 use App\User;
 use App\Tag;
 use App\Resource;
+use App\Activity;
 use Illuminate\Http\Request;
 
 class TeachingObjectController extends Controller
@@ -31,7 +32,8 @@ class TeachingObjectController extends Controller
       $users = User::all();
       $tags = Tag::all();
       $resources = Resource::all();
-      return view('teachingObject.create',['users' => $users, 'tags' => $tags, 'resources' => $resources]);
+      $activities = Activity::All();
+      return view('teachingObject.create',['users' => $users, 'tags' => $tags, 'resources' => $resources, 'activities' => $activities]);
     }
 
     /**
@@ -46,6 +48,7 @@ class TeachingObjectController extends Controller
       $teachingObject->authors()->attach($request->input('authors'));
       $teachingObject->tags()->attach($request->input('Tags'));
       $teachingObject->resources()->attach($request->input('Resources'));
+      $teachingObject->activities()->attach($request->input('Activities'));
       return redirect()->route('teachingObject.index');
     }
 
@@ -71,7 +74,8 @@ class TeachingObjectController extends Controller
       $users = User::all();
       $tags = Tag::all();
       $resources = Resource::all();
-      return view('teachingObject.update',['teachingObject'=> $teachingObject, 'users' => $users, 'authors' => $this->getIds($teachingObject->authors), 'tags' => $tags, 'Tags'=> $this->getIds($teachingObject->Tags), 'resources' => $resources, 'Resources' => $this->getIds($teachingObject->Resources)]);
+      $activities = Activity::all();
+      return view('teachingObject.update',['teachingObject'=> $teachingObject, 'users' => $users, 'authors' => $this->getIds($teachingObject->authors), 'tags' => $tags, 'Tags'=> $this->getIds($teachingObject->Tags), 'resources' => $resources, 'Resources' => $this->getIds($teachingObject->Resources), 'activities' => $activities, 'Activities' => $this->getIds($teachingObject->Activities)]);
     }
 
     /**
@@ -89,6 +93,8 @@ class TeachingObjectController extends Controller
       $teachingObject->tags()->attach($request->input('Tags'));
       $teachingObject->resources()->detach($this->getIds($teachingObject->Resources));
       $teachingObject->resources()->attach($request->input('Resources'));
+      $teachingObject->activities()->detach($this->getIds($teachingObject->Activities));
+      $teachingObject->activities()->attach($request->input('Activities'));
       $teachingObject->update($request->all());
 
       return redirect()->route('teachingObject.index');

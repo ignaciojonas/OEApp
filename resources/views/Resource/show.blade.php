@@ -5,22 +5,23 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">TAGS</div>
+                <div class="panel-heading">RESOURCES</div>
 
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" >
                         <input name="_method" type="hidden" value="put">
+
                         <div class="form-group">
                             <label for="name" class="col-md-4 control-label">Nombre</label>
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{$tag->name}}" required autofocus>
+                                <input id="name" type="text" class="form-control" name="name" value="{{$resource->name}}" required autofocus>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="description" class="col-md-4 control-label">Descripción</label>
+                            <label for="type" class="col-md-4 control-label">Tipo</label>
                             <div class="col-md-6">
-                                <input id="description" type="text" class="form-control" name="description" value="{{$tag->description" required autofocus>
+                                <input id="type" type="text" class="form-control" name="type" value="{{$resource->type}}" required autofocus>
                             </div>
                         </div>
 

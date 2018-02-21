@@ -12,7 +12,6 @@
                         {{ csrf_field() }}
                         <div class="form-group">
                             <label for="name" class="col-md-4 control-label">Nombre</label>
-
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control" name="name" required autofocus>
                             </div>
@@ -20,7 +19,6 @@
 
                         <div class="form-group">
                             <label for="description" class="col-md-4 control-label">Descripción</label>
-
                             <div class="col-md-6">
                                 <input id="description" type="text" class="form-control" name="description" required autofocus>
                             </div>
@@ -33,7 +31,7 @@
                                 </button>
                             </div>
                         </div>
-                        
+
                     </form>
                 </div>
             </div>

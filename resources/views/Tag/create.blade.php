@@ -20,7 +20,7 @@
                         <div class="form-group">
                             <label for="description" class="col-md-4 control-label">Descripción</label>
                             <div class="col-md-6">
-                                <input id="description" type="text" class="form-control" name="description" required autofocus>
+                              <textarea id="description" name="description" rows="5" cols="20"> </textarea>
                             </div>
                         </div>
 

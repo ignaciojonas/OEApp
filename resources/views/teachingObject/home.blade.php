@@ -12,9 +12,9 @@
                 </div>
 
                 <div class="panel-body">
-                    <a href="/tag">TAGS</a>
+                    <a href="/tag">Tags</a>
                 </div>
-                
+
             </div>
         </div>
     </div>

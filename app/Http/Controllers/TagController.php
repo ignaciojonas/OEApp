@@ -38,7 +38,6 @@ class TagController extends Controller
     public function store(Request $request)
     {
       $tag = Tag::create($request->all());
-      $tag->tos()->attach($request->input('TOs'));
       return redirect()->route('tag.index');
     }
 
@@ -73,8 +72,6 @@ class TagController extends Controller
      */
     public function update(Request $request, Tag $tag)
     {
-      $tag->tos()->detach($this->getIds($tag->TOs));
-      $tag->tos()->attach($request->input('TOs'));
       $tag->update($request->all());
 
       return redirect()->route('tag.index');

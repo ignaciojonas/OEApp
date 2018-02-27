@@ -6,7 +6,7 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                  TAGS
+                  Lista de Tags
                   <a class='btn btn-primary btn-sm pull-right' href="{{route('tag.create')}}">Crear</a>
                 </div>
                 <table class="table table-striped">

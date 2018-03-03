@@ -15,6 +15,10 @@
                     <a href="/tag">Tags</a>
                 </div>
 
+                <div class="panel-body">
+                    <a href="/activity">Actividades</a>
+                </div>
+
             </div>
         </div>
     </div>

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\TeachingObject;
 use App\Activity;
 use Illuminate\Http\Request;
 

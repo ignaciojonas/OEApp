@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Tag;
+use App\Activity;
 use Illuminate\Http\Request;
 
-class TagController extends Controller
+class ActivityController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class TagController extends Controller
      */
     public function index()
     {
-      $tags = Tag::all();
-      return view('Tag.index',['tags' => $tags]);
+      $activities = Activity::all();
+      return view('Activity.index',['activities' => $activities]);
     }
 
     /**
@@ -25,7 +25,7 @@ class TagController extends Controller
      */
     public function create()
     {
-        return view('Tag.create');
+        return view('Activity.create');
     }
 
     /**
@@ -36,57 +36,57 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-      $tag = Tag::create($request->all());
-      return redirect()->route('tag.index');
+      $activity = Activity::create($request->all());
+      return redirect()->route('activity.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Tag  $tag
+     * @param  \App\Activity  $activity
      * @return \Illuminate\Http\Response
      */
-    public function show(Tag $tag)
+    public function show(Activity $activity)
     {
-        return view('Tag.show',['tag'=> $tag]);
+        return view('Activity.show',['activity'=> $activity]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Tag  $tag
+     * @param  \App\Activity  $activity
      * @return \Illuminate\Http\Response
      */
-    public function edit(Tag $tag)
+    public function edit(Activity $activity)
     {
-        return view('Tag.update',['tag'=> $tag]);
+        return view('Activity.update',['activity'=> $activity]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Tag  $tag
+     * @param  \App\Activity  $activity
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tag $tag)
+    public function update(Request $request, Activity $activity)
     {
-      $tag->update($request->all());
+      $activity->update($request->all());
 
-      return redirect()->route('tag.index');
+      return redirect()->route('activity.index');
     }
 
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Tag  $tag
+     * @param  \App\Activity  $activity
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tag $tag)
+    public function destroy(Activity $activity)
     {
-        $tag->delete();
-        return redirect()->route('tag.index');
+        $activity->delete();
+        return redirect()->route('activity.index');
     }
 
     private function getIds($objects)

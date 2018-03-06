@@ -16,9 +16,12 @@
                 </div>
 
                 <div class="panel-body">
+                    <a href="/resource">Recursos</a>
+                </div>
+                
+                <div class="panel-body">
                     <a href="/activity">Actividades</a>
                 </div>
-
             </div>
         </div>
     </div>

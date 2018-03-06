@@ -8,7 +8,7 @@
                 <div class="panel-heading">TAGS</div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('resource.store') }}">
+                    <form class="form-horizontal" method="POST" action="{{ route('tag.store') }}">
                         {{ csrf_field() }}
                         <div class="form-group">
                             <label for="name" class="col-md-4 control-label">Nombre</label>

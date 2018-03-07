@@ -104,6 +104,7 @@ class TeachingObjectTest extends TestCase
     {
       $user = factory(User::class)->create();
       $teachingObject = factory(TeachingObject::class)->create();
+      $teachingObject->authors()->save($user);
       $new_teachingObject = factory(TeachingObject::class)->make();
       $data =[
              "title" => $new_teachingObject->title,

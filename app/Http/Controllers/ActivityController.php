@@ -88,14 +88,4 @@ class ActivityController extends Controller
         $activity->delete();
         return redirect()->route('activity.index');
     }
-
-    private function getIds($objects)
-    {
-      $ids = [];
-      foreach ($objects as $object) {
-        $ids[] = $object->id;
-      }
-      return $ids;
-    }
-
 }

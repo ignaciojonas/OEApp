@@ -88,14 +88,4 @@ class ResourceController extends Controller
         $resource->delete();
         return redirect()->route('resource.index');
     }
-
-    private function getIds($objects)
-    {
-      $ids = [];
-      foreach ($objects as $object) {
-        $ids[] = $object->id;
-      }
-      return $ids;
-    }
-
 }

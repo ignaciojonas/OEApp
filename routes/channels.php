@@ -1,5 +1,5 @@
 <?php
-
+use App\TeachingObject;
 /*
 |--------------------------------------------------------------------------
 | Broadcast Channels
@@ -13,4 +13,8 @@
 
 Broadcast::channel('App.User.{id}', function ($user, $id) {
     return (int) $user->id === (int) $id;
+});
+
+Broadcast::channel('teaching-object.{teachingObject}', function ($user, TeachingObject $teachingObject) {
+    return $teachingObject->hasAuthor($user->id);
 });

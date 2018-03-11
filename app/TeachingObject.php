@@ -36,4 +36,13 @@ class TeachingObject extends Model
     }
     return join(',', $names);
   }
+
+  public function hasAuthor($user_id)
+      {
+          foreach ($this->authors as $user) {
+              if($user->id == $user_id) {
+                  return true;
+              }
+          }
+      }
 }

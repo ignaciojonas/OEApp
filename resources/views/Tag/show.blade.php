@@ -23,7 +23,11 @@
                                 <textarea id="description" name="description">{{$tag->description}}</textarea>
                             </div>
                         </div>
-
+                        <div class="form-group">
+                            <div class="col-md-8 col-md-offset-4">
+                               <a class='btn btn-primary btn-md' href="{{route('tag.index')}}">Cerrar</a>
+                            </div>
+                        <div>
                     </form>
                 </div>
             </div>

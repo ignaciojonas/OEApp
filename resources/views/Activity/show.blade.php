@@ -39,7 +39,13 @@
                             </div>
                         </div>
 
-                    </form>
+                        <div class="form-group">
+                            <div class="col-md-8 col-md-offset-4">
+                               <a class='btn btn-primary btn-md' href="{{route('activity.index')}}">Cerrar</a>
+                            </div>
+                        <div>
+
+                      </form>
                 </div>
             </div>
         </div>

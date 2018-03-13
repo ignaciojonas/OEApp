@@ -72,7 +72,6 @@ class ActivityController extends Controller
     public function update(Request $request, Activity $activity)
     {
       $activity->update($request->all());
-
       return redirect()->route('activity.index');
     }
 

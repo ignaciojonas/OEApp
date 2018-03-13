@@ -134,9 +134,8 @@
 
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Actualizar
-                                </button>
+                                <button type="submit" class="btn btn-primary">Actualizar</button>
+                                <a class='btn btn-primary btn-md' href="{{route('teachingObject.index')}}">Cerrar</a>
                             </div>
                         </div>
                     </form>

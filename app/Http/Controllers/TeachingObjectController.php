@@ -75,7 +75,9 @@ class TeachingObjectController extends Controller
       $tags = Tag::all();
       $resources = Resource::all();
       $activities = Activity::all();
-      return view('teachingObject.update',['teachingObject'=> $teachingObject, 'users' => $users, 'authors' => $this->getIds($teachingObject->authors), 'tags' => $tags, 'Tags'=> $this->getIds($teachingObject->Tags), 'resources' => $resources, 'Resources' => $this->getIds($teachingObject->Resources), 'activities' => $activities, 'Activities' => $this->getIds($teachingObject->Activities)]);
+      return view('teachingObject.update',['teachingObject'=> $teachingObject, 'users' => $users, 'authors' => $this->getIds($teachingObject->authors),
+       'tags' => $tags, 'Tags'=> $this->getIds($teachingObject->Tags), 'resources' => $resources, 'Resources' => $this->getIds($teachingObject->Resources),
+       'activities' => $activities, 'Activities' => $this->getIds($teachingObject->Activities)]);
     }
 
     /**

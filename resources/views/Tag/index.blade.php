@@ -8,6 +8,7 @@
                 <div class="panel-heading">
                   Lista de Tags
                   <a class='btn btn-primary btn-sm pull-right' href="{{route('tag.create')}}">Crear</a>
+                  <a class='btn btn-primary btn-sm' href="{{route('home')}}">Cerrar</a>
                 </div>
                 <table class="table table-striped">
                   <tr>

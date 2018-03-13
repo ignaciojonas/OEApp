@@ -8,6 +8,7 @@
                 <div class="panel-heading">
                   Lista de Actividades
                   <a class='btn btn-primary btn-sm pull-right' href="{{route('activity.create')}}">Crear</a>
+                  <a class='btn btn-primary btn-sm' href="{{route('home')}}">Cerrar</a>
                 </div>
                 <table class="table table-striped">
                   <tr>
@@ -20,8 +21,8 @@
                   <tr>
                     <td><a href="{{route('activity.show', $activity)}}">{{$activity->procedure}}</a></td>
                     <td><a href="{{route('activity.show', $activity)}}">{{$activity->suggestions}}</a></td>
-                      <td><a href="{{route('activity.show', $activity)}}">{{$activity->achievementExpectation}}</a></td>
-                        <td><a href="{{route('activity.show', $activity)}}">{{$activity->implementationResult}}</a></td>
+                    <td><a href="{{route('activity.show', $activity)}}">{{$activity->achievementExpectation}}</a></td>
+                    <td><a href="{{route('activity.show', $activity)}}">{{$activity->implementationResult}}</a></td>
                     <td>
                       <form  action="{{route('activity.destroy', $activity)}}" method="post">
                         {{ csrf_field() }}

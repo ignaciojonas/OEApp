@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -75,6 +76,10 @@
     </div>
 
     <!-- Scripts -->
+    <!-- include summernote css/js -->
+
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
+    @yield('pagespecificscripts')
 </body>
 </html>

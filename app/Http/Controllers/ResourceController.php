@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 class ResourceController extends Controller
 {
+
+    public $types = ['Audio','Video','Documento','Link'];
     /**
      * Display a listing of the resource.
      *
@@ -25,7 +27,7 @@ class ResourceController extends Controller
      */
     public function create()
     {
-        return view('Resource.create');
+        return view('Resource.create',['types' => $this->types]);
     }
 
     /**
@@ -37,6 +39,10 @@ class ResourceController extends Controller
     public function store(Request $request)
     {
       $resource = Resource::create($request->all());
+      if(isset($request->document)){
+        $resource->path = $request->document->store('resources');
+        $resource->save();
+      }
       return redirect()->route('resource.index');
     }
 
@@ -59,7 +65,7 @@ class ResourceController extends Controller
      */
     public function edit(Resource $resource)
     {
-        return view('Resource.update',['resource'=> $resource]);
+        return view('Resource.update',['resource'=> $resource, 'types' => $this->types]);
     }
 
     /**
@@ -72,6 +78,10 @@ class ResourceController extends Controller
     public function update(Request $request, Resource $resource)
     {
       $resource->update($request->all());
+      if(isset($request->document)){
+        $resource->path = $request->document->store('resources');
+        $resource->save();
+      }
 
       return redirect()->route('resource.index');
     }
@@ -88,14 +98,4 @@ class ResourceController extends Controller
         $resource->delete();
         return redirect()->route('resource.index');
     }
-
-    private function getIds($objects)
-    {
-      $ids = [];
-      foreach ($objects as $object) {
-        $ids[] = $object->id;
-      }
-      return $ids;
-    }
-
 }

@@ -89,13 +89,4 @@ class TagController extends Controller
         return redirect()->route('tag.index');
     }
 
-    private function getIds($objects)
-    {
-      $ids = [];
-      foreach ($objects as $object) {
-        $ids[] = $object->id;
-      }
-      return $ids;
-    }
-
 }

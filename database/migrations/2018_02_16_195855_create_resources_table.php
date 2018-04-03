@@ -17,6 +17,8 @@ class CreateResourcesTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('type');
+            $table->string('path')->nullable();
+            $table->string('link')->nullable();
             $table->timestamps();
         });
     }

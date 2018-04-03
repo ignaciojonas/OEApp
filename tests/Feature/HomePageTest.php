@@ -22,7 +22,7 @@ class HomePageTest extends TestCase
                        ->get('/');
 
        $response->assertStatus(200)
-                ->assertSee($user->name)
+                ->assertSee(htmlentities($user->name))
                 ->assertSee('Objetos de Enseñanza');
     }
 }

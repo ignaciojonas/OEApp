@@ -19,3 +19,4 @@ Route::resource('teachingObject', 'TeachingObjectController');
 Route::resource('tag','TagController');
 Route::resource('resource','ResourceController');
 Route::resource('activity', 'ActivityController');
+Route::get('resource/{id}/download', 'ResourceController@download');

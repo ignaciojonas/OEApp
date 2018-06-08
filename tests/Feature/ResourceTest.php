@@ -3,6 +3,8 @@
 namespace Tests\Feature;
 
 use Tests\TestCase;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\User;
 use App\Resource;
@@ -75,31 +77,41 @@ class ResourceTest extends TestCase
 
     public function testStoreResource()
     {
+      Storage::fake('resources');
       $user = factory(User::class)->create();
       $resource = factory(Resource::class)->make();
       $data =[
               "name" => $resource->name,
-              "type" => $resource->type,
+              "type" => $resource->type
            ];
+      $request = $data;
+      $request["document"] = UploadedFile::fake()->create('document.pdf', 10);
       $response = $this->actingAs($user)
-                        ->post("/resource",$data);
+                        ->post("/resource",$request);
       $response->assertRedirect("/resource");
 
-      $this->assertDatabaseHas('resources', $data);;
+      $this->assertDatabaseHas('resources', $data);
+      $createdResource = Resource::where('name', $resource->name)->first();
+      $this->assertTrue($createdResource->path != '');
     }
 
     public function testUpdateResource()
     {
+      Storage::fake('resources');
       $user = factory(User::class)->create();
       $resource = factory(Resource::class)->create();
       $new_resource = factory(Resource::class)->make();
       $data =[
-              "name" => $resource->name,
-              "type" => $resource->type,
+              "name" => $new_resource->name,
+              "type" => $new_resource->type,
            ];
+      $request = $data;
+      $request["document"] = UploadedFile::fake()->create('document.pdf', 10);
       $response = $this->actingAs($user)
-                        ->put("/resource/$resource->id",$data);
+                        ->put("/resource/$resource->id", $request);
       $response->assertRedirect("/resource");
       $this->assertDatabaseHas('resources', $data);;
+      $resource = $resource->fresh();
+      $this->assertTrue($resource->path != '');
     }
 }

@@ -17,6 +17,7 @@ $factory->define(App\Resource::class, function (Faker $faker) {
 
     return [
         'name' => $faker->word,
-        'type' => $faker->text
+        'type' => $faker->text,
+        'link' => $faker->url
     ];
 });

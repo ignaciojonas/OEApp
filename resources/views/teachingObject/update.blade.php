@@ -1,13 +1,18 @@
 @extends('layouts.app')
 
+@section('pagespecificscripts')
+  <script src="{{ asset('js/teachingObjects.js') }}"></script>
+@stop
+
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-10 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">Objeto de Enseñanza</div>
 
                 <div class="panel-body">
+                      <div id="ggb-element"></div>
                     <form class="form-horizontal" method="POST" action="{{ route('teachingObject.update', $teachingObject) }}">
                         {{ csrf_field() }}
                         <input name="_method" type="hidden" value="put">
@@ -145,4 +150,10 @@
         </div>
     </div>
 </div>
+<script>
+    var ggbApp = new GGBApplet({"appName": "graphing", "width": 800, "height": 600, "showToolBar": true, "showAlgebraInput": true, "showMenuBar": true }, true);
+    window.addEventListener("load", function() {
+        ggbApp.inject('ggb-element');
+    });
+</script>
 @endsection

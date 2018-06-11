@@ -1,12 +1,24 @@
 @extends('layouts.app')
 
+@section('pagespecificscripts')
+  <script src="{{ asset('js/teachingObjects.js') }}"></script>
+
+@stop
+
+@section('navlinks')
+<li><a href="#approach">Approach</a></li>
+<li><a href="#approach">Approach</a></li>
+<li><a href="#approach">Approach</a></li>
+<li><a href="#approach">Approach</a></li>
+<li><a href="#approach">Approach</a></li>
+@stop
+
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">Objeto de Enseñanza</div>
-
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('teachingObject.store') }}">
                         {{ csrf_field() }}

@@ -55,16 +55,16 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="approach" class="col-md-4 control-label">Enfoque</label>
+                            <label for="didacticIntentionality" class="col-md-4 control-label">Enfoque</label>
                             <div class="col-md-6">
-                                <textarea id="approach" name="approach" >{{$teachingObject->approach}}</textarea>
+                                <textarea id="didacticIntentionality" name="didacticIntentionality" >{{$teachingObject->didacticIntentionality}}</textarea>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="recipients" class="col-md-4 control-label">Destinatarios</label>
+                            <label for="receiver" class="col-md-4 control-label">Destinatarios</label>
                             <div class="col-md-6">
-                                <input id="recipients" type="text" class="form-control" name="recipients" value="{{$teachingObject->recipients}}">
+                                <input id="receiver" type="text" class="form-control" name="receiver" value="{{$teachingObject->receiver}}">
                             </div>
                         </div>
 
@@ -107,12 +107,12 @@
                         </div>
 
                         <div class="form-group">
-                          <label for="Activities" class="col-md-4 control-label">Actividades</label>
-                          <select multiple name="Activities[]" id="Activities">
+                          <label for="Moments" class="col-md-4 control-label">Actividades</label>
+                          <select multiple name="Moments[]" id="Moments">
                             <option value=""></option>
-                             @foreach ($teachingObject->activities as $activity)
-                              <option value="{{$activity->id}}">
-                                {{$activity->procedure}}
+                             @foreach ($teachingObject->moments as $moment)
+                              <option value="{{$moment->id}}">
+                                {{$moment->procedure}}
                               </option>
                               @endforeach
                             </select>

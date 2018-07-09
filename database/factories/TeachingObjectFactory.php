@@ -20,9 +20,12 @@ $factory->define(App\TeachingObject::class, function (Faker $faker) {
         'theme' => $faker->sentence,
         'content' => $faker->text,
         'goal' => $faker->text,
-        'approach' => $faker->text,
-        'recipients'=> $faker->text,
+        'previousKnowledge'=> $faker->text,
+        'didacticIntentionality' => $faker->text,
+        'receiver'=> $faker->text,
         'date' => $faker->dateTime,
         'place' => $faker->city,
+        'generalDescription' => $faker->text,
+        'teachingArea' => $faker->text,
     ];
 });

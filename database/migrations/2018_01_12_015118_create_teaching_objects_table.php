@@ -19,10 +19,13 @@ class CreateTeachingObjectsTable extends Migration
             $table->string('theme');
             $table->text('content');
             $table->text('goal');
-            $table->text('approach');
-            $table->string('recipients');
+            $table->text('previousKnowledge');
+            $table->text('didacticIntentionality');
+            $table->string('receiver');
             $table->string('date');
             $table->string('place');
+            $table->text('generalDescription');
+            $table->text('teachingArea');
             $table->timestamps();
         });
     }

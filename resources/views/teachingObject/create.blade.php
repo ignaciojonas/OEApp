@@ -23,12 +23,14 @@
 
                         <div class="form-group">
                           <label for="authors" class="col-md-4 control-label">Autores</label>
-                          <select multiple name="authors[]" id="authors">
-                            <option value=""></option>
-                             @foreach ($users as $user)
-                              <option value="{{$user->id}}">{{$user->name}}</option>
-                              @endforeach
-                            </select>
+                          <div class="col-md-6">
+                            <select multiple name="authors[]" id="authors">
+                              <option value=""></option>
+                               @foreach ($users as $user)
+                                <option value="{{$user->id}}">{{$user->name}}</option>
+                                @endforeach
+                              </select>
+                          </div>
                         </div>
 
                         <div class="form-group">
@@ -39,32 +41,57 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="content" class="col-md-4 control-label">Contenido</label>
+                            <label for="content" class="col-md-4 control-label">Contenidos</label>
                             <div class="col-md-6">
                                 <textarea id="content" name="content" rows="5" cols="20"> </textarea>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="goal" class="col-md-4 control-label">Objetivo</label>
+                            <label for="goal" class="col-md-4 control-label">Objetivos</label>
                             <div class="col-md-6">
                                 <textarea id="goal" name="goal" rows="5" cols="20"> </textarea>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="approach" class="col-md-4 control-label">Enfoque</label>
+                            <label for="previousKnowledge" class="col-md-4 control-label">Conocimientos previos</label>
                             <div class="col-md-6">
-                                <textarea id="approach" name="approach" rows="5" cols="20"> </textarea>
+                                <textarea id="previousKnowledge" name="previousKnowledge" rows="5" cols="20"> </textarea>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="recipients" class="col-md-4 control-label">Destinatarios</label>
+                            <label for="didacticIntentionality" class="col-md-4 control-label">Intencionalidad didáctica</label>
                             <div class="col-md-6">
-                                <input id="recipients" type="text" class="form-control" name="recipients">
+                                <textarea id="didacticIntentionality" name="didacticIntentionality" rows="5" cols="20"> </textarea>
                             </div>
                         </div>
+
+                       <div class="form-group">
+                             <label for="receiver" class="col-md-4 control-label">Destinatarios</label>
+                             <div class="col-md-6">
+                               <h5>Nivel educativo</h5>
+                               <div class="custom-control custom-radio custom-control-inline">
+                                 <input type="radio" id="nivel1" name="customRadioInline1" class="custom-control-input">
+                                 <label class="custom-control-label" for="nivel1">Primario</label>
+                               </div>
+                               <div class="custom-control custom-radio custom-control-inline">
+                                 <input type="radio" id="nivel2" name="customRadioInline1" class="custom-control-input">
+                                 <label class="custom-control-label" for="nivel2">Secundario</label>
+                               </div>
+                               <div class="custom-control custom-radio custom-control-inline">
+                                 <input type="radio" id="nivel3" name="customRadioInline1" class="custom-control-input">
+                                 <label class="custom-control-label" for="nivel3">Terciario</label>
+                               </div>
+                             </div>
+                             <div class="form-group">
+                                 <label for="year" class="col-md-4 control-label">Año escolar</label>
+                                 <div class="col-md-6">
+                                     <input type="year" id="year" class="form-control" name="year">
+                                 </div>
+                             </div>
+                       </div>
 
                         <div class="form-group">
                             <label for="date" class="col-md-4 control-label">Fecha</label>
@@ -81,39 +108,59 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="generalDescription" class="col-md-4 control-label">Descripción general</label>
+                            <div class="col-md-6">
+                                <textarea id="generalDescription" name="generalDescription" rows="5" cols="20"> </textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="teachingArea" class="col-md-4 control-label">Área de enseñanza</label>
+                            <div class="col-md-6">
+                                <textarea id="teachingArea" name="teachingArea" rows="5" cols="20"> </textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                           <label for="Tags" class="col-md-4 control-label">Tags</label>
-                          <select multiple name="Tags[]" id="Tags">
-                            <option value=""></option>
-                             @foreach ($tags as $tag)
-                              <option value="{{$tag->id}}">
-                                {{$tag->name}}
-                              </option>
-                              @endforeach
-                            </select>
+                          <div class="col-md-6">
+                            <select multiple name="Tags[]" id="Tags">
+                              <option value=""></option>
+                               @foreach ($tags as $tag)
+                                <option value="{{$tag->id}}">
+                                  {{$tag->name}}
+                                </option>
+                                @endforeach
+                              </select>
+                          </div>
                         </div>
 
                         <div class="form-group">
-                          <label for="Resources" class="col-md-4 control-label">Recursos</label>
-                          <select multiple name="Resources[]" id="Resources">
-                            <option value=""></option>
-                             @foreach ($resources as $resource)
-                              <option value="{{$resource->id}}">
-                                {{$resource->name}}
-                              </option>
-                              @endforeach
-                            </select>
+                          <label for="Resources" class="col-md-4 control-label"> Tipo de Recursos</label>
+                          <div class="col-md-6">
+                            <select multiple name="Resources[]" id="Resources">
+                              <option value=""></option>
+                               @foreach ($resources as $resource)
+                                <option value="{{$resource->id}}">
+                                  {{$resource->name}}
+                                </option>
+                                @endforeach
+                              </select>
+                          </div>
                         </div>
 
                         <div class="form-group">
-                          <label for="Activities" class="col-md-4 control-label">Actividades</label>
-                          <select multiple name="Activities[]" id="Activities">
-                            <option value=""></option>
-                             @foreach ($activities as $activity)
-                              <option value="{{$activity->id}}">
-                                {{$activity->procedure}}
-                              </option>
-                              @endforeach
-                            </select>
+                          <label for="Moments" class="col-md-4 control-label">Momentos</label>
+                          <div class="col-md-6">
+                            <select multiple name="Moments[]" id="Moments">
+                              <option value=""></option>
+                               @foreach ($moments as $moment)
+                                <option value="{{$moment->id}}">
+                                  {{$moment->procedure}}
+                                </option>
+                                @endforeach
+                              </select>
+                          </div>
                         </div>
 
                         <div class="form-group">

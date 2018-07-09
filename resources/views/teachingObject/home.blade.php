@@ -18,9 +18,9 @@
                 <div class="panel-body">
                     <a href="/resource">Recursos</a>
                 </div>
-                
+
                 <div class="panel-body">
-                    <a href="/activity">Actividades</a>
+                    <a href="/moment">Momentos</a>
                 </div>
             </div>
         </div>

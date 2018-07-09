@@ -18,5 +18,5 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::resource('teachingObject', 'TeachingObjectController');
 Route::resource('tag','TagController');
 Route::resource('resource','ResourceController');
-Route::resource('activity', 'ActivityController');
+Route::resource('moment', 'MomentController');
 Route::get('resource/{id}/download', 'ResourceController@download');

@@ -61,16 +61,16 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="approach" class="col-md-4 control-label">Enfoque</label>
+                            <label for="didacticIntentionality" class="col-md-4 control-label">Enfoque</label>
                             <div class="col-md-6">
-                                <textarea id="approach" name="approach" value="" >{{$teachingObject->approach}} </textarea>
+                                <textarea id="didacticIntentionality" name="didacticIntentionality" value="" >{{$teachingObject->didacticIntentionality}} </textarea>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="recipients" class="col-md-4 control-label">Destinatarios</label>
+                            <label for="receiver" class="col-md-4 control-label">Destinatarios</label>
                             <div class="col-md-6">
-                                <input id="recipients" type="text" class="form-control" name="recipients" value="{{$teachingObject->recipients}}">
+                                <input id="receiver" type="text" class="form-control" name="receiver" value="{{$teachingObject->receiver}}">
                             </div>
                         </div>
 
@@ -121,16 +121,16 @@
                         </div>
 
                         <div class="form-group">
-                          <label for="Activities" class="col-md-4 control-label">Actividades</label>
-                          <select multiple name="Activities[]" id="Activities">
+                          <label for="Moments" class="col-md-4 control-label">Actividades</label>
+                          <select multiple name="Moments[]" id="Moments">
                             <option value=""></option>
-                             @foreach ($activities as $activity)
-                              <option value="{{$activity->id}}"
-                                @if(in_array($activity->id, $Activities))
+                             @foreach ($moments as $moment)
+                              <option value="{{$moment->id}}"
+                                @if(in_array($moment->id, $Moments))
                                   selected
                                 @endif
                                 >
-                                {{$activity->procedure}}
+                                {{$moment->procedure}}
                               </option>
                               @endforeach
                             </select>

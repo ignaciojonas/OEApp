@@ -23,4 +23,10 @@ $(document).ready(function() {
         placeholder: 'Complete aquí el área de enseñanza del objeto de enseñanza',
         height: 300
   });
+  $('#reflection').summernote({
+        placeholder: 'Complete aquí las reflexiones sobre las puestas en el aula del OE',
+        height: 300
+  });
+
+
 });

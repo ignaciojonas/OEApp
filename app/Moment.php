@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Moment extends Model
 {
-    protected $fillable = ['procedure', 'suggestions', 'achievementExpectation', 'implementationResult'];
+    protected $fillable = ['title', 'description', 'developmentForecast', 'registrationTeacher', 'resourcesStudent', 'classroomRecord'];
 }

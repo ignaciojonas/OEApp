@@ -15,10 +15,13 @@ class CreateMomentsTable extends Migration
     {
         Schema::create('moments', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('title');
+            $table->string('description');
             $table->string('procedure');
-            $table->string('suggestions');
-            $table->string('achievementExpectation');
-            $table->string('implementationResult');
+            $table->string('developmentForecast');
+            $table->string('registrationTeacher');
+            $table->string('resourcesStudent');
+            $table->string('classroomRecord');
             $table->timestamps();
         });
     }

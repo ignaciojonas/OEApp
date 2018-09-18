@@ -47,6 +47,24 @@
                             </div>
                         </div>
 
+
+                        <div class="form-group">
+                            <input type="hidden" id="records-count" name="records-count" value="1">
+                            <a id="addRecord" href='#'><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+                            <div id="Records">
+                              <div class="form-group">
+                                <label for="record-1" class="col-md-4 control-label">Registro</label>
+                                <div class="col-md-6">
+                                    <textarea id="record-1" name="record-1" rows="5" cols="20"> </textarea>
+                                </div>
+                                <label for="file-1" class="col-md-4 control-label">Adjuntos</label>
+                                <div class="col-md-6">
+                                    <input type="file" name="file-1[]" id="file-1[]" multiple>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+
                        <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">

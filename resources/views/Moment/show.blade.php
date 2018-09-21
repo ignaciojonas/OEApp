@@ -14,7 +14,7 @@
                         <div class="form-group">
                             <label for="procedure" class="col-md-4 control-label">Consigna</label>
                             <div class="col-md-6">
-                                <input id="procedure" type="text" class="form-control" name="procedure" value="{{$moment->procedure}}" required autofocus>
+                                <input id="procedure" type="text" class="form-control" name="procedure" value="{{$moment->procedure}}" >
                             </div>
                         </div>
 

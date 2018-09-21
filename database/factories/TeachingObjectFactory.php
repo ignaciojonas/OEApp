@@ -27,5 +27,6 @@ $factory->define(App\TeachingObject::class, function (Faker $faker) {
         'place' => $faker->city,
         'generalDescription' => $faker->text,
         'teachingArea' => $faker->text,
+        'reflection' => $faker->text,
     ];
 });

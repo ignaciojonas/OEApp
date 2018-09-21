@@ -19,7 +19,7 @@
                         <div class="form-group">
                             <label for="title" class="col-md-4 control-label">Título</label>
                             <div class="col-md-6">
-                                <input id="title" type="text" class="form-control" name="title" value="{{$teachingObject->title}}" required autofocus>
+                                <input id="title" type="text" class="form-control" name="title" value="{{$teachingObject->title}}" >
                             </div>
                         </div>
 

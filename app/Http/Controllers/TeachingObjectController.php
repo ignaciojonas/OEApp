@@ -16,6 +16,7 @@ class TeachingObjectController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
       $teachingObjects = TeachingObject::all();
@@ -120,5 +121,6 @@ class TeachingObjectController extends Controller
       }
       return $ids;
     }
+
 
 }

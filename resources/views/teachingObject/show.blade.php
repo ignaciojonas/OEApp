@@ -48,7 +48,8 @@
               <div class="container">
                       <h3>Contenido</h3>
                       <p>{{$teachingObject->content}} </p> <!--cómo se pueden poner los formatos-->
-              </div>
+
+                      <text-angular ng-model="htmlVariable">{{$teachingObject->content}}</text-angular>
             </section>
 
             <section id="placedate">

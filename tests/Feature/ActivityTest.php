@@ -5,107 +5,107 @@ namespace Tests\Feature;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\User;
-use App\Activity;
+use App\Moment;
 
-class ActivityTest extends TestCase
+class MomentTest extends TestCase
 {
-    public function testListActivity()
+    public function testListMoment()
     {
       $user = factory(User::class)->create();
-      $activity = factory(Activity::class)->create();
+      $moment = factory(Moment::class)->create();
       $response = $this->actingAs($user)
-                       ->get('/activity');
+                       ->get('/moment');
       $response->assertStatus(200)
-               ->assertSee($activity->procedure)
+               ->assertSee($moment->procedure)
                ->assertSee('Lista de Actividades')
                ->assertSee('Crear')
                ->assertSee('Delete')
                ->assertSee('Editar');
     }
 
-    public function testCreateActivity()
+    public function testCreateMoment()
     {
       $user = factory(User::class)->create();
       $response = $this->actingAs($user)
-                       ->get('/activity/create');
+                       ->get('/moment/create');
       $response->assertStatus(200)
                ->assertSee('Grabar');
     }
 
-    public function testEditActivity()
+    public function testEditMoment()
     {
       $user = factory(User::class)->create();
-      $activity = factory(Activity::class)->create();
+      $moment = factory(Moment::class)->create();
 
       $response = $this->actingAs($user)
-                       ->get("/activity/$activity->id/edit");
+                       ->get("/moment/$moment->id/edit");
       $response->assertStatus(200)
-               ->assertSee($activity->procedure)
+               ->assertSee($moment->procedure)
                ->assertSee('Actualizar');
     }
 
-    public function testShowActivity()
+    public function testShowMoment()
     {
       $user = factory(User::class)->create();
-      $activity = factory(Activity::class)->create();
+      $moment = factory(Moment::class)->create();
 
       $response = $this->actingAs($user)
-                       ->get("/activity/$activity->id");
+                       ->get("/moment/$moment->id");
       $response->assertStatus(200)
-               ->assertSee($activity->procedure)
+               ->assertSee($moment->procedure)
                ->assertDontSee('Actualizar')
                ->assertDontSee('Grabar');
     }
 
-    public function testDeleteActivity()
+    public function testDeleteMoment()
     {
       $user = factory(User::class)->create();
-      $activity = factory(Activity::class)->create();
+      $moment = factory(Moment::class)->create();
       $data =[
-             "procedure" => $activity->procedure,
-             "suggestions" => $activity->suggestions,
-             "achievementExpectation" => $activity-> achievementExpectation,
-             "implementationResult" => $activity-> achievementExpectation,
+             "procedure" => $moment->procedure,
+             "suggestions" => $moment->suggestions,
+             "achievementExpectation" => $moment-> achievementExpectation,
+             "implementationResult" => $moment-> achievementExpectation,
              ];
 
       $response = $this->actingAs($user)
-                       ->delete("/activity/$activity->id");
+                       ->delete("/moment/$moment->id");
 
-      $response->assertRedirect("/activity");
-      $this->assertDatabaseMissing('activities', $data);;
+      $response->assertRedirect("/moment");
+      $this->assertDatabaseMissing('moments', $data);;
     }
 
-    public function testStoreActivity()
+    public function testStoreMoment()
     {
       $user = factory(User::class)->create();
-      $activity = factory(Activity::class)->make();
+      $moment = factory(Moment::class)->make();
       $data =[
-            "procedure" => $activity->procedure,
-            "suggestions" => $activity->suggestions,
-            "achievementExpectation" => $activity-> achievementExpectation,
-            "implementationResult" => $activity-> achievementExpectation,
+            "procedure" => $moment->procedure,
+            "suggestions" => $moment->suggestions,
+            "achievementExpectation" => $moment-> achievementExpectation,
+            "implementationResult" => $moment-> achievementExpectation,
            ];
       $response = $this->actingAs($user)
-                        ->post("/activity",$data);
-      $response->assertRedirect("/activity");
+                        ->post("/moment",$data);
+      $response->assertRedirect("/moment");
 
-      $this->assertDatabaseHas('activities', $data);;
+      $this->assertDatabaseHas('moments', $data);;
     }
 
-    public function testUpdateActivity()
+    public function testUpdateMoment()
     {
       $user = factory(User::class)->create();
-      $activity = factory(Activity::class)->create();
-      $new_activity = factory(Activity::class)->make();
+      $moment = factory(Moment::class)->create();
+      $new_moment = factory(Moment::class)->make();
       $data =[
-            "procedure" => $activity->procedure,
-            "suggestions" => $activity->suggestions,
-            "achievementExpectation" => $activity-> achievementExpectation,
-            "implementationResult" => $activity-> achievementExpectation,
+            "procedure" => $moment->procedure,
+            "suggestions" => $moment->suggestions,
+            "achievementExpectation" => $moment-> achievementExpectation,
+            "implementationResult" => $moment-> achievementExpectation,
            ];
       $response = $this->actingAs($user)
-                        ->put("/activity/$activity->id",$data);
-      $response->assertRedirect("/activity");
-      $this->assertDatabaseHas('activities', $data);;
+                        ->put("/moment/$moment->id",$data);
+      $response->assertRedirect("/moment");
+      $this->assertDatabaseHas('moments', $data);;
     }
 }

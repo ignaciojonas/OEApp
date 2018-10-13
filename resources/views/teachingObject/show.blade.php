@@ -107,12 +107,12 @@
                         </div>
 
                         <div class="form-group">
-                          <label for="Activities" class="col-md-4 control-label">Actividades</label>
-                          <select multiple name="Activities[]" id="Activities">
+                          <label for="Moments" class="col-md-4 control-label">Actividades</label>
+                          <select multiple name="Moments[]" id="Moments">
                             <option value=""></option>
-                             @foreach ($teachingObject->activities as $activity)
-                              <option value="{{$activity->id}}">
-                                {{$activity->procedure}}
+                             @foreach ($teachingObject->moments as $moment)
+                              <option value="{{$moment->id}}">
+                                {{$moment->procedure}}
                               </option>
                               @endforeach
                             </select>

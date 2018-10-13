@@ -13,7 +13,7 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(App\Activity::class, function (Faker $faker) {
+$factory->define(App\Moment::class, function (Faker $faker) {
 
     return [
         'procedure' => $faker->word,

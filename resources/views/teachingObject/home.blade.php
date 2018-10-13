@@ -20,7 +20,7 @@
                 </div>
                 
                 <div class="panel-body">
-                    <a href="/activity">Actividades</a>
+                    <a href="/moment">Actividades</a>
                 </div>
             </div>
         </div>

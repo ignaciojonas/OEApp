@@ -121,16 +121,16 @@
                         </div>
 
                         <div class="form-group">
-                          <label for="Activities" class="col-md-4 control-label">Actividades</label>
-                          <select multiple name="Activities[]" id="Activities">
+                          <label for="Moments" class="col-md-4 control-label">Actividades</label>
+                          <select multiple name="Moments[]" id="Moments">
                             <option value=""></option>
-                             @foreach ($activities as $activity)
-                              <option value="{{$activity->id}}"
-                                @if(in_array($activity->id, $Activities))
+                             @foreach ($moments as $moment)
+                              <option value="{{$moment->id}}"
+                                @if(in_array($moment->id, $Moments))
                                   selected
                                 @endif
                                 >
-                                {{$activity->procedure}}
+                                {{$moment->procedure}}
                               </option>
                               @endforeach
                             </select>

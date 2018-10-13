@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Activity extends Model
+class Moment extends Model
 {
     protected $fillable = ['procedure', 'suggestions', 'achievementExpectation', 'implementationResult'];
 }

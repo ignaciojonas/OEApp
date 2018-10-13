@@ -23,9 +23,9 @@ class TeachingObject extends Model
       return $this->belongsToMany('App\Resource', 'teaching_object_resources');
   }
 
-  public function Activities()
+  public function Moments()
   {
-      return $this->belongsToMany('App\Activity', 'teaching_object_activities');
+      return $this->belongsToMany('App\Moment', 'teaching_object_moments');
   }
 
   public function authorsNames()

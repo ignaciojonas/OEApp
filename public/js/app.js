@@ -11371,7 +11371,7 @@ if (token) {
         var timeSinceLastCall = time - lastCallTime,
             timeSinceLastInvoke = time - lastInvokeTime;
 
-        // Either this is the first call, activity has stopped and we're at the
+        // Either this is the first call, moment has stopped and we're at the
         // trailing edge, the system time has gone backwards and we're treating
         // it as the trailing edge, or we've hit the `maxWait` limit.
         return (lastCallTime === undefined || (timeSinceLastCall >= wait) ||
@@ -33712,7 +33712,7 @@ if (true) {
       'referenced during render. Make sure that this property is reactive, ' +
       'either in the data option, or for class-based components, by ' +
       'initializing the property. ' +
-      'See: https://vuejs.org/v2/guide/reactivity.html#Declaring-Reactive-Properties.',
+      'See: https://vuejs.org/v2/guide/remoment.html#Declaring-Reactive-Properties.',
       target
     );
   };

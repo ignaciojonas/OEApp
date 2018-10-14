@@ -6,147 +6,173 @@
 
 @section('content')
 <div class="container">
-    <div class="row">
-        <div class="col-md-10 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Objeto de Enseñanza</div>
+  <div class="p-5 mb-2 h2 bg-dark text-white font-weight-bold">OBJETO DE ENSEÑANZA</div>
+      <div class="panel-body">
+        <form class="form-horizontal" method="POST" action="{{ route('teachingObject.update', $teachingObject) }}">
+          {{ csrf_field() }}
 
-                <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('teachingObject.update', $teachingObject) }}">
-                        {{ csrf_field() }}
-                        <input name="_method" type="hidden" value="put">
+          <section id="tit">
+              <div class="container">
+                <label for="title" class="control-label"><p>Título</p></label>
+                <input id="title" type="text" class="form-control" name="title" value="{{$teachingObject->title}}" >
+              </div>
+          </section>
 
-                        <div class="form-group">
-                            <label for="title" class="col-md-4 control-label">Título</label>
-                            <div class="col-md-6">
-                                <input id="title" type="text" class="form-control" name="title" value="{{$teachingObject->title}}" >
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                          <label for="authors" class="col-md-4 control-label">Autores</label>
-                          <select multiple name="authors[]" id="authors">
-                            <option value=""></option>
-                             @foreach ($users as $user)
-                              <option value="{{$user->id}}"
-                                @if(in_array($user->id, $authors))
-                                  selected
-                                @endif
-                                >
-                                {{$user->name}}
-                              </option>
-                              @endforeach
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="theme" class="col-md-4 control-label">Tema</label>
-                            <div class="col-md-6">
-                                <input id="theme" type="text" class="form-control" name="theme" value="{{$teachingObject->theme}}">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="content" class="col-md-4 control-label">Contenido</label>
-                            <div class="col-md-6">
-                                <textarea id="content" name="content">{{$teachingObject->content}}</textarea>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="goal" class="col-md-4 control-label">Objetivo</label>
-                            <div class="col-md-6">
-                                <textarea id="goal" name="goal"> {{$teachingObject->goal}}</textarea>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="didacticIntentionality" class="col-md-4 control-label">Enfoque</label>
-                            <div class="col-md-6">
-                                <textarea id="didacticIntentionality" name="didacticIntentionality" value="" >{{$teachingObject->didacticIntentionality}} </textarea>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="receiver" class="col-md-4 control-label">Destinatarios</label>
-                            <div class="col-md-6">
-                                <input id="receiver" type="text" class="form-control" name="receiver" value="{{$teachingObject->receiver}}">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="date" class="col-md-4 control-label">Fecha</label>
-                            <div class="col-md-6">
-                                <input id="date" type="date" class="form-control" name="date" value="{{$teachingObject->date}}">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="place" class="col-md-4 control-label">Lugar</label>
-                            <div class="col-md-6">
-                                <input id="place" type="text" class="form-control" name="place" value="{{$teachingObject->place}}">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                          <label for="Tags" class="col-md-4 control-label">Tags</label>
-                          <select multiple name="Tags[]" id="Tags">
-                            <option value=""></option>
-                             @foreach ($tags as $tag)
-                              <option value="{{$tag->id}}"
-                                @if(in_array($tag->id, $Tags))
-                                  selected
-                                @endif
-                                >
-                                {{$tag->name}}
-                              </option>
-                              @endforeach
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                          <label for="Resources" class="col-md-4 control-label">Recursos</label>
-                          <select multiple name="Resources[]" id="Resources">
-                            <option value=""></option>
-                             @foreach ($resources as $resource)
-                              <option value="{{$resource->id}}"
-                                @if(in_array($resource->id, $Resources))
-                                  selected
-                                @endif
-                                >
-                                {{$resource->name}}
-                              </option>
-                              @endforeach
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                          <label for="Moments" class="col-md-4 control-label">Actividades</label>
-                          <select multiple name="Moments[]" id="Moments">
-                            <option value=""></option>
-                             @foreach ($moments as $moment)
-                              <option value="{{$moment->id}}"
-                                @if(in_array($moment->id, $Moments))
-                                  selected
-                                @endif
-                                >
-                                {{$moment->procedure}}
-                              </option>
-                              @endforeach
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Actualizar
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+          <section id="auth">
+           <div class="container">
+              <label for="authors" class="control-label"><p>Autores</p></label>
+              <select multiple name="authors[]" id="authors">
+                <option value=""></option>
+                 @foreach ($users as $user)
+                  <option value="{{$user->id}}"
+                    @if(in_array($user->id, $authors))
+                      selected
+                    @endif
+                    >
+                    {{$user->name}}
+                  </option>
+                  @endforeach
+                </select>
             </div>
-        </div>
+          </section>
+
+        <section id="temrece">
+            <div class="container">
+              <div class="col-md-6">
+                <label for="theme" class="control-label"><p>Tema</p></label>
+                <input id="theme" type="text" class="form-control" name="theme" value="{{$teachingObject->theme}}">
+              </div>
+              <div class="col-md-6">
+                <label for="receiver" class="control-label"><p>Destinatarios</p></label>
+                <input id="receiver" type="text" class="form-control" name="receiver" value="{{$teachingObject->receiver}}">
+              </div>
+            </div>
+        </section>
+
+        <section id="placedate">
+          <div class="container">
+            <div class="col-md-6">
+              <label for="date" class="control-label"><p>Fecha</p></label>
+              <input id="date" type="date" class="form-control" name="date" value="{{$teachingObject->date}}">
+            </div>
+            <div class="col-md-6">
+              <label for="place" class="control-label"><p>Lugar</p></label>
+              <input id="place" type="text" class="form-control" name="place" value="{{$teachingObject->place}}">
+            </div>
+          </div>
+        </section>
+
+        <section id="cont">
+          <div class="container">
+              <label for="content" class="control-label"><p>Contenido</p></label>
+              <textarea id="content" name="content" value="">{{$teachingObject->content}}</textarea>
+          </div>
+        </section>
+
+        <section id="obj">
+          <div class="container">
+              <label for="goal" class="control-label"><p>Objetivos</p></label>
+              <textarea id="goal" name="goal" value=""> {{$teachingObject->goal}}</textarea>
+          </div>
+        </section>
+
+        <section id="conocprev">
+          <div class="container">
+              <label for="previousKnowledge" class="control-label"><p>Conocimientos previos</p></label>
+              <textarea id="previousKnowledge" name="previousKnowledge" value="" >{{$teachingObject->previousKnowledge}} </textarea>
+          </div>
+        </section>
+
+        <section id="intdid">
+          <div class="container">
+              <label for="didacticIntentionality" class="control-label"><p>Intencionalidad Didáctica</p></label>
+              <textarea id="didacticIntentionality" name="didacticIntentionality" value="" >{{$teachingObject->didacticIntentionality}} </textarea>
+          </div>
+        </section>
+
+        <section id="descgral">
+          <div class="container">
+                <label for="generalDescription" class="control-label"><p>Descripción General</p></label>
+                <textarea id="generalDescription" name="generalDescription" value="">{{$teachingObject->generalDescription}}</textarea>
+          </div>
+        </section>
+
+        <section id="arense">
+          <div class="container">
+                <label for="teachingArea" class="control-label"><p>Área de enseñanza</p></label>
+                <textarea id="teachingArea" name="teachingArea" value="">{{$teachingObject->teachingArea}}</textarea>
+          </div>
+        </section>
+
+        <section id="reso">
+          <div class="container">
+              <label for="Resources" class="control-label"><p>Tipo de Recursos</p></label>
+              <select multiple name="Resources[]" id="Resources">
+                <option value=""></option>
+                 @foreach ($resources as $resource)
+                  <option value="{{$resource->id}}"
+                    @if(in_array($resource->id, $Resources))
+                      selected
+                    @endif
+                    >
+                    {{$resource->name}}
+                  </option>
+                  @endforeach
+                </select>
+            </div>
+          </section>
+
+        <section id="marcador">
+          <div class="container">
+            <label for="Tags" class="control-label"><p>Tags</p></label>
+              <select multiple name="Tags[]" id="Tags">
+                <option value=""></option>
+                 @foreach ($tags as $tag)
+                  <option value="{{$tag->id}}"
+                    @if(in_array($tag->id, $Tags))
+                      selected
+                    @endif
+                    >
+                    {{$tag->name}}
+                  </option>
+                  @endforeach
+                </select>
+          </div>
+        </section>
+
+        <section id="mom">
+          <div class="container">
+            <label for="Moments" class="control-label"><p>Momentos</p></label>
+            <select multiple name="Moments[]" id="Moments">
+              <option value=""></option>
+               @foreach ($moments as $moment)
+                <option value="{{$moment->id}}"
+                  @if(in_array($moment->id, $Moments))
+                    selected
+                  @endif
+                  >
+                  {{$moment->procedure}}
+                </option>
+                @endforeach
+              </select>
+          </div>
+        </section>
+
+        <section id="reflec">
+          <div class="container">
+                  <label for="reflection" class="control-label"><p>Reflexiones sobre las puestas en el aula</p></label>
+                  <textarea id="reflection" name="reflection" value="">{{$teachingObject->reflection}}</textarea>
+          </div>
+        </section>
+
+          <div class="container">
+              <div class="col-md-8 col-md-offset-4">
+                  <button type="submit" class="btn btn-primary">
+                      Actualizar
+                  </button>
+              </div>
+          </div>
+      </form>
     </div>
 </div>
 @endsection

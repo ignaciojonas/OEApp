@@ -44,7 +44,7 @@
                   </div>
                   <div class="col-md-6">
                       <label for="receiver" class="control-label"><p>Destinatarios</p></label>
-                      <input id="receiver" type="text" class="form-control" name="receiver">
+                      <input type="text" id="receiver" class="form-control" name="receiver">
                   </div>
               </div>
             </section>

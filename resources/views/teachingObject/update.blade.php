@@ -10,7 +10,7 @@
       <div class="panel-body">
         <form class="form-horizontal" method="POST" action="{{ route('teachingObject.update', $teachingObject) }}">
           {{ csrf_field() }}
-
+          <input name="_method" type="hidden" value="put">
           <section id="tit">
               <div class="container">
                 <label for="title" class="control-label"><p>Título</p></label>

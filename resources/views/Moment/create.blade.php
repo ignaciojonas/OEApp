@@ -1,55 +1,76 @@
 @extends('layouts.app')
+@section('pagespecificscripts')
+  <script src="{{ asset('js/moments.js') }}"></script>
+@stop
 
 @section('content')
 <div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Moments</div>
+  <div class="p-5 mb-2 h2 bg-dark text-white font-weight-bold">MOMENTOS</div>
+       <div class="panel-body">
+          <form class="form-horizontal" method="POST" action="{{ route('moment.store') }}">
+            {{ csrf_field() }}
 
-                <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('moment.store') }}">
-                        {{ csrf_field() }}
-                        <div class="form-group">
-                            <label for="procedure" class="col-md-4 control-label">Consigna</label>
-                            <div class="col-md-6">
-                                <input id="procedure" type="text" class="form-control" name="procedure" required autofocus>
-                            </div>
-                        </div>
+            <section id="tit">
+              <div class="container">
+                    <label for="title" class="control-label"><p>Título del Momento</p></label>
+                    <input id="title" type="text" class="form-control" name="title">
+              </div>
+            </section>
 
-                        <div class="form-group">
-                            <label for="suggestions" class="col-md-4 control-label">Sugerencias</label>
-                            <div class="col-md-6">
-                                <textarea id="suggestions" name="suggestions" rows="5" cols="20"> </textarea>
-                            </div>
-                        </div>
+            <section id="desc">
+              <div class="container">
+                  <label for="briefDescription" class="control-label"><p>Descripción Breve</p></label>
+                  <textarea id="briefDescription" class="form-control" name="briefDescription" rows="5"></textarea>
+              </div>
+            </section>
 
-                        <div class="form-group">
-                            <label for="achievementExpectation" class="col-md-4 control-label">Expectativas de logro</label>
-                            <div class="col-md-6">
-                                <textarea id="achievementExpectation" name="achievementExpectation" rows="5" cols="20"> </textarea>
-                            </div>
-                        </div>
+            <section id="proc">
+              <div class="container">
+                  <label for="procedure" class="control-label"><p>Consigna para el alumno</p></label>
+                  <textarea id="procedure" class="form-control" name="procedure" rows="5"></textarea>
+              </div>
+            </section>
 
-                        <div class="form-group">
-                            <label for="implementationResult" class="col-md-4 control-label">Implementación y Resultados</label>
-                            <div class="col-md-6">
-                                <textarea id="implementationResult" name="implementationResult" rows="5" cols="20"> </textarea>
-                            </div>
-                        </div>
-
-                       <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Grabar
-                                </button>
-                            </div>
-                        </div>
-
-                    </form>
+            <section id="prev">
+              <div class="container">
+                  <label for="forecastsDevelopment" class="control-label"><p>Previsiones acerca del desarrollo del momento en el aula</p></label>
+                  <textarea id="forecastsDevelopment" name="forecastsDevelopment" class="form-control" rows="5"></textarea>
                 </div>
+            </section>
+
+            <section id="regdoc">
+                <div class="container">
+                    <label for="recordsTeachers" class="control-label"><p>Registros del trabajo entre docentes</p></label>
+                    <textarea id="recordsTeachers" name="recordsTeachers" class="form-control" rows="5"></textarea>
+                </div>
+            </section>
+
+            <section id="resostu">
+                <div class="container">
+                    <label for="resourceStudents" class="control-label"><p>Recursos para el alumno</p></label>
+                    <textarea id="resourceStudents" name="resourceStudents" class="form-control" rows="5"></textarea>
+                </div>
+            </section>
+
+            <section id="clarec">
+                <div class="container">
+                    <label for="classroomRecords" class="control-label"><p>Registros del aula</p></label>
+                    <textarea id="classroomRecords" name="classroomRecords" class="form-control" rows="5"></textarea>
+                </div>
+            </section>
+
+            <div class="container">
+              <div class="col-md-8 col-md-offset-4">
+                  <button type="submit" class="btn btn-primary">
+                      Grabar
+                  </button>
+              </div>
             </div>
-        </div>
-    </div>
-</div>
+
+
+
+          </form>
+      </div>
+  </div>
+
 @endsection

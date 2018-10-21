@@ -17,11 +17,11 @@ $factory->define(App\Moment::class, function (Faker $faker) {
 
     return [
         'title' => $faker->word,
-        'description' => $faker->word,
+        'briefDescription' => $faker->word,
         'procedure' => $faker->word,
-        'developmentForecast' => $faker->text,
-        'registrationTeacher' => $faker->text,
-        'resourcesStudent' => $faker->text,
-        'classroomRecord' => $faker->text
+        'forecastDevelopment' => $faker->text,
+        'recordsTeachers' => $faker->text,
+        'resourceStudents' => $faker->text,
+        'classroomRecords' => $faker->text
     ];
 });

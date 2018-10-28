@@ -2,47 +2,61 @@
 
 @section('content')
 <div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Moments</div>
+    <div class="p-5 mb-2 h2 bg-dark text-white font-weight-bold">MOMENTO</div>
+        <div class="panel-body">
+            <form class="form-horizontal" method="POST" >
+                <input name="_method" type="hidden" value="put">
 
-                <div class="panel-body">
-                    <form class="form-horizontal" method="POST" >
-                        <input name="_method" type="hidden" value="put">
+                    <section id=tit>
+                      <div class="container">
+                          <h3>Título del momento</h3>
+                          <p>{{$moment->title}}</p>
+                      </div>
+                    </section>
 
-                        <div class="form-group">
-                            <label for="procedure" class="col-md-4 control-label">Consigna</label>
-                            <div class="col-md-6">
-                                <input id="procedure" type="text" class="form-control" name="procedure" value="{{$moment->procedure}}" >
-                            </div>
-                        </div>
+                    <section id=desc>
+                      <div class="container">
+                          <h3>Descripción breve</h3>
+                          <p>{{$moment->briefDescription}}</p>
+                      </div>
+                    </section>
 
-                        <div class="form-group">
-                            <label for="suggestions" class="col-md-4 control-label">Sugerencias</label>
-                            <div class="col-md-6">
-                                <textarea id="suggestions" name="suggestions">{{$moment->suggestions}}</textarea>
-                            </div>
-                        </div>
+                    <section id=proc>
+                      <div class="container">
+                          <h3>Consigna para el alumno</h3>
+                          <p>{{$moment->procedure}}</p>
+                      </div>
+                    </section>
 
-                        <div class="form-group">
-                            <label for="achievementExpectation" class="col-md-4 control-label">Expectativas de logro</label>
-                            <div class="col-md-6">
-                                <textarea id="achievementExpectation" name="achievementExpectation">{{$moment->achievementExpectation}}</textarea>
-                            </div>
-                        </div>
+                    <section id=prev>
+                      <div class="container">
+                          <h3>Previsiones acerca del desarrollo del momento en el aula</h3>
+                          <p>{{$moment->forecastDevelopment}}</p>
+                      </div>
+                    </section>
 
-                        <div class="form-group">
-                            <label for="implementationResult" class="col-md-4 control-label">Implementación y Resultados</label>
-                            <div class="col-md-6">
-                                <textarea id="implementationResult" name="implementationResult">{{$moment->implementationResult}}</textarea>
-                            </div>
-                        </div>
+                    <section id=regdoc>
+                      <div class="container">
+                          <h3>Registros del trabajo entre docentes</h3>
+                          <p>{{$moment->recordsTeachers}}</p>
+                      </div>
+                    </section>
 
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+                    <section id=resostu>
+                      <div class="container">
+                          <h3>Recursos para el alumno</h3>
+                          <p>{{$moment->resourceStudents}}</p>
+                      </div>
+                    </section>
+
+                    <section id=clarec>
+                      <div class="container">
+                          <h3>Registros del aula</h3>
+                          <p>{{$moment->classroomRecords}}</p>
+                      </div>
+                    </section>
+
+              </form>
+      </div>
 </div>
 @endsection

@@ -7,7 +7,7 @@ $(document).ready(function() {
         placeholder: 'Complete aquí la consigna del momento',
         height: 300
       });
-  $('#forecastsDevelopment').summernote({
+  $('#forecastDevelopment').summernote({
         placeholder: 'Complete aquí las previsiones acerca del desarrollo del momento en el aula',
         height: 300
       });

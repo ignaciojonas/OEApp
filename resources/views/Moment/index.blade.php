@@ -11,17 +11,15 @@
                 </div>
                 <table class="table table-striped">
                   <tr>
+                    <th>Título</th>
+                    <th>Descripción</th>
                     <th>Consigna</th>
-                    <th>Sugerencias</th>
-                    <th>Expectativas de logro</th>
-                    <th>Implementación y Resultados</th>
                   </tr>
                   @foreach ($moments as $moment)
                   <tr>
+                    <td><a href="{{route('moment.show', $moment)}}">{{$moment->title}}</a></td>
+                    <td><a href="{{route('moment.show', $moment)}}">{{$moment->briefDescription}}</a></td>
                     <td><a href="{{route('moment.show', $moment)}}">{{$moment->procedure}}</a></td>
-                    <td><a href="{{route('moment.show', $moment)}}">{{$moment->suggestions}}</a></td>
-                      <td><a href="{{route('moment.show', $moment)}}">{{$moment->achievementExpectation}}</a></td>
-                        <td><a href="{{route('moment.show', $moment)}}">{{$moment->implementationResult}}</a></td>
                     <td>
                       <form  action="{{route('moment.destroy', $moment)}}" method="post">
                         {{ csrf_field() }}

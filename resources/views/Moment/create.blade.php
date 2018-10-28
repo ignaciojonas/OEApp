@@ -10,14 +10,14 @@
           <form class="form-horizontal" method="POST" action="{{ route('moment.store') }}">
             {{ csrf_field() }}
 
-            <section id="tit">
+           <section id="tit">
               <div class="container">
                     <label for="title" class="control-label"><p>Título del Momento</p></label>
                     <input id="title" type="text" class="form-control" name="title">
               </div>
             </section>
 
-            <section id="desc">
+           <section id="desc">
               <div class="container">
                   <label for="briefDescription" class="control-label"><p>Descripción Breve</p></label>
                   <textarea id="briefDescription" class="form-control" name="briefDescription" rows="5"></textarea>
@@ -33,8 +33,8 @@
 
             <section id="prev">
               <div class="container">
-                  <label for="forecastsDevelopment" class="control-label"><p>Previsiones acerca del desarrollo del momento en el aula</p></label>
-                  <textarea id="forecastsDevelopment" name="forecastsDevelopment" class="form-control" rows="5"></textarea>
+                  <label for="forecastDevelopment" class="control-label"><p>Previsiones acerca del desarrollo del momento en el aula</p></label>
+                  <textarea id="forecastDevelopment" name="forecastDevelopment" class="form-control" rows="5"></textarea>
                 </div>
             </section>
 

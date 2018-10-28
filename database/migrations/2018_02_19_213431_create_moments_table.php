@@ -18,10 +18,10 @@ class CreateMomentsTable extends Migration
             $table->string('title');
             $table->string('briefDescription');
             $table->string('procedure');
-            $table->string('forecastsDevelopment');
-            $table->string('recordsTeachers');
-            $table->string('resourceStudents');
-            $table->string('classroomRecords');
+            $table->string('forecastDevelopment')-> nullable();
+            $table->string('recordsTeachers')-> nullable();
+            $table->string('resourceStudents')-> nullable();
+            $table->string('classroomRecords')-> nullable();
             $table->timestamps();
         });
     }

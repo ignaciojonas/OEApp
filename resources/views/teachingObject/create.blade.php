@@ -142,7 +142,8 @@
 
         <section id="mom">
           <div class="container">
-              <label for="Moments" class="control-label"><p>Momentos</p></label>
+            <div>  <label for="Moments" class="control-label"><p>Momentos</p></label> </div>
+            <div class="col-md-10">
                 <select multiple name="Moments[]" id="Moments" class="form-control">
                   <option value=""></option>
                    @foreach ($moments as $moment)
@@ -151,7 +152,10 @@
                     </option>
                     @endforeach
                   </select>
-          </div>
+            </div>
+            <div class="col-md-2">
+                <a href="/moment/create" class="btn btn-primary btn-sm" role="button">Agregar</a>
+            </div>
         </section>
 
         <!--Reflexiones sobre las puestas en el aula-->

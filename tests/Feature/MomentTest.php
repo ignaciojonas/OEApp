@@ -17,7 +17,7 @@ class MomentTest extends TestCase
                        ->get('/moment');
       $response->assertStatus(200)
                ->assertSee($moment->procedure)
-               ->assertSee('Lista de Actividades')
+               ->assertSee('Lista de Momentos')
                ->assertSee('Crear')
                ->assertSee('Delete')
                ->assertSee('Editar');
@@ -63,9 +63,10 @@ class MomentTest extends TestCase
       $moment = factory(Moment::class)->create();
       $data =[
              "procedure" => $moment->procedure,
-             "suggestions" => $moment->suggestions,
-             "achievementExpectation" => $moment-> achievementExpectation,
-             "implementationResult" => $moment-> achievementExpectation,
+             "developmentForecast" => $moment->developmentForecast,
+             "registrationTeacher" => $moment->registrationTeacher,
+             "resourcesStudent" => $moment->resourcesStudent,
+             "classroomRecord" => $moment->classroomRecord,
              ];
 
       $response = $this->actingAs($user)
@@ -80,11 +81,12 @@ class MomentTest extends TestCase
       $user = factory(User::class)->create();
       $moment = factory(Moment::class)->make();
       $data =[
-            "procedure" => $moment->procedure,
-            "suggestions" => $moment->suggestions,
-            "achievementExpectation" => $moment-> achievementExpectation,
-            "implementationResult" => $moment-> achievementExpectation,
-           ];
+             "procedure" => $moment->procedure,
+             "developmentForecast" => $moment->developmentForecast,
+             "registrationTeacher" => $moment->registrationTeacher,
+             "resourcesStudent" => $moment->resourcesStudent,
+             "classroomRecord" => $moment->classroomRecord,
+             ];
       $response = $this->actingAs($user)
                         ->post("/moment",$data);
       $response->assertRedirect("/moment");
@@ -98,11 +100,12 @@ class MomentTest extends TestCase
       $moment = factory(Moment::class)->create();
       $new_moment = factory(Moment::class)->make();
       $data =[
-            "procedure" => $moment->procedure,
-            "suggestions" => $moment->suggestions,
-            "achievementExpectation" => $moment-> achievementExpectation,
-            "implementationResult" => $moment-> achievementExpectation,
-           ];
+             "procedure" => $moment->procedure,
+             "developmentForecast" => $moment->developmentForecast,
+             "registrationTeacher" => $moment->registrationTeacher,
+             "resourcesStudent" => $moment->resourcesStudent,
+             "classroomRecord" => $moment->classroomRecord,
+             ];
       $response = $this->actingAs($user)
                         ->put("/moment/$moment->id",$data);
       $response->assertRedirect("/moment");

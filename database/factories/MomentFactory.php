@@ -13,12 +13,15 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(App\Activity::class, function (Faker $faker) {
+$factory->define(App\Moment::class, function (Faker $faker) {
 
     return [
+        'title' => $faker->word,
+        'briefDescription' => $faker->word,
         'procedure' => $faker->word,
-        'suggestions' => $faker->text,
-        'achievementExpectation' => $faker->text,
-        'implementationResult' => $faker->text
+        'forecastDevelopment' => $faker->text,
+        'recordsTeachers' => $faker->text,
+        'resourceStudents' => $faker->text,
+        'classroomRecords' => $faker->text
     ];
 });

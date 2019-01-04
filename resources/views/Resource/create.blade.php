@@ -18,7 +18,7 @@
                         <div class="form-group">
                             <label for="name" class="col-md-4 control-label">Nombre</label>
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" required autofocus>
+                                <input id="name" type="text" class="form-control" name="name" >
                             </div>
                         </div>
 
@@ -36,14 +36,14 @@
                         <div class="form-group link">
                             <label for="link" class="col-md-4 control-label">Link</label>
                             <div class="col-md-6">
-                                <input id="link" type="text" class="form-control" name="link" autofocus>
+                                <input id="link" type="text" class="form-control" name="link" >
                             </div>
                         </div>
 
                         <div class="form-group file">
                             <label for="document" class="col-md-4 control-label">Archivo</label>
                             <div class="col-md-6">
-                                <input id="document" type="file" class="form-control" name="document" autofocus>
+                                <input id="document" type="file" class="form-control" name="document" >
                             </div>
                         </div>
 

@@ -66,8 +66,8 @@ class TeachingObjectTest extends TestCase
              "theme" => $teachingObject->theme,
              "content" => $teachingObject->content,
              "goal" => $teachingObject->goal,
-             "approach" => $teachingObject->approach,
-             "recipients" => $teachingObject->recipients,
+             "didacticIntentionality" => $teachingObject->didacticIntentionality,
+             "receiver" => $teachingObject->receiver,
              "date" => $teachingObject->date,
              "place" => $teachingObject->place,
            ];
@@ -88,8 +88,8 @@ class TeachingObjectTest extends TestCase
              "theme" => $teachingObject->theme,
              "content" => $teachingObject->content,
              "goal" => $teachingObject->goal,
-             "approach" => $teachingObject->approach,
-             "recipients" => $teachingObject->recipients,
+             "didacticIntentionality" => $teachingObject->didacticIntentionality,
+             "receiver" => $teachingObject->receiver,
              "date" => $teachingObject->date,
              "place" => $teachingObject->place,
            ];
@@ -111,8 +111,8 @@ class TeachingObjectTest extends TestCase
              "theme" => $new_teachingObject->theme,
              "content" => $new_teachingObject->content,
              "goal" => $new_teachingObject->goal,
-             "approach" => $new_teachingObject->approach,
-             "recipients" => $new_teachingObject->recipients,
+             "didacticIntentionality" => $new_teachingObject->didacticIntentionality,
+             "receiver" => $new_teachingObject->receiver,
              "date" => $new_teachingObject->date,
              "place" => $new_teachingObject->place,
            ];

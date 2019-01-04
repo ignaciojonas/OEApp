@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Activity;
+use App\Moment;
 use Illuminate\Http\Request;
 
-class ActivityController extends Controller
+class MomentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class ActivityController extends Controller
      */
     public function index()
     {
-      $activities = Activity::all();
-      return view('Activity.index',['activities' => $activities]);
+      $moments = Moment::all();
+      return view('Moment.index',['moments' => $moments]);
     }
 
     /**
@@ -25,7 +25,7 @@ class ActivityController extends Controller
      */
     public function create()
     {
-        return view('Activity.create');
+        return view('Moment.create');
     }
 
     /**
@@ -36,56 +36,56 @@ class ActivityController extends Controller
      */
     public function store(Request $request)
     {
-      $activity = Activity::create($request->all());
-      return redirect()->route('activity.index');
+      $moment = Moment::create($request->all());
+      return redirect()->route('moment.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Activity  $activity
+     * @param  \App\Moment  $moment
      * @return \Illuminate\Http\Response
      */
-    public function show(Activity $activity)
+    public function show(Moment $moment)
     {
-        return view('Activity.show',['activity'=> $activity]);
+        return view('Moment.show',['moment'=> $moment]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Activity  $activity
+     * @param  \App\Moment  $moment
      * @return \Illuminate\Http\Response
      */
-    public function edit(Activity $activity)
+    public function edit(Moment $moment)
     {
-        return view('Activity.update',['activity'=> $activity]);
+        return view('Moment.update',['moment'=> $moment]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Activity  $activity
+     * @param  \App\Moment  $moment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Activity $activity)
+    public function update(Request $request, Moment $moment)
     {
-      $activity->update($request->all());
+      $moment->update($request->all());
 
-      return redirect()->route('activity.index');
+      return redirect()->route('moment.index');
     }
 
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Activity  $activity
+     * @param  \App\Moment  $moment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Activity $activity)
+    public function destroy(Moment $moment)
     {
-        $activity->delete();
-        return redirect()->route('activity.index');
+        $moment->delete();
+        return redirect()->route('moment.index');
     }
 }

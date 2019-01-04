@@ -6,122 +6,144 @@
 
 @section('content')
 <div class="container">
-    <div class="row">
-        <div class="col-md-10 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Objeto de Enseñanza</div>
+  <div class="p-5 mb-2 h2 bg-dark text-white font-weight-bold">OBJETO DE ENSEÑANZA</div>
+       <div class="panel-body">
+          <form class="form-horizontal" method="POST">
+              <input name="_method" type="hidden" value="put">
 
-                <div class="panel-body">
-                    <form class="form-horizontal" method="POST" >
-                        <input name="_method" type="hidden" value="put">
-                        <div class="form-group">
-                            <label for="title" class="col-md-4 control-label">Título</label>
-                            <div class="col-md-6">
-                                <input id="title" type="text" class="form-control" name="title" value="{{$teachingObject->title}}" required autofocus>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                          <label for="authors" class="col-md-4 control-label">Autores</label>
-                          <select multiple name="authors[]" id="authors">
-                            <option value=""></option>
-                             @foreach ($teachingObject->authors as $author)
-                              <option value="{{$author->id}}">
-                                {{$author->name}}
-                              </option>
-                              @endforeach
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="theme" class="col-md-4 control-label">Tema</label>
-                            <div class="col-md-6">
-                                <input id="theme" type="text" class="form-control" name="theme" value="{{$teachingObject->theme}}">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="content" class="col-md-4 control-label">Contenido</label>
-                            <div class="col-md-6">
-                                <textarea id="content" name="content">{{$teachingObject->content}}</textarea>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="goal" class="col-md-4 control-label">Objetivo</label>
-                            <div class="col-md-6">
-                                <textarea id="goal" name="goal" >{{$teachingObject->goal}}</textarea>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="approach" class="col-md-4 control-label">Enfoque</label>
-                            <div class="col-md-6">
-                                <textarea id="approach" name="approach" >{{$teachingObject->approach}}</textarea>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="recipients" class="col-md-4 control-label">Destinatarios</label>
-                            <div class="col-md-6">
-                                <input id="recipients" type="text" class="form-control" name="recipients" value="{{$teachingObject->recipients}}">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="date" class="col-md-4 control-label">Fecha</label>
-                            <div class="col-md-6">
-                                <input id="date" type="date" class="form-control" name="date" value="{{$teachingObject->date}}">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="place" class="col-md-4 control-label">Lugar</label>
-                            <div class="col-md-6">
-                                <input id="place" type="text" class="form-control" name="place" value="{{$teachingObject->place}}">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                          <label for="Tags" class="col-md-4 control-label">Tags</label>
-                          <select multiple name="Tags[]" id="Tags">
-                            <option value=""></option>
-                             @foreach ($teachingObject->tags as $tag)
-                              <option value="{{$tag->id}}">
-                                {{$tag->name}}
-                              </option>
-                              @endforeach
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                          <label for="Resources" class="col-md-4 control-label">Recursos</label>
-                          <select multiple name="Resources[]" id="Resources">
-                            <option value=""></option>
-                             @foreach ($teachingObject->resources as $resource)
-                              <option value="{{$resource->id}}">
-                                {{$resource->name}}
-                              </option>
-                              @endforeach
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                          <label for="Activities" class="col-md-4 control-label">Actividades</label>
-                          <select multiple name="Activities[]" id="Activities">
-                            <option value=""></option>
-                             @foreach ($teachingObject->activities as $activity)
-                              <option value="{{$activity->id}}">
-                                {{$activity->procedure}}
-                              </option>
-                              @endforeach
-                            </select>
-                        </div>
-
-                    </form>
+            <section id="titaut">
+              <div class="container">
+                <div class="col-md-6">
+                    <h3>Título del OE</h3>
+                    <p>{{$teachingObject->title}}</p>
                 </div>
+                <div class="col-md-6">
+                  <label for="authors" class="control-label"><h3>Autores</h3></label>
+                    <select multiple name="authors[]" id="authors" class="form-control" >
+                      <option value=""></option>
+                       @foreach ($teachingObject->authors as $author)
+                       <option value="{{$author->id}}">
+                         {{$author->name}}
+                       </option>
+                       @endforeach
+                    </select>
+                </div>
+              </div>
+            </section>
+
+            <section id="temrece">
+              <div class="container">
+                  <div class="col-md-6">
+                      <h3>Tema</h3>
+                      <p>{{$teachingObject->theme}}</p>
+                  </div>
+                  <div class="col-md-6">
+                      <h3>Destinatarios</h3>
+                      <p>{{$teachingObject->receiver}}</p>
+                  </div>
+              </div>
+            </section>
+
+            <section id="cont">
+              <div class="container">
+                      <h3>Contenido</h3>
+                      <p>{{$teachingObject->content}} </p> <!--cómo se pueden poner los formatos-->
+              </div>
+            </section>
+
+            <section id="placedate">
+              <div class="container">
+                  <div class="col-md-6">
+                      <h3>Fecha</h3>
+                      <p>{{$teachingObject->date}} </p>
+                  </div>
+                  <div class="col-md-6">
+                      <h3>Lugar</h3>
+                      <p>{{$teachingObject->place}} </p>
+                  </div>
+              </div>
+            </section>
+
+            <section id="obj">
+              <div class="container">
+                      <h3>Objetivos</h3>
+                      <p>{{$teachingObject->goal}} </p>
+              </div>
+            </section>
+
+            <section id="conocprev">
+            <div class="container">
+                    <h3>Conocimientos Previos</h3>
+                    <p>{{$teachingObject->previousKnowledge}}</p>
             </div>
-        </div>
-    </div>
-</div>
+            </section>
+
+            <section id="intdid">
+            <div class="container">
+                    <h3>Intencionalidad didáctica</h3>
+                    <p>{{$teachingObject->didacticIntentionality}}</p>
+            </div>
+            </section>
+
+            <section id="descgral">
+            <div class="container">
+                  <h3>Descripción General</h3>
+                  <p>{{$teachingObject->generalDescription}}</p>
+            </div>
+            </section>
+
+            <section id="arense">
+            <div class="container">
+                  <h3>Área de enseñanza</h3>
+                  <p>{{$teachingObject->teachingArea}}</p>
+            </div>
+            </section>
+
+            <div class="form-group">
+              <h3>Tags</h3>
+              <select multiple name="Tags[]" id="Tags">
+                <option value=""></option>
+                 @foreach ($teachingObject->tags as $tag)
+                  <option value="{{$tag->id}}">
+                    {{$tag->name}}
+                  </option>
+                  @endforeach
+                </select>
+            </div>
+
+            <div class="form-group">
+              <h3>Recursos</h3>
+              <select multiple name="Resources[]" id="Resources">
+                <option value=""></option>
+                 @foreach ($teachingObject->resources as $resource)
+                  <option value="{{$resource->id}}">
+                    {{$resource->name}}
+                  </option>
+                  @endforeach
+                </select>
+            </div>
+
+            <div class="form-group">
+              <h3>Actividades</h3>
+              <select multiple name="Moments[]" id="Moments">
+                <option value=""></option>
+                 @foreach ($teachingObject->moments as $moment)
+                  <option value="{{$moment->id}}">
+                    {{$moment->procedure}}
+                  </option>
+                  @endforeach
+                </select>
+            </div>
+
+            <section id="reflec">
+              <div class="container">
+                      <h3>Reflexiones sobre las puestas en el aula</h3>
+                      <p>{{$teachingObject->reflection}}</p>
+              </div>
+            </section>
+
+          </form>
+      </div>
+  </div>
+
 @endsection

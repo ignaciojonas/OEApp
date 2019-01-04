@@ -24,7 +24,7 @@
                       <form  action="{{route('moment.destroy', $moment)}}" method="post">
                         {{ csrf_field() }}
                         <input name="_method" type="hidden" value="delete">
-                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        <button type="submit" class="btn btn-danger btn-sm">Borrar</button>
                       </form>
                       <a class='btn btn-primary btn-sm' href="{{route('moment.edit', $moment->id)}}">Editar</a>
                     </td>

@@ -47,7 +47,7 @@
             <section id="cont">
               <div class="container">
                       <h3>Contenido</h3>
-                      <p>{{$teachingObject->content}} </p> <!--cómo se pueden poner los formatos-->
+                      <p>{!!$teachingObject->content!!} </p> <!--cómo se pueden poner los formatos-->
               </div>
             </section>
 
@@ -67,14 +67,14 @@
             <section id="obj">
               <div class="container">
                       <h3>Objetivos</h3>
-                      <p>{{$teachingObject->goal}} </p>
+                      <p>{!!$teachingObject->goal!!} </p>
               </div>
             </section>
 
             <section id="conocprev">
             <div class="container">
                     <h3>Conocimientos Previos</h3>
-                    <p>{{$teachingObject->previousKnowledge}}</p>
+                    <p>{!!$teachingObject->previousKnowledge!!}</p>
             </div>
             </section>
 

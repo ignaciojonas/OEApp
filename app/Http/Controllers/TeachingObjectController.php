@@ -18,7 +18,7 @@ class TeachingObjectController extends Controller
      */
     public function index()
     {
-      $teachingObjects = TeachingObject::all();
+      $teachingObjects = TeachingObject::all(); /*modificar*/
       return view('teachingObject.index',['teachingObjects' => $teachingObjects]);
     }
 

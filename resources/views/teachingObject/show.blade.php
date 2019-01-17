@@ -15,7 +15,7 @@
               <div class="container">
                 <div class="col-md-6">
                     <h3>Título del OE</h3>
-                    <p>{{$teachingObject->title}}</p>
+                    <p>{!!$teachingObject->title!!}</p>
                 </div>
                 <div class="col-md-6">
                   <label for="authors" class="control-label"><h3>Autores</h3></label>
@@ -23,7 +23,7 @@
                       <option value=""></option>
                        @foreach ($teachingObject->authors as $author)
                        <option value="{{$author->id}}">
-                         {{$author->name}}
+                         {!!$author->name!!}
                        </option>
                        @endforeach
                     </select>
@@ -35,11 +35,11 @@
               <div class="container">
                   <div class="col-md-6">
                       <h3>Tema</h3>
-                      <p>{{$teachingObject->theme}}</p>
+                      <p>{!!$teachingObject->theme!!}</p>
                   </div>
                   <div class="col-md-6">
                       <h3>Destinatarios</h3>
-                      <p>{{$teachingObject->receiver}}</p>
+                      <p>{!!$teachingObject->receiver!!}</p>
                   </div>
               </div>
             </section>
@@ -47,7 +47,7 @@
             <section id="cont">
               <div class="container">
                       <h3>Contenido</h3>
-                      <p>{!!$teachingObject->content!!} </p> <!--cómo se pueden poner los formatos-->
+                      <p>{!!$teachingObject->content!!} </p>
               </div>
             </section>
 
@@ -55,11 +55,11 @@
               <div class="container">
                   <div class="col-md-6">
                       <h3>Fecha</h3>
-                      <p>{{$teachingObject->date}} </p>
+                      <p>{!!$teachingObject->date!!} </p>
                   </div>
                   <div class="col-md-6">
                       <h3>Lugar</h3>
-                      <p>{{$teachingObject->place}} </p>
+                      <p>{!!$teachingObject->place!!} </p>
                   </div>
               </div>
             </section>
@@ -81,21 +81,21 @@
             <section id="intdid">
             <div class="container">
                     <h3>Intencionalidad didáctica</h3>
-                    <p>{{$teachingObject->didacticIntentionality}}</p>
+                    <p>{!!$teachingObject->didacticIntentionality!!}</p>
             </div>
             </section>
 
             <section id="descgral">
             <div class="container">
                   <h3>Descripción General</h3>
-                  <p>{{$teachingObject->generalDescription}}</p>
+                  <p>{!!$teachingObject->generalDescription!!}</p>
             </div>
             </section>
 
             <section id="arense">
             <div class="container">
                   <h3>Área de enseñanza</h3>
-                  <p>{{$teachingObject->teachingArea}}</p>
+                  <p>{!!$teachingObject->teachingArea!!}</p>
             </div>
             </section>
 
@@ -105,7 +105,7 @@
                 <option value=""></option>
                  @foreach ($teachingObject->tags as $tag)
                   <option value="{{$tag->id}}">
-                    {{$tag->name}}
+                    {!!$tag->name!!}
                   </option>
                   @endforeach
                 </select>
@@ -117,7 +117,7 @@
                 <option value=""></option>
                  @foreach ($teachingObject->resources as $resource)
                   <option value="{{$resource->id}}">
-                    {{$resource->name}}
+                    {!!$resource->name!!}
                   </option>
                   @endforeach
                 </select>
@@ -129,7 +129,7 @@
                 <option value=""></option>
                  @foreach ($teachingObject->moments as $moment)
                   <option value="{{$moment->id}}">
-                    {{$moment->procedure}}
+                    {!!$moment->procedure!!}
                   </option>
                   @endforeach
                 </select>
@@ -138,7 +138,7 @@
             <section id="reflec">
               <div class="container">
                       <h3>Reflexiones sobre las puestas en el aula</h3>
-                      <p>{{$teachingObject->reflection}}</p>
+                      <p>{!!$teachingObject->reflection!!}</p>
               </div>
             </section>
 

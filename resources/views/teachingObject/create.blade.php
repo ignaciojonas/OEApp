@@ -9,6 +9,7 @@
 <!--contenedor de todo el formulario-->
 <div class="container">
   <div class="p-5 mb-2 h2 bg-dark text-white font-weight-bold">OBJETO DE ENSEÑANZA</div>
+
        <div class="panel-body">
           <form class="form-horizontal" method="POST" action="{{ route('teachingObject.store') }}">
             {{ csrf_field() }}

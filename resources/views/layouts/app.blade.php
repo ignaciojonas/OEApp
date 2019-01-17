@@ -9,11 +9,12 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Objetos de Enseñanza</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
   </head>
 <body>
@@ -32,7 +33,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        Objetos de Enseñanza
                     </a>
                 </div>
 
@@ -73,8 +74,34 @@
                 </div>
             </div>
         </nav>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                  <div class="panel panel-default">
+                      <div class="panel-heading">Accesos</div>
 
-        @yield('content')
+                      <div class="panel-body">
+                          <a href="/teachingObject">Objetos de Enseñanza</a>
+                      </div>
+
+                      <div class="panel-body">
+                          <a href="/tag">Tags</a>
+                      </div>
+
+                      <div class="panel-body">
+                          <a href="/resource">Recursos</a>
+                      </div>
+
+                      <div class="panel-body">
+                          <a href="/moment">Momentos</a>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-8">
+                @yield('content')
+              </div>
+            </div>
+          </div>
     </div>
 
     <!-- Scripts -->

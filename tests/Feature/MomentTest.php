@@ -18,7 +18,6 @@ class MomentTest extends TestCase
       $response->assertStatus(200)
                ->assertSee($moment->procedure)
                ->assertSee('Lista de Momentos');
-
     }
 
     public function testCreateMoment()

@@ -13,15 +13,9 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(App\Moment::class, function (Faker $faker) {
+$factory->define(App\Record::class, function (Faker $faker) {
 
     return [
-        'title' => $faker->word,
-        'briefDescription' => $faker->word,
-        'procedure' => $faker->word,
-        'forecastDevelopment' => $faker->text,
-        'teachers_record_id' => factory(App\Record::class)->create()->id,
-        'resourceStudents' => $faker->text,
-        'classroom_record_id' => factory(App\Record::class)->create()->id
+        'record' => $faker->text
     ];
 });

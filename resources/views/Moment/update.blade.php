@@ -42,8 +42,8 @@
 
           <section id="regdoc">
               <div class="container">
-                  <label for="recordsTeachers" class="control-label"><p>Registros del trabajo entre docentes</p></label>
-                  <textarea id="recordsTeachers" name="recordsTeachers" value="">{{$moment->recordsTeachers}}</textarea>
+                  <label for="teachersRecord" class="control-label"><p>Registros del trabajo entre docentes</p></label>
+                  <textarea id="teachersRecord" name="teachersRecord" value="">{{$moment->teachersRecord()->record}}</textarea>
               </div>
           </section>
 
@@ -56,8 +56,8 @@
 
           <section id="clarec">
               <div class="container">
-                  <label for="classroomRecords" class="control-label"><p>Registros del aula</p></label>
-                  <textarea id="classroomRecords" name="classroomRecords" value="">{{$moment->classroomRecords}}</textarea>
+                  <label for="classroomRecord" class="control-label"><p>Registros del aula</p></label>
+                  <textarea id="classroomRecord" name="classroomRecord" value="">{{$moment->classroomRecord()->record}}</textarea>
               </div>
           </section>
 

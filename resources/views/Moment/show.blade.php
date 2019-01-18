@@ -38,7 +38,7 @@
                     <section id=regdoc>
                       <div class="container">
                           <h3>Registros del trabajo entre docentes</h3>
-                          <p>{{$moment->recordsTeachers}}</p>
+                          <p>{{$moment->teachersRecord()->record}}</p>
                       </div>
                     </section>
 
@@ -52,7 +52,7 @@
                     <section id=clarec>
                       <div class="container">
                           <h3>Registros del aula</h3>
-                          <p>{{$moment->classroomRecords}}</p>
+                          <p>{{$moment->classroomRecord()->record}}</p>
                       </div>
                     </section>
 

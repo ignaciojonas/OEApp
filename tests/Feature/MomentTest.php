@@ -64,9 +64,9 @@ class MomentTest extends TestCase
       $data =[
              "procedure" => $moment->procedure,
              "forecastDevelopment" => $moment->forecastDevelopment,
-             "recordsTeachers" => $moment->recordsTeachers,
+             "teachers_record_id" => $moment->teachersRecord()->id,
              "resourceStudents" => $moment->resourceStudents,
-             "classroomRecords" => $moment->classroomRecords,
+             "classroom_record_id" => $moment->classroomRecord()->id,
              ];
 
       $response = $this->actingAs($user)
@@ -76,23 +76,29 @@ class MomentTest extends TestCase
       $this->assertDatabaseMissing('moments', $data);;
     }
 
-/*    public function testStoreMoment()
+    public function testStoreMoment()
     {
       $user = factory(User::class)->create();
       $moment = factory(Moment::class)->make();
       $data =[
+            "title" => $moment->title,
+            "briefDescription" => $moment->briefDescription,
             "procedure" => $moment->procedure,
             "forecastDevelopment" => $moment->forecastDevelopment,
-            "recordsTeachers" => $moment->recordsTeachers,
+            "teachersRecord" => $moment->teachersRecord()->record,
             "resourceStudents" => $moment->resourceStudents,
-            "classroomRecords" => $moment->classroomRecords,
+            "classroomRecord" => $moment->classroomRecord()->record,
            ];
       $response = $this->actingAs($user)
                         ->post("/moment",$data);
 
       $response->assertRedirect("/moment");
-      $this->assertDatabaseHas('moments', $data);;
-    }*/
+      unset($data['teachersRecord']);
+      unset($data['classroomRecord']);
+      $this->assertDatabaseHas('moments', $data);
+      $this->assertDatabaseHas('records', ["record" => $moment->teachersRecord()->record]);
+      $this->assertDatabaseHas('records', ["record" => $moment->classroomRecord()->record]);
+    }
 
     public function testUpdateMoment()
     {
@@ -102,13 +108,17 @@ class MomentTest extends TestCase
       $data =[
             "procedure" => $moment->procedure,
             "forecastDevelopment" => $moment->forecastDevelopment,
-            "recordsTeachers" => $moment->recordsTeachers,
+            "teachersRecord" => $moment->teachersRecord()->record,
+            "teachers_record_id" => $moment->teachersRecord()->id,
             "resourceStudents" => $moment->resourceStudents,
-            "classroomRecords" => $moment->classroomRecords,
+            "classroomRecord" => $moment->classroomRecord()->record,
+            "classroom_record_id" => $moment->classroomRecord()->id,
            ];
       $response = $this->actingAs($user)
                         ->put("/moment/$moment->id",$data);
       $response->assertRedirect("/moment");
+      unset($data['teachersRecord']);
+      unset($data['classroomRecord']);
       $this->assertDatabaseHas('moments', $data);;
     }
 }

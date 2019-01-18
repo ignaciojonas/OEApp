@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Moment;
+use App\Record;
 use Illuminate\Http\Request;
 
 class MomentController extends Controller
@@ -37,6 +38,12 @@ class MomentController extends Controller
     public function store(Request $request)
     {
       $moment = Moment::create($request->all());
+      $teachers_record = $request->input('teachersRecord');
+      $classroom_record = $request->input('classroomRecord');
+      $moment->teachers_record_id = Record::create(['record' => $teachers_record])->id;
+      $moment->classroom_record_id = Record::create(['record' => $classroom_record])->id;
+      $moment->save();
+
       return redirect()->route('moment.index');
     }
 
@@ -72,6 +79,12 @@ class MomentController extends Controller
     public function update(Request $request, Moment $moment)
     {
       $moment->update($request->all());
+      $teachersRecord = $moment->teachersRecord();
+      $classroomRecord = $moment->classroomRecord();
+      $teachersRecord->record = $request->input('teachersRecord');
+      $classroomRecord->record = $request->input('classroomRecord');
+      $teachersRecord->save();
+      $classroomRecord->save();
 
       return redirect()->route('moment.index');
     }

@@ -11,7 +11,7 @@ class MomentsTableSeeder extends Seeder
      */
     public function run()
     {
-      factory(App\Moment::class, 1)->create(['title'=>'título', 'briefDescription'=>'descripción', 'procedure'=>'consigna', 'forecastDevelopment'=>'previsiones del desarrollo', 'recordsTeachers'=>'registros entre docentes', 'resourceStudents'=>'recursos para el alumno', 'classroomRecords'=>'registros del aula']);
+      factory(App\Moment::class, 1)->create(['title'=>'título', 'briefDescription'=>'descripción', 'procedure'=>'consigna', 'forecastDevelopment'=>'previsiones del desarrollo', 'resourceStudents'=>'recursos para el alumno']);
       factory(App\Moment::class, 10)->create();
     }
 }

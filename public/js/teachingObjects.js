@@ -60,20 +60,20 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 45);
+/******/ 	return __webpack_require__(__webpack_require__.s = 47);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 45:
+/***/ 47:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(46);
+module.exports = __webpack_require__(48);
 
 
 /***/ }),
 
-/***/ 46:
+/***/ 48:
 /***/ (function(module, exports) {
 
 $(document).ready(function () {
@@ -85,12 +85,12 @@ $(document).ready(function () {
             placeholder: 'Complete aquí el objetivo del objeto de enseñanza',
             height: 300
       });
-      $('#previousKnowledge').summernote({
-            placeholder: 'Complete aquí los conocimientos previos del objeto de enseñanza',
+      $('#didacticIntentionality').summernote({
+            placeholder: 'Complete aquí el enfoque del objeto de enseñanza',
             height: 300
       });
-      $('#didacticIntentionality').summernote({
-            placeholder: 'Complete aquí la intencionalidad didáctica del objeto de enseñanza',
+      $('#previousKnowledge').summernote({
+            placeholder: 'Complete aquí los conocimientos previos del objeto de enseñanza',
             height: 300
       });
       $('#generalDescription').summernote({
@@ -105,8 +105,6 @@ $(document).ready(function () {
             placeholder: 'Complete aquí las reflexiones sobre las puestas en el aula del OE',
             height: 300
       });
-
-
 });
 
 /***/ })

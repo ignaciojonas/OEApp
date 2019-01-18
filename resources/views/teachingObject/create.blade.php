@@ -5,7 +5,7 @@
 @stop
 <!--@section('title','home')-->
 @section('content')
-
+@include('teachingObject.navbar')
 <!--contenedor de todo el formulario-->
 <div class="container">
   <div class="p-5 mb-2 h2 bg-dark text-white font-weight-bold">OBJETO DE ENSEÑANZA</div>
@@ -33,7 +33,7 @@
                     <option value="{{$user->id}}">{{$user->name}}</option>
                     @endforeach
                   </select>
-          </div>
+            </div>
           </section>
 
             <!--Tema y destinatarios-->
@@ -120,7 +120,7 @@
                 <option value=""></option>
                  @foreach ($resources as $resource)
                   <option value="{{$resource->id}}">
-                    {{$resource->name}}
+                    {!!$resource->name!!}
                   </option>
                   @endforeach
                 </select>
@@ -134,7 +134,7 @@
                   <option value=""></option>
                    @foreach ($tags as $tag)
                     <option value="{{$tag->id}}">
-                      {{$tag->name}}
+                      {!!$tag->name!!}
                     </option>
                     @endforeach
                   </select>
@@ -148,7 +148,7 @@
                   <option value=""></option>
                    @foreach ($moments as $moment)
                     <option value="{{$moment->id}}">
-                      {{$moment->procedure}}
+                      {!!$moment->title!!}
                     </option>
                     @endforeach
                   </select>

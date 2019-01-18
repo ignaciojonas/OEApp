@@ -5,6 +5,8 @@
 @stop
 
 @section('content')
+@include('teachingObject.navbar')
+
 <div class="container">
   <div class="p-5 mb-2 h2 bg-dark text-white font-weight-bold">OBJETO DE ENSEÑANZA</div>
       <div class="panel-body">
@@ -21,7 +23,7 @@
           <section id="auth">
            <div class="container">
               <label for="authors" class="control-label"><p>Autores</p></label>
-              <select multiple name="authors[]" id="authors">
+              <select multiple name="authors[]" id="authors" class="form-control">
                 <option value=""></option>
                  @foreach ($users as $user)
                   <option value="{{$user->id}}"
@@ -151,7 +153,7 @@
                     selected
                   @endif
                   >
-                  {{$moment->procedure}}
+                  {{$moment->title}}
                 </option>
                 @endforeach
               </select>

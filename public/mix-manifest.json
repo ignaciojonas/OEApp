@@ -2,5 +2,6 @@
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/js/resources.js": "/js/resources.js",
-    "/js/teachingObjects.js": "/js/teachingObjects.js"
+    "/js/teachingObjects.js": "/js/teachingObjects.js",
+    "/js/moments.js": "/js/moments.js"
 }

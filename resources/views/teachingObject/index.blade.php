@@ -22,10 +22,10 @@
                     <td>{{$teachingObject->authorsNames()}}</td>
                     <td>
                       <a href="{{route('teachingObject.edit', $teachingObject)}}"><i class="fas fa-edit"></i></a>
-                      <form id="delete-teachingObject{{$teachingObject->title}}" action="{{route('teachingObject.destroy', $teachingObject)}}" method="post">
+                      <form id="delete-teachingObject-{{$teachingObject->id}}" action="{{route('teachingObject.destroy', $teachingObject)}}" method="post">
                         {{ csrf_field() }}
                         <input name="_method" type="hidden" value="delete">
-                        <a href="#" onclick="document.getElementById('delete-teachingObject{{$teachingObject->title}}').submit()"><i class="fas fa-trash"></i></a>
+                        <a href="#" onclick="document.getElementById('delete-teachingObject-{{$teachingObject->id}}').submit()"><i class="fas fa-trash"></i></a>
                       </form>
                     </td>
                   </tr>

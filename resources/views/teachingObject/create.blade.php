@@ -115,43 +115,43 @@
 
         <section id="reso">
           <div class="container">
-              <label for="Resources" class="control-label"> <p>Tipo de Recursos</p></label>
-              <select multiple name="Resources[]" id="Resources" class="form-control">
+            <label for="Resources" class="control-label"> <p>Tipo de Recursos</p></label>
+            <select multiple name="Resources[]" id="Resources" class="form-control">
                 <option value=""></option>
                  @foreach ($resources as $resource)
                   <option value="{{$resource->id}}">
                     {!!$resource->name!!}
                   </option>
                   @endforeach
-                </select>
+            </select>
           </div>
         </section>
 
         <section id="marcador">
           <div class="container">
-              <label for="Tags" class="control-label"><p> Tags</p></label>
-                <select multiple name="Tags[]" id="Tags" class="form-control">
-                  <option value=""></option>
-                   @foreach ($tags as $tag)
-                    <option value="{{$tag->id}}">
-                      {!!$tag->name!!}
-                    </option>
-                    @endforeach
-                  </select>
+            <label for="Tags" class="control-label"><p> Tags</p></label>
+            <select multiple name="Tags[]" id="Tags" class="form-control">
+                <option value=""></option>
+                 @foreach ($tags as $tag)
+                  <option value="{{$tag->id}}">
+                    {!!$tag->name!!}
+                  </option>
+                  @endforeach
+            </select>
           </div>
         </section>
 
         <section id="mom">
           <div class="container">
-              <label for="Moments" class="control-label"><p>Momentos</p></label>
-                <select multiple name="Moments[]" id="Moments" class="form-control">
+            <label for="Moments" class="control-label"><p>Momentos</p></label>
+            <select multiple name="Moments[]" id="Moments" class="form-control">
                   <option value=""></option>
                    @foreach ($moments as $moment)
                     <option value="{{$moment->id}}">
                       {!!$moment->title!!}
                     </option>
                     @endforeach
-                  </select>
+            </select>
           </div>
         </section>
 

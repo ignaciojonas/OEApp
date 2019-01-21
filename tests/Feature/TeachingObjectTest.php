@@ -18,9 +18,7 @@ class TeachingObjectTest extends TestCase
       $response->assertStatus(200)
                ->assertSee($teachingObject->title)
                ->assertSee('Objeto de Enseñanza')
-               ->assertSee('Crear')
-               ->assertSee('Delete')
-               ->assertSee('Editar');
+               ->assertSee('Crear');
     }
 
     public function testCreateTeachingObject()

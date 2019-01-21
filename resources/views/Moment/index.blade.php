@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-10">
             <div class="panel panel-default">
                 <div class="panel-heading">
                   Lista de Momentos
@@ -18,15 +18,15 @@
                   @foreach ($moments as $moment)
                   <tr>
                     <td><a href="{{route('moment.show', $moment)}}">{{$moment->title}}</a></td>
-                    <td><a href="{{route('moment.show', $moment)}}">{{$moment->briefDescription}}</a></td>
-                    <td><a href="{{route('moment.show', $moment)}}">{{$moment->procedure}}</a></td>
+                    <td><a href="{{route('moment.show', $moment)}}">{!!$moment->briefDescription!!}</a></td>
+                    <td><a href="{{route('moment.show', $moment)}}">{!!$moment->procedure!!}</a></td>
                     <td>
-                      <form  action="{{route('moment.destroy', $moment)}}" method="post">
+                      <form id="delete-moment-{{$moment->id}}" action="{{route('moment.destroy', $moment)}}" method="post">
                         {{ csrf_field() }}
                         <input name="_method" type="hidden" value="delete">
-                        <button type="submit" class="btn btn-danger btn-sm">Borrar</button>
+                        <a href="#" onclick="document.getElementById('delete-moment-{{$moment->id}}').submit();"><i class="fas fa-trash"></i></a>
                       </form>
-                      <a class='btn btn-primary btn-sm' href="{{route('moment.edit', $moment->id)}}">Editar</a>
+                      <a href="{{route('moment.edit', $moment->id)}}"><i class="fas fa-edit"></i></a>
                     </td>
                   </tr>
                   @endforeach

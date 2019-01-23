@@ -20,9 +20,7 @@ class ResourceTest extends TestCase
       $response->assertStatus(200)
                ->assertSee($resource->name)
                ->assertSee('Lista de Recursos')
-               ->assertSee('Crear')
-               ->assertSee('Delete')
-               ->assertSee('Editar');
+               ->assertSee('Crear');
     }
 
     public function testCreateResource()

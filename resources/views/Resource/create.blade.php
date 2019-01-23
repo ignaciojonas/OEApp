@@ -4,7 +4,6 @@
   <script src="{{ asset('js/resources.js') }}"></script>
 @stop
 
-
 @section('content')
 <div class="container">
   <div class="p-5 mb-2 h2 bg-dark text-white font-weight-bold">RECURSO</div>

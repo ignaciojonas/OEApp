@@ -77,6 +77,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-2">
+                  @guest
+                  @else
                   <div class="panel panel-default">
                       <div class="panel-heading">Accesos</div>
 
@@ -96,6 +98,7 @@
                           <a href="/moment">Momentos</a>
                       </div>
                   </div>
+                  @endguest
               </div>
               <div class="col-md-8">
                 @yield('content')

@@ -14,6 +14,7 @@
                     <th>Título</th>
                     <th>Descripción</th>
                     <th>Consigna</th>
+                    <th>Acciones</th>
                   </tr>
                   @foreach ($moments as $moment)
                   <tr>

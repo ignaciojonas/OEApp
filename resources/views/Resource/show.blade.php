@@ -25,7 +25,7 @@
             @if(isset($resource->path))
               <div class="container">
                 <h4>Archivo</h4>
-                <a href="{{asset('/storage/app/public/'.$resource->path)}}" download="{{$resource->name}}">Bajar archivo actual</a>
+                <a href="{{asset('/storage/'.$resource->path)}}" download="{{$resource->name}}">Bajar archivo actual</a>
               </div>
             @else
               <div class="container">

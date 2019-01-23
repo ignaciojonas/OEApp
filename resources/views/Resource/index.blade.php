@@ -18,14 +18,14 @@
                   @foreach ($resources as $resource)
                   <tr>
                     <td><a href="{{route('resource.show', $resource)}}">{{$resource->name}}</a></td>
-                    <td><a href="{{route('resource.show', $resource)}}">{{$resource->description}}</a></td>
+                    <td><a href="{{route('resource.show', $resource)}}">{{$resource->type}}</a></td>
                     <td>
-                      <form  action="{{route('resource.destroy', $resource)}}" method="post">
+                      <a href="{{route('resource.edit', $resource->id)}}"><i class="fas fa-edit"></i></a>
+                      <form  id= "delete-resource-{{$resource->id}}" action="{{route('resource.destroy', $resource)}}" method="post">
                         {{ csrf_field() }}
                         <input name="_method" type="hidden" value="delete">
-                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        <a href="#" onclick="document.getElementById('delete-resource-{{$resource->id}}').submit()"><i class="fas fa-trash"></i></a>
                       </form>
-                      <a class='btn btn-primary btn-sm' href="{{route('resource.edit', $resource->id)}}">Editar</a>
                     </td>
                   </tr>
                   @endforeach

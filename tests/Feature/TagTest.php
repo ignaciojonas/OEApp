@@ -18,9 +18,7 @@ class TagTest extends TestCase
       $response->assertStatus(200)
                ->assertSee($tag->name)
                ->assertSee('Lista de Tags')
-               ->assertSee('Crear')
-               ->assertSee('Delete')
-               ->assertSee('Editar');
+               ->assertSee('Crear');
     }
 
     public function testCreateTag()

@@ -22,12 +22,12 @@
                     <td><a href="{{route('moment.show', $moment)}}">{!!$moment->briefDescription!!}</a></td>
                     <td><a href="{{route('moment.show', $moment)}}">{!!$moment->procedure!!}</a></td>
                     <td>
+                      <a href="{{route('moment.edit', $moment->id)}}"><i class="fas fa-edit"></i></a>
                       <form id="delete-moment-{{$moment->id}}" action="{{route('moment.destroy', $moment)}}" method="post">
                         {{ csrf_field() }}
                         <input name="_method" type="hidden" value="delete">
                         <a href="#" onclick="document.getElementById('delete-moment-{{$moment->id}}').submit();"><i class="fas fa-trash"></i></a>
                       </form>
-                      <a href="{{route('moment.edit', $moment->id)}}"><i class="fas fa-edit"></i></a>
                     </td>
                   </tr>
                   @endforeach

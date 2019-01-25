@@ -7,7 +7,7 @@
 <div class="container">
   <div class="p-5 mb-2 h2 bg-dark text-white font-weight-bold">MOMENTOS</div>
        <div class="panel-body">
-          <form class="form-horizontal" method="POST" action="{{ route('moment.store') }}">
+          <form class="form-horizontal" method="POST" action="{{ route('moment.store') }}" enctype="multipart/form-data">
             {{ csrf_field() }}
 
            <section id="tit">
@@ -42,6 +42,7 @@
                 <div class="container">
                     <label for="teachersRecord" class="control-label"><p>Registros del trabajo entre docentes</p></label>
                     <textarea id="teachersRecord" name="teachersRecord" class="form-control" rows="5"></textarea>
+                    <input type="file" name="teachersRecordFiles[]" multiple>
                 </div>
             </section>
 
@@ -56,6 +57,7 @@
                 <div class="container">
                     <label for="classroomRecord" class="control-label"><p>Registros del aula</p></label>
                     <textarea id="classroomRecord" name="classroomRecord" class="form-control" rows="5"></textarea>
+                    <input type="file" name="classroomRecordFiles[]">
                 </div>
             </section>
 

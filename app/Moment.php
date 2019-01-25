@@ -13,6 +13,16 @@ class Moment extends Model
         return Record::find($this->teachers_record_id);
     }
 
+    public function teachersRecordFiles()
+    {
+        return FileRecord::where('record_id', $this->teachers_record_id)->get();
+    }
+
+    public function classroomRecordFiles()
+    {
+        return FileRecord::where('record_id', $this->classroom_record_id)->get();
+    }
+
     public function classroomRecord()
     {
         return Record::find($this->classroom_record_id);

@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
   $('#briefDescription').summernote({
         placeholder: 'Complete aquí la descripción del momento',
@@ -23,4 +24,26 @@ $(document).ready(function() {
         placeholder: 'Complete aquí los registros del aula',
         height: 300
   });
+
+    function deleteFile(id){
+      event.preventDefault();
+      $.ajaxSetup({
+              headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+               }
+              });
+      $.ajax({
+            url: '/file/' + id,
+            type: 'DELETE',
+            success: function(result) {
+              $('#file-' + id).remove();
+            }
+        });
+    }
+
+  $('.delete-file').click(function(){
+    deleteFile($(this).data('file-id'));
+  });
+
+
 });

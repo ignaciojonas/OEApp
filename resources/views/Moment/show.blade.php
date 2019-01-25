@@ -39,6 +39,16 @@
                       <div class="container">
                           <h3>Registros del trabajo entre docentes</h3>
                           <p>{!!$moment->teachersRecord()->record!!}</p>
+                          @if($moment->teachersRecordFiles() !== null)
+                            <h4>Archivos Adjuntos</h4>
+                            <ul>
+                              @foreach ($moment->teachersRecordFiles() as $fileRecord)
+                                <li>
+                                  <a href="{{asset('storage/'.$fileRecord->file->path)}}" download="{{$fileRecord->file->name}}">{{$fileRecord->file->name}}</a>
+                                </li>
+                              @endforeach
+                            </ul>
+                          @endif
                       </div>
                     </section>
 
@@ -53,6 +63,16 @@
                       <div class="container">
                           <h3>Registros del aula</h3>
                           <p>{!!$moment->classroomRecord()->record!!}</p>
+                          @if($moment->classroomRecordFiles() !== null)
+                            <h4>Archivos Adjuntos</h4>
+                            <ul>
+                              @foreach ($moment->classroomRecordFiles() as $fileRecord)
+                                <li>
+                                  <a href="{{asset('storage/'.$fileRecord->file->path)}}" download="{{$fileRecord->file->name}}">{{$fileRecord->file->name}}</a>
+                                </li>
+                              @endforeach
+                            </ul>
+                          @endif
                       </div>
                     </section>
 

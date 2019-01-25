@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Moment;
 use App\Record;
+use App\File;
+use App\FileRecord;
 use Illuminate\Http\Request;
 
 class MomentController extends Controller
@@ -43,6 +45,25 @@ class MomentController extends Controller
       $moment->teachers_record_id = Record::create(['record' => $teachers_record])->id;
       $moment->classroom_record_id = Record::create(['record' => $classroom_record])->id;
       $moment->save();
+      if(isset($request->teachersRecordFiles)){
+        $files = $request->file('teachersRecordFiles');
+        foreach ($files as $teachersRecordFile) {
+          $name = $teachersRecordFile->getClientOriginalName();
+          $path = $teachersRecordFile->store('files');
+          $file_id = File::create(['path' => $path, 'type' => pathinfo($path)['extension'], 'name' => $name])->id;
+          FileRecord::create(['record_id' => $moment->teachers_record_id , 'file_id' => $file_id]);
+        }
+      }
+
+      if(isset($request->classroomRecordFiles)){
+        $files = $request->file('classroomRecordFiles');
+        foreach ($files as $classroomRecordFile) {
+          $name = $classroomRecordFile->getClientOriginalName();
+          $path = $classroomRecordFile->store('files');
+          $file_id = File::create(['path' => $path, 'type' => pathinfo($path)['extension'], 'name' => $name])->id;
+          FileRecord::create(['record_id' => $moment->classroom_record_id , 'file_id' => $file_id]);
+        }
+      }
 
       return redirect()->route('moment.index');
     }
@@ -55,7 +76,8 @@ class MomentController extends Controller
      */
     public function show(Moment $moment)
     {
-        return view('Moment.show',['moment'=> $moment]);
+      //var_dump($moment->teachersRecordFiles());
+      return view('Moment.show',['moment'=> $moment]);
     }
 
     /**
@@ -85,6 +107,25 @@ class MomentController extends Controller
       $classroomRecord->record = $request->input('classroomRecord');
       $teachersRecord->save();
       $classroomRecord->save();
+      if($request->hasFile('teachersRecordFiles')){
+        $files = $request->file('teachersRecordFiles');
+        foreach ($files as $teachersRecordFile) {
+          $name = $teachersRecordFile->getClientOriginalName();
+          $path = $teachersRecordFile->store('files');
+          $file_id = File::create(['path' => $path, 'type' => pathinfo($path)['extension'], 'name' => $name])->id;
+          FileRecord::create(['record_id' => $moment->teachers_record_id , 'file_id' => $file_id]);
+        }
+      }
+
+      if($request->hasFile('classroomRecordFiles')){
+        $files = $request->file('classroomRecordFiles');
+        foreach ($files as $classroomRecordFile) {
+          $name = $classroomRecordFile->getClientOriginalName();
+          $path = $classroomRecordFile->store('files');
+          $file_id = File::create(['path' => $path, 'type' => pathinfo($path)['extension'], 'name' => $name])->id;
+          FileRecord::create(['record_id' => $moment->classroom_record_id , 'file_id' => $file_id]);
+        }
+      }
 
       return redirect()->route('moment.index');
     }

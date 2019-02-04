@@ -32,7 +32,7 @@
                    @foreach ($users as $user)
                     <option value="{{$user->id}}">{{$user->name}}</option>
                     @endforeach
-                  </select>
+                </select>
             </div>
           </section>
 
@@ -115,15 +115,22 @@
 
         <section id="reso">
           <div class="container">
-            <label for="Resources" class="control-label"> <p>Tipo de Recursos</p></label>
-            <select multiple name="Resources[]" id="Resources" class="form-control">
+            <div class="col-md">
+              <label for="Resources" class="control-label"> <p>Tipo de Recursos</p></label>
+            </div>
+            <div class="col-md-10">
+              <select multiple name="Resources[]" id="Resources" class="form-control">
                 <option value=""></option>
                  @foreach ($resources as $resource)
                   <option value="{{$resource->id}}">
                     {!!$resource->name!!}
                   </option>
                   @endforeach
-            </select>
+              </select>
+            </div>
+            <div class="col-md-2">
+              <a href="{{route('resource.create')}}" target="popup" onclick="window.open('', 'popup', 'width = 800, height = 600')">Agregar <i class="fas fa-plus-square"></i></a>
+            </div>
           </div>
         </section>
 

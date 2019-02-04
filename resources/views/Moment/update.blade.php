@@ -8,7 +8,7 @@
 <div class="container">
   <div class="p-5 mb-2 h2 bg-dark text-white font-weight-bold">MOMENTOS</div>
       <div class="panel-body">
-        <form class="form-horizontal" method="POST" action="{{ route('moment.update', $moment) }}">
+        <form class="form-horizontal" method="POST" action="{{ route('moment.update', $moment) }}" enctype="multipart/form-data">
           {{ csrf_field() }}
           <input name="_method" type="hidden" value="put">
 
@@ -44,6 +44,20 @@
               <div class="container">
                   <label for="teachersRecord" class="control-label"><p>Registros del trabajo entre docentes</p></label>
                   <textarea id="teachersRecord" name="teachersRecord" value="">{{$moment->teachersRecord()->record}}</textarea>
+                  <label for="teachersRecordFiles" class="control-label"><p>Adjuntar Archivos</p></label>
+                  <input type="file" name="teachersRecordFiles[]" multiple>
+                    <h4>Archivos Adjuntos</h4>
+                    <ul>
+                      @if ($moment->teachersRecordFiles()->isEmpty())
+                      <li>No hay archivos</li>
+                      @endif
+                      @foreach ($moment->teachersRecordFiles() as $fileRecord)
+                      <li id='file-{{$fileRecord->file->id}}'>
+                        <a href="{{asset('storage/'.$fileRecord->file->path)}}" download="{{$fileRecord->file->name}}">{{$fileRecord->file->name}}</a>
+                        <a href="#" class='delete-file' data-file-id="{{$fileRecord->file->id}}"><i class="fas fa-trash"></i></a>
+                      </li>
+                      @endforeach
+                    </ul>
               </div>
           </section>
 
@@ -58,6 +72,20 @@
               <div class="container">
                   <label for="classroomRecord" class="control-label"><p>Registros del aula</p></label>
                   <textarea id="classroomRecord" name="classroomRecord" value="">{{$moment->classroomRecord()->record}}</textarea>
+                  <label for="classroomRecordFiles" class="control-label"><p>Adjuntar Archivos</p></label>
+                  <input type="file" name="classroomRecordFiles[]" multiple>
+                    <h4>Archivos Adjuntos</h4>
+                    <ul>
+                      @if ($moment->classroomRecordFiles()->isEmpty())
+                      <li>No hay archivos</li>
+                      @endif
+                      @foreach ($moment->classroomRecordFiles() as $fileRecord)
+                        <li id='file-{{$fileRecord->file->id}}'>
+                          <a href="{{asset('storage/'.$fileRecord->file->path)}}" download="{{$fileRecord->file->name}}">{{$fileRecord->file->name}}</a>
+                          <a href="#" class='delete-file' data-file-id="{{$fileRecord->file->id}}"><i class="fas fa-trash"></i></a>
+                        </li>
+                      @endforeach
+                    </ul>
               </div>
           </section>
 

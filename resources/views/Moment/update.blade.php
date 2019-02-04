@@ -46,9 +46,11 @@
                   <textarea id="teachersRecord" name="teachersRecord" value="">{{$moment->teachersRecord()->record}}</textarea>
                   <label for="teachersRecordFiles" class="control-label"><p>Adjuntar Archivos</p></label>
                   <input type="file" name="teachersRecordFiles[]" multiple>
-                  @if($moment->teachersRecordFiles() !== null)
                     <h4>Archivos Adjuntos</h4>
                     <ul>
+                      @if ($moment->teachersRecordFiles()->isEmpty())
+                      <li>No hay archivos</li>
+                      @endif
                       @foreach ($moment->teachersRecordFiles() as $fileRecord)
                       <li id='file-{{$fileRecord->file->id}}'>
                         <a href="{{asset('storage/'.$fileRecord->file->path)}}" download="{{$fileRecord->file->name}}">{{$fileRecord->file->name}}</a>
@@ -56,7 +58,6 @@
                       </li>
                       @endforeach
                     </ul>
-                  @endif
               </div>
           </section>
 
@@ -73,9 +74,11 @@
                   <textarea id="classroomRecord" name="classroomRecord" value="">{{$moment->classroomRecord()->record}}</textarea>
                   <label for="classroomRecordFiles" class="control-label"><p>Adjuntar Archivos</p></label>
                   <input type="file" name="classroomRecordFiles[]" multiple>
-                  @if($moment->classroomRecordFiles() !== null)
                     <h4>Archivos Adjuntos</h4>
                     <ul>
+                      @if ($moment->classroomRecordFiles()->isEmpty())
+                      <li>No hay archivos</li>
+                      @endif
                       @foreach ($moment->classroomRecordFiles() as $fileRecord)
                         <li id='file-{{$fileRecord->file->id}}'>
                           <a href="{{asset('storage/'.$fileRecord->file->path)}}" download="{{$fileRecord->file->name}}">{{$fileRecord->file->name}}</a>
@@ -83,7 +86,6 @@
                         </li>
                       @endforeach
                     </ul>
-                  @endif
               </div>
           </section>
 

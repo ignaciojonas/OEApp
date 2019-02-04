@@ -76,7 +76,6 @@ class MomentController extends Controller
      */
     public function show(Moment $moment)
     {
-      //var_dump($moment->teachersRecordFiles());
       return view('Moment.show',['moment'=> $moment]);
     }
 

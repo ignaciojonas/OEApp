@@ -3,6 +3,8 @@
 namespace Tests\Feature;
 
 use Tests\TestCase;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\User;
 use App\Moment;
@@ -75,6 +77,7 @@ class MomentTest extends TestCase
 
     public function testStoreMoment()
     {
+      Storage::fake('files');
       $user = factory(User::class)->create();
       $moment = factory(Moment::class)->make();
       $data =[
@@ -85,6 +88,8 @@ class MomentTest extends TestCase
             "teachersRecord" => $moment->teachersRecord()->record,
             "resourceStudents" => $moment->resourceStudents,
             "classroomRecord" => $moment->classroomRecord()->record,
+            "teachersRecordFiles" => array(UploadedFile::fake()->image('teachersRecordFile.jpg')),
+            "classroomRecordFiles" => array(UploadedFile::fake()->image('classroomRecordFile.jpg'))
            ];
       $response = $this->actingAs($user)
                         ->post("/moment",$data);
@@ -92,6 +97,8 @@ class MomentTest extends TestCase
       $response->assertRedirect("/moment");
       unset($data['teachersRecord']);
       unset($data['classroomRecord']);
+      unset($data['teachersRecordFiles']);
+      unset($data['classroomRecordFiles']);
       $this->assertDatabaseHas('moments', $data);
       $this->assertDatabaseHas('records', ["record" => $moment->teachersRecord()->record]);
       $this->assertDatabaseHas('records', ["record" => $moment->classroomRecord()->record]);
@@ -110,12 +117,16 @@ class MomentTest extends TestCase
             "resourceStudents" => $moment->resourceStudents,
             "classroomRecord" => $moment->classroomRecord()->record,
             "classroom_record_id" => $moment->classroomRecord()->id,
+            "teachersRecordFiles" => array(UploadedFile::fake()->image('teachersRecordFile.jpg')),
+            "classroomRecordFiles" => array(UploadedFile::fake()->image('classroomRecordFile.jpg'))
            ];
       $response = $this->actingAs($user)
                         ->put("/moment/$moment->id",$data);
       $response->assertRedirect("/moment");
       unset($data['teachersRecord']);
       unset($data['classroomRecord']);
+      unset($data['teachersRecordFiles']);
+      unset($data['classroomRecordFiles']);
       $this->assertDatabaseHas('moments', $data);;
     }
 }

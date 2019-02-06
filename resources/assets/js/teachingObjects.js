@@ -28,5 +28,28 @@ $(document).ready(function() {
         height: 300
   });
 
+  $('#btnCreateTag').click(function(){
+    $("#frmTag").submit();
+  });
+
+  $("#frmTag").submit(function(e) {
+    var form = $(this);
+    var url = form.attr('action');
+
+    $.ajax({
+           type: "POST",
+           url: url,
+           data: form.serialize(), // serializes the form's elements.
+           success: function(data)
+           {
+             var tag = JSON.parse(data);
+             $('#favoritesModal').modal('hide');
+             $('#Tags').append($('<option>', {value: tag.id, text: tag.name}));
+             form.trigger("reset");
+           }
+         });
+    e.preventDefault(); // avoid to execute the actual submit of the form.
+});
+
 
 });

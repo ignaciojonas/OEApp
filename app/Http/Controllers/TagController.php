@@ -37,7 +37,12 @@ class TagController extends Controller
     public function store(Request $request)
     {
       $tag = Tag::create($request->all());
-      return redirect()->route('tag.index');
+      if (\Request::ajax()) {
+            return json_encode($tag);
+      }
+      else {
+        return redirect()->route('tag.index');
+      }
     }
 
     /**

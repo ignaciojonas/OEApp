@@ -129,7 +129,16 @@
 
         <section id="marcador">
           <div class="container">
-            <label for="Tags" class="control-label"><p> Tags</p></label>
+            <label for="Tags" class="control-label">
+              Tags
+              <button
+                 type="button"
+                 class="btn btn-link"
+                 data-toggle="modal"
+                 data-target="#favoritesModal">
+                <i class="fas fa-plus"></i>
+              </button>
+            </label>
             <select multiple name="Tags[]" id="Tags" class="form-control">
                 <option value=""></option>
                  @foreach ($tags as $tag)
@@ -172,6 +181,52 @@
           </div>
         </div>
     </form>
+    </div>
+    <div class="modal fade" id="favoritesModal"
+         tabindex="-1" role="dialog"
+         aria-labelledby="favoritesModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close"
+              data-dismiss="modal"
+              aria-label="Close">
+              <span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title"
+            id="favoritesModalLabel">Crear Tab</h4>
+          </div>
+          <div class="modal-body">
+            <div class="container">
+              <form id="frmTag" class="form-horizontal" method="POST" action="{{ route('tag.store') }}">
+                  {{ csrf_field() }}
+                  <div class="container">
+                      <label for="name" class="col-sm-2 control-label"><p>Nombre</p></label>
+                      <div class="col-sm-6">
+                          <input required id="name" type="text" class="form-control" name="name">
+                      </div>
+                  </div>
+
+                  <div class="container">
+                      <label for="description" class="col-sm-2 control-label"><p>Descripción</p></label>
+                      <div class="col-sm-6">
+                        <textarea required id="description" name="description" type="text" class="form-control"></textarea>
+                      </div>
+                  </div>
+              </form>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button"
+               class="btn btn-default"
+               data-dismiss="modal">Cerrar</button>
+            <span class="pull-right">
+              <button id="btnCreateTag" type="button" class="btn btn-primary">
+                Crear
+              </button>
+            </span>
+          </div>
+        </div>
+      </div>
     </div>
 </div>
 

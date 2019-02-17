@@ -129,7 +129,8 @@
 
         <section id="marcador">
           <div class="container">
-            <label for="Tags" class="control-label"><p> Tags</p></label> <small>-Etiqueta o palabra asociada a un OE-</small>
+            <label for="Tags" class="control-label"><p>Tags</p></label> <small>-Etiqueta o palabra asociada a un OE-</small>
+            <button type="button" class="btn btn-link" data-toggle="modal" data-target="#favoritesModal">Agregar <i class="fas fa-plus-square"></i></button>
             <select multiple name="Tags[]" id="Tags" class="form-control">
                 <option value=""></option>
                  @foreach ($tags as $tag)
@@ -172,9 +173,45 @@
           </div>
         </div>
     </form>
-    </div>
+  </div>
+
+  <div class="modal fade" id="favoritesModal" tabindex="-1" role="dialog" aria-labelledby="favoritesModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="favoritesModalLabel">Crear Tag</h4>
+          </div>
+          <div class="modal-body">
+            <div class="container">
+              <form id="frmTag" class="form-horizontal" method="POST" action="{{ route('tag.store') }}">
+                  {{ csrf_field() }}
+                  <div class="container">
+                      <div class="col-md-5">
+                          <label for="name" class="control-label"><p>Nombre</p></label>
+                          <input id="name" type="text" class="form-control" name="name">
+                      </div>
+                  </div>
+                  <div class="container">
+                      <div class="col-md-5">
+                        <label for="description" class="control-label"><p>Descripción</p></label>
+                        <textarea id="description" name="description" type="text" class="form-control"></textarea>
+                      </div>
+                  </div>
+              </form>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            <span class="pull-right">
+              <button id="btnCreateTag" type="button" class="btn btn-primary">Crear</button>
+            </span>
+          </div>
+        </div>
+      </div>
+  </div>
 </div>
-
-
 
 @endsection

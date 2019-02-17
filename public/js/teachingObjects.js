@@ -105,6 +105,28 @@ $(document).ready(function () {
             placeholder: 'Complete aquí las reflexiones sobre el desarrollo de la experiencia en relación con las previsiones realizadas',
             height: 300
       });
+
+      $('#btnCreateTag').click(function(){
+        $("#frmTag").submit();
+      });
+
+      $("#frmTag").submit(function (e) {
+           var form = $(this);
+           var url = form.attr('action');
+           $.ajax({
+                 type: "POST",
+                 url: url,
+                 data: form.serialize(),
+                 success: function success(data) {
+                       var tag = JSON.parse(data);
+                       $('#favoritesModal').modal('hide');
+                       $('#Tags').append($('<option>', { value: tag.id, text: tag.name }));
+                       form.trigger("reset");
+                 }
+           });
+           e.preventDefault();
+     });
+
 });
 
 /***/ })

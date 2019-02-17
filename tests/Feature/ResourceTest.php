@@ -90,7 +90,7 @@ class ResourceTest extends TestCase
 
       $this->assertDatabaseHas('resources', $data);
       $createdResource = Resource::where('name', $resource->name)->first();
-      $this->assertTrue($createdResource->path != '');
+      $this->assertTrue($createdResource->path != '' || $createdResource->link != '');
     }
 
     public function testUpdateResource()
@@ -110,6 +110,6 @@ class ResourceTest extends TestCase
       $response->assertRedirect("/resource");
       $this->assertDatabaseHas('resources', $data);;
       $resource = $resource->fresh();
-      $this->assertTrue($resource->path != '');
+      $this->assertTrue($resource->path != '' || $createdResource->link != '');
     }
 }

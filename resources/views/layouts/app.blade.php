@@ -97,6 +97,10 @@
                       <div class="panel-body">
                           <a href="/moment">Momentos</a>
                       </div>
+
+                      <div class="panel-body">
+                          <a href="/user">Autores</a>
+                      </div>
                   </div>
                   @endguest
               </div>

@@ -20,4 +20,5 @@ Route::resource('tag','TagController');
 Route::resource('resource','ResourceController');
 Route::resource('moment', 'MomentController');
 Route::resource('file', 'FileController');
+Route::resource('user', 'UserController');
 Route::get('resource/{id}/download', 'ResourceController@download');

@@ -102,7 +102,7 @@ $(document).ready(function () {
             height: 300
       });
       $('#reflection').summernote({
-            placeholder: 'Complete aquí las reflexiones sobre las puestas en el aula del OE',
+            placeholder: 'Complete aquí las reflexiones sobre el desarrollo de la experiencia en relación con las previsiones realizadas',
             height: 300
       });
 });

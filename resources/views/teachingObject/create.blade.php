@@ -115,7 +115,7 @@
 
         <section id="reso">
           <div class="container">
-            <label for="Resources" class="control-label"> <p>Tipo de Recursos</p></label>
+            <label for="Resources" class="control-label"> <p>Tipo de Recursos</p></label> <small>-Recurso que incluirá el OE-</small>
             <select multiple name="Resources[]" id="Resources" class="form-control">
                 <option value=""></option>
                  @foreach ($resources as $resource)
@@ -129,7 +129,7 @@
 
         <section id="marcador">
           <div class="container">
-            <label for="Tags" class="control-label"><p> Tags</p></label>
+            <label for="Tags" class="control-label"><p> Tags</p></label> <small>-Etiqueta o palabra asociada a un OE-</small>
             <select multiple name="Tags[]" id="Tags" class="form-control">
                 <option value=""></option>
                  @foreach ($tags as $tag)
@@ -143,7 +143,7 @@
 
         <section id="mom">
           <div class="container">
-            <label for="Moments" class="control-label"><p>Momentos</p></label>
+            <label for="Moments" class="control-label"><p>Momentos</p></label> <small>-Etapas que requieren diferentes dinámicas del trabajo en el aula, instancias de trabajo individuales, en grupos o colectivas sobre una puesta en común-</small>
             <select multiple name="Moments[]" id="Moments" class="form-control">
                   <option value=""></option>
                    @foreach ($moments as $moment)

@@ -33,20 +33,20 @@ $(document).ready(function() {
   });
 
   $("#frmTag").submit(function (e) {
-       var form = $(this);
-       var url = form.attr('action');
+      e.preventDefault();
+       let form = $(this);
+       let url = form.attr('action');
        $.ajax({
              type: "POST",
              url: url,
              data: form.serialize(),
              success: function (data) {
                    var tag = JSON.parse(data);
-                   $('#favoritesModal').modal('hide');
+                   $('#tagsModal').modal('hide');
                    $('#Tags').append($('<option>', { value: tag.id, text: tag.name }));
                    form.trigger("reset");
              }
        });
-       e.preventDefault();
     });
 
 

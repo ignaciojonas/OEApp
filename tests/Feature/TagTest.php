@@ -86,6 +86,19 @@ class TagTest extends TestCase
       $this->assertDatabaseHas('tags', $data);;
     }
 
+    public function testStoreTagAjaxRequest()
+    {
+      $user = factory(User::class)->create();
+      $tag = factory(Tag::class)->make();
+      $data =[
+              "name" => $tag->name,
+              "description" => $tag->description,
+           ];
+      $response = $this->actingAs($user)
+                        ->post("/tag",$data, array('HTTP_X-Requested-With' => 'XMLHttpRequest'));
+      $this->assertDatabaseHas('tags', $data);;
+    }
+
     public function testUpdateTag()
     {
       $user = factory(User::class)->create();

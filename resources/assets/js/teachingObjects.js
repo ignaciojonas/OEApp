@@ -28,5 +28,26 @@ $(document).ready(function() {
         height: 300
   });
 
+  $('#btnCreateTag').click(function(){
+    $("#frmTag").submit();
+  });
+
+  $("#frmTag").submit(function (e) {
+      e.preventDefault();
+       let form = $(this);
+       let url = form.attr('action');
+       $.ajax({
+             type: "POST",
+             url: url,
+             data: form.serialize(),
+             success: function (data) {
+                   var tag = JSON.parse(data);
+                   $('#tagsModal').modal('hide');
+                   $('#Tags').append($('<option>', { value: tag.id, text: tag.name }));
+                   form.trigger("reset");
+             }
+       });
+    });
+
 
 });

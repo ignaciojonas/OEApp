@@ -129,7 +129,8 @@
 
         <section id="marcador">
           <div class="container">
-            <label for="Tags" class="control-label"><p> Tags</p></label> <small>-Etiqueta o palabra asociada a un OE-</small>
+            <label for="Tags" class="control-label"><p>Tags</p></label> <small>-Etiqueta o palabra asociada a un OE-</small>
+            <button type="button" class="btn btn-link" data-toggle="modal" data-target="#tagsModal">Agregar <i class="fas fa-plus-square"></i></button>
             <select multiple name="Tags[]" id="Tags" class="form-control">
                 <option value=""></option>
                  @foreach ($tags as $tag)
@@ -172,9 +173,9 @@
           </div>
         </div>
     </form>
-    </div>
+  </div>
+
+  @include('modals.tags')
 </div>
-
-
 
 @endsection

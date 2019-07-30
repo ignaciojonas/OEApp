@@ -9,8 +9,11 @@ use App\TeachingObject;
 
 class TeachingObjectTest extends TestCase
 {
+
+
     public function testListTeachingObject()
     {
+      $this->withoutExceptionHandling();
       $user = factory(User::class)->create();
       $teachingObject = factory(TeachingObject::class)->create();
       $response = $this->actingAs($user)
@@ -32,6 +35,7 @@ class TeachingObjectTest extends TestCase
 
     public function testEditTeachingObject()
     {
+      $this->withoutExceptionHandling();
       $user = factory(User::class)->create();
       $teachingObject = factory(TeachingObject::class)->create();
 

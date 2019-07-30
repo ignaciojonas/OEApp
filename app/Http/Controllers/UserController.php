@@ -52,7 +52,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        return view('user.show',['user'=> $user]);
+        return view('User.show',['user'=> $user]);
     }
 
     /**
@@ -63,7 +63,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('user.update',['user'=> $user]);
+        return view('User.update',['user'=> $user]);
     }
 
     /**

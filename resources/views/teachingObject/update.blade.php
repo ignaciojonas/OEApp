@@ -177,6 +177,6 @@
           </div>
       </form>
     </div>
-    @include('modals.tags')
+    @include('Modals.tags')
 </div>
 @endsection

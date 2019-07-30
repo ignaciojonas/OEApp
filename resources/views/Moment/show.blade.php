@@ -14,6 +14,19 @@
                       </div>
                     </section>
 
+                    <section id="teachingObjects">
+                        <div class="container">
+                          <label for="title" class="control-label"><p>Objetos de Enseñanza a los que pertenece</p></label>
+                          <ul>
+                          @foreach ($moment->teachingObjects() as $teachingObject)
+                            <li>
+                              <a href="/teachingObject/{{$teachingObject->id}}" >{{$teachingObject->title}}</a>
+                            </li>
+                          @endforeach
+                        </ul>
+                        </div>
+                    </section>
+
                     <section id=desc>
                       <div class="container">
                           <h3>Descripción breve</h3>

@@ -27,4 +27,14 @@ class Moment extends Model
     {
         return Record::find($this->classroom_record_id);
     }
+
+    public function teachingObjects(){
+       $teachingObjectsIds = [];
+       $teachingObjectsMoments = TeachingObjectMoment::where('moment_id', $this->id)->get();
+
+       foreach ($teachingObjectsMoments as $teachingObjectsMoment) {
+            $teachingObjectsIds[] = $teachingObjectsMoment->teaching_object_id;
+        }
+       return TeachingObject::find($teachingObjectsIds);
+    }
 }

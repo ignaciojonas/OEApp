@@ -31,6 +31,7 @@ class UserTest extends TestCase
 
     public function testEditUser()
     {
+      $this->withoutExceptionHandling();
       $user = factory(User::class)->create();
 
       $response = $this->actingAs($user)
@@ -42,6 +43,7 @@ class UserTest extends TestCase
 
     public function testShowUser()
     {
+      $this->withoutExceptionHandling();
       $user = factory(User::class)->create();
 
       $response = $this->actingAs($user)

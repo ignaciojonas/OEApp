@@ -110,6 +110,10 @@ $(document).ready(function () {
             $("#frmTag").submit();
       });
 
+      $('#btnCreateMoment').click(function () {
+            $("#frmMoment").submit();
+      });
+
       $("#frmTag").submit(function (e) {
             e.preventDefault();
             var form = $(this);
@@ -122,6 +126,22 @@ $(document).ready(function () {
                         var tag = JSON.parse(data);
                         $('#tagsModal').modal('hide');
                         $('#Tags').append($('<option>', { value: tag.id, text: tag.name }));
+                        form.trigger("reset");
+                  }
+            });
+      });
+      $("#frmMoment").submit(function (e) {
+            e.preventDefault();
+            var form = $(this);
+            var url = form.attr('action');
+            $.ajax({
+                  type: "POST",
+                  url: url,
+                  data: form.serialize(),
+                  success: function success(data) {
+                        var moment = JSON.parse(data);
+                        $('#momentsModal').modal('hide');
+                        $('#Moments').append($('<option>', { value: moment.id, text: moment.title }));
                         form.trigger("reset");
                   }
             });

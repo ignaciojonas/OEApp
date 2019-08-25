@@ -32,6 +32,10 @@ $(document).ready(function() {
     $("#frmTag").submit();
   });
 
+  $('#btnCreateMoment').click(function(){
+    $("#frmMoment").submit();
+  });
+
   $("#frmTag").submit(function (e) {
       e.preventDefault();
        let form = $(this);
@@ -49,5 +53,21 @@ $(document).ready(function() {
        });
     });
 
+    $("#frmMoment").submit(function (e) {
+        e.preventDefault();
+         let form = $(this);
+         let url = form.attr('action');
+         $.ajax({
+               type: "POST",
+               url: url,
+               data: form.serialize(),
+               success: function (data) {
+                     var moment = JSON.parse(data);
+                     $('#momentsModal').modal('hide');
+                     $('#Moments').append($('<option>', { value: moment.id, text: moment.title }));
+                     form.trigger("reset");
+               }
+         });
+      });
 
 });

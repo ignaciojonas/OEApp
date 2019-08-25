@@ -64,8 +64,12 @@ class MomentController extends Controller
           FileRecord::create(['record_id' => $moment->classroom_record_id , 'file_id' => $file_id]);
         }
       }
-
-      return redirect()->route('moment.index');
+      if (\Request::ajax()){
+        return json_encode($moment);
+      }
+      else {
+        return redirect()->route('moment.index');
+      }
     }
 
     /**

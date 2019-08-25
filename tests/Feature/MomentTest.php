@@ -104,6 +104,35 @@ class MomentTest extends TestCase
       $this->assertDatabaseHas('records', ["record" => $moment->classroomRecord()->record]);
     }
 
+    public function testStoreMomentAjaxRequest()
+    {
+      Storage::fake('files');
+      $user = factory(User::class)->create();
+      $moment = factory(Moment::class)->make();
+      $data =[
+            "title" => $moment->title,
+            "briefDescription" => $moment->briefDescription,
+            "procedure" => $moment->procedure,
+            "forecastDevelopment" => $moment->forecastDevelopment,
+            "teachersRecord" => $moment->teachersRecord()->record,
+            "resourceStudents" => $moment->resourceStudents,
+            "classroomRecord" => $moment->classroomRecord()->record,
+            "teachersRecordFiles" => array(UploadedFile::fake()->image('teachersRecordFile.jpg')),
+            "classroomRecordFiles" => array(UploadedFile::fake()->image('classroomRecordFile.jpg'))
+           ];
+      $response = $this->actingAs($user)
+                        ->post("/moment",$data, array('HTTP_X-Requested-With' => 'XMLHttpRequest'));
+
+      $response->assertRedirect("/moment");
+      unset($data['teachersRecord']);
+      unset($data['classroomRecord']);
+      unset($data['teachersRecordFiles']);
+      unset($data['classroomRecordFiles']);
+      $this->assertDatabaseHas('moments', $data);
+      $this->assertDatabaseHas('records', ["record" => $moment->teachersRecord()->record]);
+      $this->assertDatabaseHas('records', ["record" => $moment->classroomRecord()->record]);
+    }
+
     public function testUpdateMoment()
     {
       $user = factory(User::class)->create();

@@ -115,7 +115,7 @@
 
         <section id="reso">
           <div class="container">
-            <label for="Resources" class="control-label"> <p>Tipo de Recursos</p></label> <small>-Recurso que incluirá el OE-</small>
+            <label for="Resources" class="control-label"> <p>Tipo de Recursos</p></label>
             <select multiple name="Resources[]" id="Resources" class="form-control">
                 <option value=""></option>
                  @foreach ($resources as $resource)
@@ -129,7 +129,7 @@
 
         <section id="marcador">
           <div class="container">
-            <label for="Tags" class="control-label"><p>Tags</p></label> <small>-Etiqueta o palabra asociada a un OE-</small>
+            <label for="Tags" class="control-label"><p>Tags</p></label>
             <button type="button" class="btn btn-link" data-toggle="modal" data-target="#tagsModal">Agregar <i class="fas fa-plus-square"></i></button>
             <select multiple name="Tags[]" id="Tags" class="form-control">
                 <option value=""></option>
@@ -144,14 +144,15 @@
 
         <section id="mom">
           <div class="container">
-            <label for="Moments" class="control-label"><p>Momentos</p></label> <small>-Etapas que requieren diferentes dinámicas del trabajo en el aula, instancias de trabajo individuales, en grupos o colectivas sobre una puesta en común-</small>
+            <label for="Moments" class="control-label"><p>Momentos</p></label>
+            <button type="button" class="btn btn-link" data-toggle="modal" data-target="#momentsModal">Agregar <i class="fas fa-plus-square"></i></button>
             <select multiple name="Moments[]" id="Moments" class="form-control">
                   <option value=""></option>
                    @foreach ($moments as $moment)
                     <option value="{{$moment->id}}">
                       {!!$moment->title!!}
                     </option>
-                    @endforeach
+                   @endforeach
             </select>
           </div>
         </section>
@@ -176,6 +177,7 @@
   </div>
 
   @include('Modals.tags')
+  @include('Modals.moments')
 </div>
 
 @endsection

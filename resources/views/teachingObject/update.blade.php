@@ -126,7 +126,7 @@
 
         <section id="marcador">
           <div class="container">
-            <label for="Tags" class="control-label"><p>Tags</p></label> <small>-Etiqueta o palabra asociada a un OE-</small>
+            <label for="Tags" class="control-label"><p>Tags</p></label>
             <button type="button" class="btn btn-link" data-toggle="modal" data-target="#tagsModal">Agregar <i class="fas fa-plus-square"></i></button>
               <select multiple name="Tags[]" id="Tags">
                 <option value=""></option>
@@ -146,6 +146,7 @@
         <section id="mom">
           <div class="container">
             <label for="Moments" class="control-label"><p>Momentos</p></label>
+            <button type="button" class="btn btn-link" data-toggle="modal" data-target="#momentsModal">Agregar <i class="fas fa-plus-square"></i></button>
             <select multiple name="Moments[]" id="Moments">
               <option value=""></option>
                @foreach ($moments as $moment)
@@ -178,5 +179,6 @@
       </form>
     </div>
     @include('Modals.tags')
+    @include('Modals.moments')
 </div>
 @endsection

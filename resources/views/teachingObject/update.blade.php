@@ -109,6 +109,7 @@
         <section id="reso">
           <div class="container">
               <label for="Resources" class="control-label"><p>Tipo de Recursos</p></label>
+              <button type="button" class="btn btn-link" data-toggle="modal" data-target="#resourcesModal">Agregar <i class="fas fa-plus-square"></i></button>
               <select multiple name="Resources[]" id="Resources">
                 <option value=""></option>
                  @foreach ($resources as $resource)
@@ -178,5 +179,6 @@
       </form>
     </div>
     @include('Modals.tags')
+    @include('Modals.resources')
 </div>
 @endsection

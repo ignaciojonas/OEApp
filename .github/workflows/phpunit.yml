@@ -33,4 +33,5 @@ jobs:
    - name: Run Migrations
      run: php artisan migrate
    - name: Execute unit tests
-     run: php artisan test
+     run: vendor/bin/phpunit --coverage-clover=coverage.xml
+   - uses: codecov/codecov-action@v1

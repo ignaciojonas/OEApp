@@ -20,6 +20,7 @@ jobs:
       DB_USERNAME: myuser
       DB_PASSWORD: thisisasecretpassword
       DB_HOST: localhost
+      DB_DATABASE: laravel
    steps:
    - uses: actions/checkout@v2
    - name: Copy .env

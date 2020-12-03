@@ -19,6 +19,7 @@ jobs:
    env:
       DB_USERNAME: myuser
       DB_PASSWORD: thisisasecretpassword
+      DB_HOST: localhost
    steps:
    - uses: actions/checkout@v2
    - name: Copy .env

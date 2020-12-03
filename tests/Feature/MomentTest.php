@@ -88,8 +88,8 @@ class MomentTest extends TestCase
             "teachersRecord" => $moment->teachersRecord()->record,
             "resourceStudents" => $moment->resourceStudents,
             "classroomRecord" => $moment->classroomRecord()->record,
-            "teachersRecordFiles" => array(UploadedFile::fake()->image('teachersRecordFile.jpg')),
-            "classroomRecordFiles" => array(UploadedFile::fake()->image('classroomRecordFile.jpg'))
+            "teachersRecordFiles" => array(UploadedFile::fake()->image('teachersRecordFile.png')),
+            "classroomRecordFiles" => array(UploadedFile::fake()->image('classroomRecordFile.png'))
            ];
       $response = $this->actingAs($user)
                         ->post("/moment",$data);
@@ -117,8 +117,8 @@ class MomentTest extends TestCase
             "resourceStudents" => $moment->resourceStudents,
             "classroomRecord" => $moment->classroomRecord()->record,
             "classroom_record_id" => $moment->classroomRecord()->id,
-            "teachersRecordFiles" => array(UploadedFile::fake()->image('teachersRecordFile.jpg')),
-            "classroomRecordFiles" => array(UploadedFile::fake()->image('classroomRecordFile.jpg'))
+            "teachersRecordFiles" => array(UploadedFile::fake()->image('teachersRecordFile.png')),
+            "classroomRecordFiles" => array(UploadedFile::fake()->image('classroomRecordFile.png'))
            ];
       $response = $this->actingAs($user)
                         ->put("/moment/$moment->id",$data);

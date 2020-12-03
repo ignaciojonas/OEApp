@@ -32,5 +32,5 @@ jobs:
      run: chmod -R 777 storage bootstrap/cache
    - name: Run Migrations
      run: php artisan migrate
-   - name: Execute dusk tests
+   - name: Execute unit tests
      run: php artisan test

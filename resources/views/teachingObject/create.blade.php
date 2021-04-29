@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('pagespecificscripts')
+
   <script src="{{ asset('js/teachingObjects.js') }}"></script>
+
 @stop
 <!--@section('title','home')-->
 @section('content')
@@ -116,6 +118,7 @@
         <section id="reso">
           <div class="container">
             <label for="Resources" class="control-label"> <p>Tipo de Recursos</p></label> <small>-Recurso que incluirá el OE-</small>
+            <button type="button" class="btn btn-link" data-toggle="modal" data-target="#resourcesModal">Agregar <i class="fas fa-plus-square"></i></button>
             <select multiple name="Resources[]" id="Resources" class="form-control">
                 <option value=""></option>
                  @foreach ($resources as $resource)
@@ -176,6 +179,7 @@
   </div>
 
   @include('Modals.tags')
+  @include('Modals.resources')
 </div>
 
 @endsection

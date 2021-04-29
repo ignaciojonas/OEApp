@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class ResourceController extends Controller
 {
 
-    public $types = ['Audio','Video', 'Imagen', 'Documento','Link'];
+    public static $types = ['Audio','Video', 'Imagen', 'Documento','Link'];
     /**
      * Display a listing of the resource.
      *
@@ -28,7 +28,7 @@ class ResourceController extends Controller
      */
     public function create()
     {
-        return view('Resource.create',['types' => $this->types]);
+        return view('Resource.create',['types' => ResourceController::$types]);
     }
 
     /**
@@ -39,12 +39,17 @@ class ResourceController extends Controller
      */
     public function store(Request $request)
     {
-      $resource = Resource::create($request->all());
-      if(isset($request->document)){
-        $resource->path = $request->document->store('resources');
-        $resource->save();
-      }
-      return redirect()->route('resource.index');
+        $resource = Resource::create($request->all());
+        if(isset($request->document)){
+          $resource->path = $request->document->store('resources');
+          $resource->save();
+        }
+        if (\Request::ajax()){
+          return json_encode($resource);
+        }
+        else {
+          return redirect()->route('resource.index');
+        }
     }
 
     /**

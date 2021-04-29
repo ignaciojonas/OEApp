@@ -1,4 +1,4 @@
-require('./bootstrap');
+
 $(document).ready(function() {
   function toggleControls(value){
     if (value == 'Link') {

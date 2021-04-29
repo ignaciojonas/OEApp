@@ -126,6 +126,48 @@ $(document).ready(function () {
                   }
             });
       });
+
+      $('#btnCreateResource').click(function () {
+            $("#frmResource").submit();
+      });
+
+      $("#frmResource").submit(function (e) {
+            e.preventDefault();
+            var formData = new FormData($(this)[0]);
+            var form = $(this);
+            var url = form.attr('action');
+            $.ajax({
+                  type: "POST",
+                  url: url,
+                  data: formData,
+                  processData: false,
+                  contentType: false,
+                  success: function success(data) {
+                        var resource = JSON.parse(data);
+                        $('#resourcesModal').modal('hide');
+                        $('#Resources').append($('<option>', { value: resource.id, text: resource.name }));
+                        form.trigger("reset");
+                  }
+            });
+      })
+
+      function toggleControls(value){
+        if (value == 'Link') {
+          $('.link').show();
+          $('.file').hide();
+        }
+        else{
+          $('.link').hide();
+          $('.file').show();
+        }
+      }
+
+      toggleControls($('#type')[0].value);
+
+      $('#type').change(function(){
+        toggleControls(this.value);
+      });
+
 });
 
 /***/ })

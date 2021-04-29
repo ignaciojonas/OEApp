@@ -49,5 +49,50 @@ $(document).ready(function() {
        });
     });
 
+    $('#btnCreateResource').click(function(){
+      $("#frmResource").submit();
+    });
+
+    $("#frmResource").submit(function (e) {
+        e.preventDefault();
+         let form = $(this);
+         let formData = new FormData($(this)[0]);
+         let url = form.attr('action');
+         $.ajax({
+               type: "POST",
+               url: url,
+               data: formData,
+               processData: false,
+               contentType: false,
+               success: function (data) {
+                 debugger;
+                     var resource = JSON.parse(data);
+                     $('#resourcesModal').modal('hide');
+                     $('#Resources').append($('<option>', { value: resource.id, text: resource.name, : resource.type }));
+                     form.trigger("reset");
+               }
+         });
+      });
+
+
+
+        function toggleControls(value){
+          if (value == 'Link') {
+            $('.link').show();
+            $('.file').hide();
+          }
+          else{
+            $('.link').hide();
+            $('.file').show();
+          }
+        }
+
+        toggleControls($('#type')[0].value);
+
+        $('#type').change(function(){
+          toggleControls(this.value);
+        });
+
+
 
 });

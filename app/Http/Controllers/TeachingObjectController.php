@@ -18,7 +18,7 @@ class TeachingObjectController extends Controller
      */
     public function index()
     {
-      $teachingObjects = TeachingObject::all(); 
+      $teachingObjects = TeachingObject::all();
       return view('teachingObject.index',['teachingObjects' => $teachingObjects]);
     }
 
@@ -33,7 +33,8 @@ class TeachingObjectController extends Controller
       $tags = Tag::all();
       $resources = Resource::all();
       $moments = Moment::All();
-      return view('teachingObject.create',['users' => $users, 'tags' => $tags, 'resources' => $resources, 'moments' => $moments]);
+      $types = ResourceController::$types;
+      return view('teachingObject.create',['users' => $users, 'tags' => $tags, 'resources' => $resources, 'moments' => $moments, 'types'=> $types]);
     }
 
     /**
@@ -75,9 +76,10 @@ class TeachingObjectController extends Controller
       $tags = Tag::all();
       $resources = Resource::all();
       $moments = Moment::all();
+      $types = ResourceController::$types;
       return view('teachingObject.update',['teachingObject'=> $teachingObject, 'users' => $users, 'authors' => $this->getIds($teachingObject->authors),
       'tags' => $tags, 'Tags'=> $this->getIds($teachingObject->Tags), 'resources' => $resources, 'Resources' => $this->getIds($teachingObject->Resources),
-      'moments' => $moments, 'Moments' => $this->getIds($teachingObject->Moments)]);
+      'moments' => $moments, 'Moments' => $this->getIds($teachingObject->Moments), 'types'=> $types]);
     }
 
     /**

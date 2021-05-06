@@ -23,6 +23,8 @@ jobs:
       DB_DATABASE: laravel
    steps:
    - uses: actions/checkout@v2
+   - name: Install 
+     run: sudo apt-get install php7.4-zip
    - name: Copy .env
      run: php -r "file_exists('.env') || copy('.env.example', '.env');"
    - name: Install dependencies

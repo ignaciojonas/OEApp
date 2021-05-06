@@ -27,6 +27,7 @@ jobs:
      uses: shivammathur/setup-php@v2
      with:
       php-version: '7.4'
+      php_extensions: zip
    - name: Copy .env
      run: php -r "file_exists('.env') || copy('.env.example', '.env');"
    - name: Install dependencies

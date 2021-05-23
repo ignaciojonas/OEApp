@@ -31857,14 +31857,28 @@ module.exports = __webpack_require__(44);
 
 __webpack_require__(9);
 $(document).ready(function () {
-  function toggleControls(value) {
+
+  function toggleControls(value){
     if (value == 'Link') {
       $('.link').show();
       $('.file').hide();
-    } else {
-      $('.link').hide();
-      $('.file').show();
+      $('.ggb-element').hide();
     }
+    else if (value == 'Documento'){
+            $('.link').hide();
+            $('.file').show();
+            $('.ggb-element').hide();
+          }
+          else if (value == 'Geogebra'){
+                  $('.link').hide();
+                  $('.file').hide();
+                  $('.ggb-element').show();
+                }
+                else {
+                  $('.link').hide();
+                  $('.file').show();
+                  $('.ggb-element').hide();
+                }
   }
 
   toggleControls($('#type')[0].value);

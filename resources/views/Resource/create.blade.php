@@ -2,6 +2,7 @@
 
 @section('pagespecificscripts')
   <script src="{{ asset('js/resources.js') }}"></script>
+  <script src="https://www.geogebra.org/apps/deployggb.js"></script>
 @stop
 
 @section('content')
@@ -39,6 +40,13 @@
                 <label for="document" class="col-md-2 control-label"><p>Archivo</p></label>
                 <div class="col-md-6">
                     <input id="document" type="file" class="form-control" name="document">
+                </div>
+            </div>
+
+            <div class="form-group ggb-element">
+                <label for="ggb-element" class="col-md-2 control-label"><p>Geogebra</p></label>
+                <div class="col-md-6">
+                    <input id="ggb-element" type="GGBApplet" class="form-control" name="ggb.element" >
                 </div>
             </div>
 

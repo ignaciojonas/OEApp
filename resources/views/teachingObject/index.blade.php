@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                   Objeto de Enseñanza
-                  <a class='btn btn-primary btn-sm pull-right' href="{{route('teachingObject.create')}}">Crear</a>
+                  <a class='btn btn-primary btn-sm pull-right' href="{{route('teachingObject.create')}}" target="blank">Crear</a>
                 </div>
 
                 <table class="table table-striped">

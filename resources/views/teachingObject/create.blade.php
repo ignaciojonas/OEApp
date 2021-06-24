@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appsimple')
 
 @section('pagespecificscripts')
   <script src="{{ asset('js/teachingObjects.js') }}"></script>
@@ -31,7 +31,7 @@
                   <option value=""></option>
                    @foreach ($users as $user)
                     <option value="{{$user->id}}">{{$user->name}}</option>
-                    @endforeach
+                   @endforeach
                   </select>
             </div>
           </section>

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appsimple')
 
 @section('pagespecificscripts')
   <script src="{{ asset('js/teachingObjects.js') }}"></script>
@@ -10,8 +10,7 @@
        <div class="panel-body">
           <form class="form-horizontal" method="POST">
               {{ csrf_field() }}
-              <input name="_method" type="hidden" value="put">
-
+            <input name="_method" type="hidden" value="put">
             <section id="titaut">
               <div class="container">
                 <div class="col-md-6">
@@ -20,14 +19,11 @@
                 </div>
                 <div class="col-md-6">
                   <label for="authors" class="control-label"><h4>Autores</h4></label>
-                    <select multiple name="authors[]" id="authors" class="form-control" >
-                      <option value=""></option>
-                       @foreach ($teachingObject->authors as $author)
-                       <option value="{{$author->id}}">
-                         {!!$author->name!!}
-                       </option>
-                       @endforeach
-                    </select>
+                  <ul multiple name="authors[]" id="authors">
+                      @foreach ($teachingObject->authors as $author)
+                       <li value="{{$author->id}}">{!!$author->name!!}</li>
+                      @endforeach
+                  </ul>
                 </div>
               </div>
             </section>
@@ -100,41 +96,38 @@
             </div>
             </section>
 
-            <div class="form-group">
-              <h4>Tags</h4>
-              <select multiple name="Tags[]" id="Tags" class="form-control">
-                <option value=""></option>
-                 @foreach ($teachingObject->tags as $tag)
-                  <option value="{{$tag->id}}">
-                    {!!$tag->name!!}
-                  </option>
-                  @endforeach
-                </select>
-            </div>
+            <section id="etiq">
+              <div class="container">
+                <h4>Tags</h4>
+                <ul multiple name="Tags[]" id="Tags">
+                   @foreach ($teachingObject->tags as $tag)
+                    <li value="{{$tag->id}}">{!!$tag->name!!}</li>
+                    @endforeach
+                </ul>
+              </div>
+            </section>
 
-            <div class="form-group">
-              <h4>Recursos</h4>
-              <select multiple name="Resources[]" id="Resources" class="form-control">
-                <option value=""></option>
-                 @foreach ($teachingObject->resources as $resource)
-                  <option value="{{$resource->id}}">
-                    {!!$resource->name!!}
-                  </option>
-                  @endforeach
-                </select>
-            </div>
+            <section id="recu">
+              <div class="container">
+                <h4>Recursos</h4>
+                <ul multiple name="Resources[]" id="Resources">
+                   @foreach ($teachingObject->resources as $resource)
+                    <li value="{{$resource->id}}"> {!!$resource->name!!} </li>
+                    @endforeach
+                </ul>
+              </div>
+            </section>
 
-            <div class="form-group">
-              <h4>Momentos</h4>
-              <select multiple name="Moments[]" id="Moments" class="form-control">
-                <option value=""></option>
-                 @foreach ($teachingObject->moments as $moment)
-                  <option value="{{$moment->id}}">
-                    {!!$moment->title!!}
-                  </option>
-                  @endforeach
-                </select>
-            </div>
+            <section id="mome">
+              <div class="container">
+                <h4>Momentos</h4>
+                <ul multiple name="Moments[]" id="Moments">
+                   @foreach ($teachingObject->moments as $moment)
+                    <li value="{{$moment->id}}"> {!!$moment->title!!} </li>
+                    @endforeach
+                </ul>
+              </div>
+            </section>
 
             <section id="reflec">
               <div class="container">

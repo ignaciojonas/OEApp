@@ -22,16 +22,26 @@
               <p>{!!$resource->type!!} </p>
             </div>
 
-            @if(isset($resource->path))
-              <div class="container">
-                <h4>Archivo</h4>
-                <a href="{{asset('/storage/'.$resource->path)}}" download="{{$resource->name}}">Bajar archivo actual</a>
-              </div>
+            @if ($resource->type == "Geogebra")
+              <div id="ggb-element"></div>
+              <script>
+                var ggbApp = new GGBApplet({"appName": "graphing", "width": 800, "height": 600, "showToolBar": true, "showAlgebraInput": true, "showMenuBar": true, "material_id":"{$resource->geogebra_id)}" }, true);
+                window.addEventListener("load", function() {
+                  ggbApp.inject('ggb-element');
+                });
+              </script>
             @else
-              <div class="container">
-                <h4>Link</h4>
-                <a href="{{asset($resource->link)}}" target="popup" onclick="window.open('', 'popup', 'width = 800, height = 600')">{{$resource->link}}</a>
-              </div>
+              @if(isset($resource->path))
+                <div class="container">
+                  <h4>Archivo</h4>
+                  <a href="{{asset('/storage/'.$resource->path)}}" download="{{$resource->name}}">Bajar archivo actual</a>
+                </div>
+              @else
+                <div class="container">
+                  <h4>Link</h4>
+                  <a href="{{asset($resource->link)}}" target="popup" onclick="window.open('', 'popup', 'width = 800, height = 600')">{{$resource->link}}</a>
+                </div>
+              @endif
             @endif
 
         </form>

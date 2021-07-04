@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class ResourceController extends Controller
 {
 
-    public $types = ['Audio','Video', 'Imagen', 'Documento','Link'];
+    public $types = ['Audio','Video', 'Imagen', 'Documento','Link', 'Geogebra'];
     /**
      * Display a listing of the resource.
      *

@@ -36,4 +36,13 @@ class TeachingObject extends Model
     }
     return join(',', $names);
   }
+
+  public function authorsIds()
+  {
+    $ids = [];
+    foreach ($this->authors as $author) {
+      $ids[] = $author->id;
+    }
+    return $ids;
+  }
 }

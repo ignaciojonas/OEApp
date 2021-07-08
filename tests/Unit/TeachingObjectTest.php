@@ -31,6 +31,16 @@ class TeachingObjectTest extends TestCase
       $this->assertEquals("$author1->name,$author2->name", $teachingObject->authorsNames());
     }
 
+    public function testAuthorsIds()
+    {
+      $author1 = factory(User::class)->create();
+      $author2 = factory(User::class)->create();
+      $teachingObject = factory(TeachingObject::class)->create();
+      $teachingObject->authors()->save($author1);
+      $teachingObject->authors()->save($author2);
+      $this->assertEquals([$author1->id,$author2->id], $teachingObject->authorsIds());
+    }
+
     public function testTags()
     {
       $tag1 = factory(Tag::class)->create();

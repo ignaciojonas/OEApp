@@ -6,12 +6,7 @@ $(document).ready(function() {
       $('.file').hide();
       $('.ggb-element').hide();
     }
-    else if (value == 'Documento'){
-            $('.link').hide();
-            $('.file').show();
-            $('.ggb-element').hide();
-          }
-          else if (value == 'Geogebra'){
+    else if (value == 'Geogebra'){
                   $('.link').hide();
                   $('.file').hide();
                   $('.ggb-element').show();

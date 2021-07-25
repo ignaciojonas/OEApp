@@ -19,6 +19,6 @@ $factory->define(App\Resource::class, function (Faker $faker) {
         'name' => $faker->word,
         'type' => $faker->text,
         'link' => $faker->url,
-        'geogebra' => $faker->GGBApplet
+        'geotype' => 'ZT6xkDYM'
     ];
 });

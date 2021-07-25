@@ -2,6 +2,7 @@
 
 @section('pagespecificscripts')
   <script src="{{ asset('js/resources.js') }}"></script>
+  <script src="https://www.geogebra.org/apps/deployggb.js"></script>
 @stop
 
 @section('content')
@@ -25,7 +26,7 @@
             @if ($resource->type == "Geogebra")
               <div id="ggb-element"></div>
               <script>
-                var ggbApp = new GGBApplet({"appName": "graphing", "width": 800, "height": 600, "showToolBar": true, "showAlgebraInput": true, "showMenuBar": true, "material_id":"{$resource->geogebra_id)}" }, true);
+                var ggbApp = new GGBApplet({"appName": "{$resource->geotype}", "width": 800, "height": 600, "showToolBar": true, "showAlgebraInput": true, "showMenuBar": true, "material_id":"{$resource->name)}" }, true);
                 window.addEventListener("load", function() {
                   ggbApp.inject('ggb-element');
                 });

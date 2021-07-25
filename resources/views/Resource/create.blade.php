@@ -3,6 +3,7 @@
 @section('pagespecificscripts')
   <script src="{{ asset('js/resources.js') }}"></script>
   <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+
 @stop
 
 @section('content')
@@ -44,9 +45,13 @@
             </div>
 
             <div class="form-group ggb-element">
-                <label for="ggb-element" class="col-md-2 control-label"><p>Geogebra</p></label>
+                <label for="geotype" class="col-md-2 control-label"><p>Seleccione tipo de elemento Geogebra</p></label>
                 <div class="col-md-6">
-                    <input id="ggb-element" type="GGBApplet" class="form-control" name="ggb.element" >
+                      <select class="form-control" name="geotype" id= "geotype">
+                        @foreach ($geotypes as $geotype)
+                          <option value="{{$geotype}}">{{$geotype}}</option>
+                        @endforeach
+                      </select>
                 </div>
             </div>
 
@@ -60,4 +65,5 @@
         </form>
     </div>
 </div>
+
 @endsection

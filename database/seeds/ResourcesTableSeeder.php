@@ -17,7 +17,7 @@ class ResourcesTableSeeder extends Seeder
       factory(App\Resource::class, 1)->create(['name'=>'presentación', 'type'=>'presentación de diapositivas']);
       factory(App\Resource::class, 1)->create(['name'=>'hipervínculo', 'type'=>'hipervínculo']);
       factory(App\Resource::class, 1)->create(['name'=>'imagen', 'type'=>'imagen']);
-      factory(App\Resource::class, 1)->create(['name'=>'geogebra', 'type'=>'app geogebra']);
+      factory(App\Resource::class, 1)->create(['name'=>'ggb-element', 'type'=>'app geogebra']);
 
     }
 }

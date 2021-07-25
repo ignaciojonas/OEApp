@@ -55,6 +55,13 @@
           </div>
           @endif
 
+          <div class="form-group ggb-element">
+              <label for="ggb-element" class="col-md-2 control-label"><p>Geogebra</p></label>
+              <div class="col-md-6">
+                  <input id="ggb-element" type="text" class="form-control" value="{{$resource->geogebra_id}}" name="ggb-element" autofocus>
+              </div>
+          </div>
+
           <div class="form-group">
               <div class="col-md-6 col-md-offset-4">
                   <button type="submit" class="btn btn-primary">

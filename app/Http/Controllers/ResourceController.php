@@ -9,7 +9,8 @@ use Illuminate\Http\Request;
 class ResourceController extends Controller
 {
 
-    public $types = ['Audio','Video', 'Imagen', 'Documento','Link'];
+    public $types = ['Audio','Video', 'Imagen', 'Documento','Link', 'Geogebra'];
+    public $geotypes = ['graphing', 'geometry', '3d'];
     /**
      * Display a listing of the resource.
      *
@@ -28,7 +29,7 @@ class ResourceController extends Controller
      */
     public function create()
     {
-        return view('Resource.create',['types' => $this->types]);
+        return view('Resource.create',['types' => $this->types], ['geotypes' => $this->geotypes]);
     }
 
     /**
@@ -66,7 +67,7 @@ class ResourceController extends Controller
      */
     public function edit(Resource $resource)
     {
-        return view('Resource.update',['resource'=> $resource, 'types' => $this->types]);
+        return view('Resource.update',['resource'=> $resource, 'types' => $this->types], ['geotypes' => $this->geotypes]);
     }
 
     /**

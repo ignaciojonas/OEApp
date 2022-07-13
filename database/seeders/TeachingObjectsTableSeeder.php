@@ -1,5 +1,8 @@
 <?php
 
+namespace Database\Seeders;
+
+use App\TeachingObject;
 use Illuminate\Database\Seeder;
 
 class TeachingObjectsTableSeeder extends Seeder
@@ -11,6 +14,6 @@ class TeachingObjectsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\TeachingObject::class, 10)->create();
+        factory(TeachingObject::class, 10)->create();
     }
 }

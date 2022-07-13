@@ -19,7 +19,8 @@ class CreateResourcesTable extends Migration
             $table->string('type');
             $table->string('path')->nullable();
             $table->string('link')->nullable();
-            $table->string('geotype')->nullable();
+            $table->string('geogebra_type')->nullable();
+            $table->string('geogebra_id')->nullable();
             $table->timestamps();
         });
     }

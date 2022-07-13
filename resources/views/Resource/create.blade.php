@@ -6,7 +6,6 @@
 @stop
 
 @section('content')
-<div id="ggb-element"></div>
 <div class="container">
   <div class="p-5 mb-2 h2 bg-dark text-white font-weight-bold">RECURSO</div>
     <div class="panel-body">

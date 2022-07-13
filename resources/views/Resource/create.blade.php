@@ -3,10 +3,10 @@
 @section('pagespecificscripts')
   <script src="{{ asset('js/resources.js') }}"></script>
   <script src="https://www.geogebra.org/apps/deployggb.js"></script>
-
 @stop
 
 @section('content')
+<div id="ggb-element"></div>
 <div class="container">
   <div class="p-5 mb-2 h2 bg-dark text-white font-weight-bold">RECURSO</div>
     <div class="panel-body">
@@ -45,13 +45,20 @@
             </div>
 
             <div class="form-group ggb-element">
-                <label for="geotype" class="col-md-2 control-label"><p>Seleccione tipo de elemento Geogebra</p></label>
+                <label for="geogebra_type" class="col-md-2 control-label"><p>Seleccione tipo de elemento Geogebra</p></label>
                 <div class="col-md-6">
-                      <select class="form-control" name="geotype" id= "geotype">
+                      <select class="form-control" name="geogebra_type" id= "geogebra_type">
                         @foreach ($geotypes as $geotype)
                           <option value="{{$geotype}}">{{$geotype}}</option>
                         @endforeach
                       </select>
+                </div>
+            </div>
+
+            <div class="form-group ggb-element">
+                <label for="geogebra_id" class="col-md-2 control-label"><p>Seleccione tipo de elemento Geogebra</p></label>
+                <div class="col-md-6">
+                    <input id="geogebra_id" type="text" class="form-control" name="geogebra_id" >
                 </div>
             </div>
 

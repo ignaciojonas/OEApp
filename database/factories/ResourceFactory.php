@@ -19,6 +19,7 @@ $factory->define(App\Resource::class, function (Faker $faker) {
         'name' => $faker->word,
         'type' => $faker->text,
         'link' => $faker->url,
-        'geotype' => 'ZT6xkDYM'
+        'geogebra_type' => '3d',
+        'geogebra_id' => 'ZT6xkDYM'
     ];
 });

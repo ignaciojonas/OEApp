@@ -1,5 +1,6 @@
 <?php
-
+namespace Database\Seeders;
+use App\TeachingObject;
 use Illuminate\Database\Seeder;
 
 class TeachingObjectsTableSeeder extends Seeder

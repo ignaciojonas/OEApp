@@ -1,5 +1,9 @@
 <?php
 
+namespace Database\Seeders;
+
+use App\Moment;
+
 use Illuminate\Database\Seeder;
 
 class MomentsTableSeeder extends Seeder

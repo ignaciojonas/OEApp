@@ -1,5 +1,7 @@
 <?php
 
+namespace Database\Seeders;
+use App\Resource;
 use Illuminate\Database\Seeder;
 
 class ResourcesTableSeeder extends Seeder

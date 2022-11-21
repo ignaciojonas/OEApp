@@ -2,6 +2,15 @@
 
 @section('pagespecificscripts')
   <script src="{{ asset('js/resources.js') }}"></script>
+    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+    @if ($resource->type == "Geogebra")
+    <script>
+      var ggbApp= new GGBApplet({"appName": "{{$resource->geogebra_type}}"}, "width":800, "height":600, "showToolBar":true, "showAlgebraInput": true, "showMenuBar": true, "material_id": "{{$resource->geogebra_id}}"}, true);
+      window.addEventListener("load", function(){
+        ggbApp.inject('ggb-element');
+      });
+    </script>
+    @endif
 @stop
 
 @section('content')
@@ -21,6 +30,9 @@
               <h4>Tipo</h4>
               <p>{!!$resource->type!!} </p>
             </div>
+
+            @if ($resource->type == "Geogebra")
+            <div id= "ggb-element"></div>
 
             @if(isset($resource->path))
               <div class="container">
